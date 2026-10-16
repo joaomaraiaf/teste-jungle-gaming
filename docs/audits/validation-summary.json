@@ -1,0 +1,98 @@
+{
+  "generatedAt": "2026-10-16T21:23:07.890300+00:00",
+  "packageManager": "pnpm@11.5.2",
+  "lint": "passed",
+  "typecheck": "passed",
+  "vitest": {
+    "files": 25,
+    "passed": 94
+  },
+  "playwright": {
+    "passed": 113,
+    "skipped": 9,
+    "failed": 0,
+    "reasonForSkips": "Cen\u00e1rios espec\u00edficos do layout oposto; cada variante executa no viewport correspondente.",
+    "command": "pnpm exec playwright test --workers=2",
+    "buildSha256": "d00a13b582712293321cde9d6f5133f01404e9090efa48d909bd380718a137f4"
+  },
+  "visual": {
+    "passed": 12,
+    "failed": 0,
+    "baselineCount": 12,
+    "widths": [390, 768, 1440],
+    "environment": "macOS + Playwright Chromium 1.58.2",
+    "command": "pnpm exec playwright test --config=playwright.visual.config.ts --workers=2"
+  },
+  "publicDeploy": "deferred by user",
+  "postCssScopeValidation": {
+    "visualPassed": 12,
+    "responsiveAccessibilityPassed": 6,
+    "buildSha256": "dad623493b027640959b95711ab5ae280f4fc7ac1153420351dd544e451041e0",
+    "note": "Somente a origem da detec\u00e7\u00e3o de classes foi alterada depois da su\u00edte completa; as telas e a acessibilidade foram reconferidas sem atualizar baselines."
+  },
+  "lighthouse": {
+    "measurements": 12,
+    "targetsPassed": false,
+    "medians": [
+      {
+        "page": "inicio",
+        "profile": "mobile",
+        "scores": {
+          "performance": 84,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcpMs": 4177.6,
+        "cls": 0,
+        "tbtMs": 87.60000000000014
+      },
+      {
+        "page": "detalhe",
+        "profile": "mobile",
+        "scores": {
+          "performance": 83,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcpMs": 4225.408,
+        "cls": 0,
+        "tbtMs": 69
+      },
+      {
+        "page": "inicio",
+        "profile": "desktop",
+        "scores": {
+          "performance": 97,
+          "accessibility": 97,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcpMs": 1121.0900000000001,
+        "cls": 0.00499290780141844,
+        "tbtMs": 101.01800000000009
+      },
+      {
+        "page": "detalhe",
+        "profile": "desktop",
+        "scores": {
+          "performance": 96,
+          "accessibility": 97,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcpMs": 1122.06,
+        "cls": 0.08363435776201734,
+        "tbtMs": 0
+      }
+    ],
+    "buildSha256": "dad623493b027640959b95711ab5ae280f4fc7ac1153420351dd544e451041e0"
+  },
+  "cleanCheckout": {
+    "passed": true,
+    "matchesAuditedBuild": true,
+    "smokePassed": 2,
+    "auditTargetsPassed": false
+  }
+}

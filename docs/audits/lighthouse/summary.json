@@ -1,0 +1,255 @@
+{
+  "generatedAt": "2026-10-16T21:29:17.496Z",
+  "buildSha256": "dad623493b027640959b95711ab5ae280f4fc7ac1153420351dd544e451041e0",
+  "environment": {
+    "os": "darwin 25.6.0",
+    "cpu": "Apple M2",
+    "cores": 8,
+    "memoryBytes": 8589934592,
+    "node": "v24.21.0",
+    "pnpm": "11.5.2",
+    "lighthouse": "13.5.0",
+    "playwright": "1.58.2",
+    "chromium": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/145.0.7632.6 Safari/537.36"
+  },
+  "conditions": {
+    "base": "http://127.0.0.1:4173",
+    "runs": 3,
+    "mockScenario": "default",
+    "assets": "Locais, imagens e fontes completas; nenhum recurso bloqueado",
+    "cache": "Perfil Chromium novo por medição; sem extensões; Lighthouse com reset padrão de armazenamento",
+    "throttling": "Presets oficiais Lighthouse mobile/desktop, método simulate",
+    "execution": "Sequencial; nenhuma suíte de testes concorrente"
+  },
+  "targets": {
+    "performance": 90,
+    "accessibility": 95,
+    "best-practices": 95,
+    "seo": 90
+  },
+  "measurements": [
+    {
+      "page": "inicio",
+      "profile": "mobile",
+      "run": 1,
+      "scores": {
+        "performance": 84,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 4078.896999999999,
+      "cls": 0,
+      "tbtMs": 81.5
+    },
+    {
+      "page": "inicio",
+      "profile": "mobile",
+      "run": 2,
+      "scores": {
+        "performance": 84,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 4177.6,
+      "cls": 0,
+      "tbtMs": 87.60000000000014
+    },
+    {
+      "page": "inicio",
+      "profile": "mobile",
+      "run": 3,
+      "scores": {
+        "performance": 77,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 4304.818000000001,
+      "cls": 0,
+      "tbtMs": 274.399
+    },
+    {
+      "page": "detalhe",
+      "profile": "mobile",
+      "run": 1,
+      "scores": {
+        "performance": 85,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 4034.2639999999988,
+      "cls": 0,
+      "tbtMs": 17
+    },
+    {
+      "page": "detalhe",
+      "profile": "mobile",
+      "run": 2,
+      "scores": {
+        "performance": 78,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 4350.862,
+      "cls": 0,
+      "tbtMs": 241.36699999999985
+    },
+    {
+      "page": "detalhe",
+      "profile": "mobile",
+      "run": 3,
+      "scores": {
+        "performance": 83,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 4225.408,
+      "cls": 0,
+      "tbtMs": 69
+    },
+    {
+      "page": "inicio",
+      "profile": "desktop",
+      "run": 1,
+      "scores": {
+        "performance": 99,
+        "accessibility": 97,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 829.9550000000002,
+      "cls": 0.00499290780141844,
+      "tbtMs": 0
+    },
+    {
+      "page": "inicio",
+      "profile": "desktop",
+      "run": 2,
+      "scores": {
+        "performance": 94,
+        "accessibility": 97,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 1365.5082499999999,
+      "cls": 0.00499290780141844,
+      "tbtMs": 117
+    },
+    {
+      "page": "inicio",
+      "profile": "desktop",
+      "run": 3,
+      "scores": {
+        "performance": 97,
+        "accessibility": 97,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 1121.0900000000001,
+      "cls": 0.00499290780141844,
+      "tbtMs": 101.01800000000009
+    },
+    {
+      "page": "detalhe",
+      "profile": "desktop",
+      "run": 1,
+      "scores": {
+        "performance": 96,
+        "accessibility": 97,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 1122.06,
+      "cls": 0.08363435776201734,
+      "tbtMs": 0
+    },
+    {
+      "page": "detalhe",
+      "profile": "desktop",
+      "run": 2,
+      "scores": {
+        "performance": 97,
+        "accessibility": 97,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 1031.5745000000002,
+      "cls": 0.08363435776201734,
+      "tbtMs": 0
+    },
+    {
+      "page": "detalhe",
+      "profile": "desktop",
+      "run": 3,
+      "scores": {
+        "performance": 95,
+        "accessibility": 97,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 1154.12,
+      "cls": 0.08363435776201734,
+      "tbtMs": 83
+    }
+  ],
+  "medians": [
+    {
+      "page": "inicio",
+      "profile": "mobile",
+      "scores": {
+        "performance": 84,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 4177.6,
+      "cls": 0,
+      "tbtMs": 87.60000000000014
+    },
+    {
+      "page": "detalhe",
+      "profile": "mobile",
+      "scores": {
+        "performance": 83,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 4225.408,
+      "cls": 0,
+      "tbtMs": 69
+    },
+    {
+      "page": "inicio",
+      "profile": "desktop",
+      "scores": {
+        "performance": 97,
+        "accessibility": 97,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 1121.0900000000001,
+      "cls": 0.00499290780141844,
+      "tbtMs": 101.01800000000009
+    },
+    {
+      "page": "detalhe",
+      "profile": "desktop",
+      "scores": {
+        "performance": 96,
+        "accessibility": 97,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 1122.06,
+      "cls": 0.08363435776201734,
+      "tbtMs": 0
+    }
+  ],
+  "passed": false
+}
