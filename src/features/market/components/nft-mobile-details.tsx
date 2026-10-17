@@ -134,7 +134,11 @@ export function NftMobileDetails({ view, onBuy, onAddToCart }: NftMobileDetailsP
             className='sticky bottom-0 z-10 flex flex-col gap-5 rounded-t-[2.5rem] bg-[#241612] px-6 pb-[max(2.25rem,env(safe-area-inset-bottom))] pt-5 shadow-[0_0_1.25rem_rgba(10,6,4,0.45)]'
           >
             <div className='flex items-center justify-between gap-3'>
-              <div role='group' aria-label='Quantidade' className='flex items-center gap-3'>
+              <div
+                role='group'
+                aria-label='Controles de quantidade'
+                className='flex items-center gap-3'
+              >
                 <span className='text-[0.9375rem] text-[#CFB28C]'>Qtd.</span>
                 <Button
                   type='button'
@@ -145,7 +149,9 @@ export function NftMobileDetails({ view, onBuy, onAddToCart }: NftMobileDetailsP
                 >
                   <Minus aria-hidden='true' className='size-4' />
                 </Button>
-                <span className='text-lg font-medium'>{view.quantity}</span>
+                <output aria-label='Quantidade' className='text-lg font-medium'>
+                  {view.quantity}
+                </output>
                 <Button
                   type='button'
                   aria-label='Aumentar quantidade'

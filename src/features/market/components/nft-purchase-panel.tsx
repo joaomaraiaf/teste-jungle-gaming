@@ -88,7 +88,7 @@ export function NftPurchasePanel({
       </div>
 
       <div className='flex w-full flex-wrap items-center gap-4'>
-        <div role='group' className='flex items-center gap-3' aria-label='Quantidade'>
+        <div role='group' className='flex items-center gap-3' aria-label='Controles de quantidade'>
           <Button
             type='button'
             aria-label='Diminuir quantidade'
@@ -98,7 +98,9 @@ export function NftPurchasePanel({
           >
             <Minus size={16} />
           </Button>
-          <span className='min-w-4 text-center'>{quantity}</span>
+          <output aria-label='Quantidade' className='min-w-4 text-center'>
+            {quantity}
+          </output>
           <Button
             type='button'
             aria-label='Aumentar quantidade'
