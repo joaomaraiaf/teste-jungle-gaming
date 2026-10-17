@@ -6,7 +6,7 @@ Status: aceita
 
 ## Contexto
 
-A pipeline passou nas categorias de acessibilidade, boas práticas e SEO, mas obteve Performance mobile 83/84, com LCP próximo de 4,2 segundos. A aplicação aguardava a inicialização completa do MSW antes de montar a interface. Antecipar downloads e consultas isoladamente não atingiu a meta de 90.
+A auditorias iniciais obtiveram Performance mobile 83/84, com LCP próximo de 4,2 segundos, embora acessibilidade, boas práticas e SEO já estivessem aprovados. A aplicação aguardava a inicialização completa do MSW antes de montar a interface. Antecipar downloads e consultas isoladamente não atingiu a meta de 90, o que motivou a pré-renderização descrita nesta decisão. Após a implementação, a auditoria versionada atingiu as metas: Performance mobile 94/98 e desktop 100/100; detalhes estão em [auditorias Lighthouse](../audits/README.md).
 
 ## Decisão
 

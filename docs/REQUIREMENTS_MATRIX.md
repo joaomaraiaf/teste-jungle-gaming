@@ -25,4 +25,4 @@ Referência: `readme-github.md`. “Implementado” exige teste relacionado; rel
 | Lighthouse: 12 medições, metas e métricas | lighthouse.config.mjs, scripts/lighthouse.mjs | 12 auditorias aprovadas: Performance mobile 94/98 e desktop 100/100; demais metas aprovadas |
 | Contratos/cache/retries/concorrência/limites | ARCHITECTURE.md, docs/API_CONTRACTS.md, ADRs | Documentado |
 | Checkout limpo e lockfile reproduzível | docs/VALIDATION.md | Instalação congelada/checks/build/preview/smoke reproduzidos; hash igual ao auditado |
-| Deploy, URLs e refresh público | vercel.json, docs/DEPLOYMENT.md | Pendente por solicitação do usuário |
+| Deploy, URL pública e refresh de rotas | vercel.json, docs/DEPLOYMENT.md | Publicado na Vercel; rota `/payment` conferida; roteiro das demais rotas documentado |

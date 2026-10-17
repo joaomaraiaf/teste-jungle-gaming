@@ -32,7 +32,7 @@ Documentação por tarefa: carregue apenas os guias relevantes em `guides/`.
 
 React 19 · TypeScript · Vite · TanStack Router/Query · Axios · Tailwind CSS 4 · shadcn/ui · RHF/Zod · Biome · Vitest/Playwright.
 
-MSW e Socket.IO são iniciados em `src/mocks/`; os DTOs e schemas ficam em `src/features/*/data/` e os contratos REST/eventos estão em `docs/API_CONTRACTS.md`. Leia esse documento ao integrar dados/eventos. Fluxos do marketplace, testes funcionais e baselines visuais estão implementados. Relatórios Lighthouse estão em `docs/audits/`; a meta de performance mobile ainda está pendente. A configuração da Vercel está em `vercel.json`, mas a publicação e a validação pública ainda estão pendentes.
+MSW e Socket.IO são iniciados em `src/mocks/`; os DTOs e schemas ficam em `src/features/*/data/` e os contratos REST/eventos estão em `docs/API_CONTRACTS.md`. Leia esse documento ao integrar dados/eventos. Fluxos do marketplace, testes funcionais e baselines visuais estão implementados. Relatórios Lighthouse estão em `docs/audits/`; as metas estão atingidas na auditoria versionada. A configuração da Vercel está em `vercel.json` e a aplicação está publicada; consulte `docs/DEPLOYMENT.md` para a URL e a validação de rotas.
 
 ## Comandos
 

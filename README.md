@@ -189,7 +189,7 @@ Cada feature mantém suas entidades e contratos em `domain/`, e schemas, DTOs e 
 
 GitHub Actions executam lint, tipos, Vitest, build mock, Playwright, auditoria de dependências, CodeQL e Lighthouse. Os workflows e os checks recomendados para as branches estão descritos em [CI](docs/CI.md).
 
-A configuração para Vercel usa `pnpm build:mock`, publica `dist` e habilita o fallback SPA por rota. O deploy e a validação de uma URL pública ainda estão pendentes; não há URL pública verificada nesta cópia. Siga o [procedimento de publicação](docs/DEPLOYMENT.md) e atualize esse estado após o deploy.
+A configuração para Vercel usa `pnpm build:mock`, publica `dist` e habilita o fallback SPA por rota. A aplicação está publicada em [teste-jungle-gaming-59kluuver-joaomaraiafs-projects.vercel.app](https://teste-jungle-gaming-59kluuver-joaomaraiafs-projects.vercel.app/); a rota de pagamento foi conferida no deploy. Consulte o [procedimento de publicação](docs/DEPLOYMENT.md) para validar rotas após novas publicações.
 
 ## Referências
 
