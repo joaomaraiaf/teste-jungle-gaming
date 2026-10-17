@@ -1,6 +1,9 @@
 // @vitest-environment node
+
+import { setupServer } from 'msw/node';
+import { afterAll, beforeAll, expect, it } from 'vitest';
 import { AxiosAdapter } from '@/core/api/axios-adapter';
-import { type RealtimeSocket, createSocketClient } from '@/core/realtime/socket-client';
+import { createSocketClient, type RealtimeSocket } from '@/core/realtime/socket-client';
 import { HttpAuthRepository } from '@/features/auth/data/repositories/http-auth.repository.impl';
 import { HttpCartRepository } from '@/features/cart/data/repositories/http-cart.repository.impl';
 import { subscribeOrderUpdates } from '@/features/orders/data/realtime/subscribe-order-updates';
@@ -8,9 +11,8 @@ import { HttpOrdersRepository } from '@/features/orders/data/repositories/http-o
 import type { OrderUpdatedEvent } from '@/features/orders/domain/entities/order-updated-event.entity';
 import { HttpWalletConnectionRepository } from '@/features/payment/data/repositories/http-wallet-connection.repository.impl';
 import { HttpQuotesRepository } from '@/features/quotes/data/repositories/http-quotes.repository.impl';
-import { setupServer } from 'msw/node';
-import { afterAll, beforeAll, expect, it } from 'vitest';
 import { createMockEnvironment } from './environment';
+
 const origin = 'http://127.0.0.1:3920';
 const mocks = createMockEnvironment({ origin, seedDemoAccounts: true });
 const server = setupServer(...mocks.handlers);

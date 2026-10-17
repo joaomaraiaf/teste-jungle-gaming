@@ -1,6 +1,6 @@
-import type { Nft } from '@/features/catalog/domain/entities/nft.entity';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import type { Nft } from '@/features/catalog/domain/entities/nft.entity';
 import { NftRelatedCollection } from './nft-related-collection';
 
 const { useMarketCollectionMock } = vi.hoisted(() => ({ useMarketCollectionMock: vi.fn() }));

@@ -1,7 +1,7 @@
-import type { NftUpdatedEventDto } from '@/features/catalog/data/dtos/realtime.dto';
-import type { OrderUpdatedEvent } from '@/features/orders/domain/entities/order-updated-event.entity';
 import { toSocketIo } from '@mswjs/socket.io-binding';
 import { ws } from 'msw';
+import type { NftUpdatedEventDto } from '@/features/catalog/data/dtos/realtime.dto';
+import type { OrderUpdatedEvent } from '@/features/orders/domain/entities/order-updated-event.entity';
 
 export function createSocketHandlers(
   socketOrigin: string,

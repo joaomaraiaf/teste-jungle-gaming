@@ -1,17 +1,18 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { setupServer } from 'msw/node';
+import { afterAll, beforeAll, beforeEach, expect, it, vi } from 'vitest';
 import { AxiosAdapter } from '@/core/api/axios-adapter';
 import { AUTH_SESSION_QUERY_KEY } from '@/features/auth/hooks/use-session-view-model.hook';
 import { createAuthStore } from '@/mocks/auth-store';
 import { createCommerceHandlers } from '@/mocks/commerce-handlers';
 import { createCommerceStore } from '@/mocks/commerce-store';
 import { createMockStore } from '@/mocks/store';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { setupServer } from 'msw/node';
-import { afterAll, beforeAll, beforeEach, expect, it, vi } from 'vitest';
 import { HttpCartRepository } from '../data/repositories/http-cart.repository.impl';
 import { CartUseCase } from '../domain/usecases/cart.usecase';
 import { useCart } from '../hooks/use-cart.hook';
 import { CartProvider } from './cart-provider';
+
 const base = 'http://localhost:3891/api';
 const { authState } = vi.hoisted(() => ({
   authState: {

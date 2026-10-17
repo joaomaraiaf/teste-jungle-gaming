@@ -1,3 +1,7 @@
+import { useQueryClient } from '@tanstack/react-query';
+import { useNavigate } from '@tanstack/react-router';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { type UseFormReturn, useWatch } from 'react-hook-form';
 import { ApiError } from '@/core/api/api-error';
 import { useAppMutation } from '@/core/hooks/use-app-mutation';
 import { useAppQuery } from '@/core/hooks/use-app-query';
@@ -16,12 +20,8 @@ import type {
   SavedWallets,
   WalletSlot,
 } from '@/features/wallets/domain/entities/saved-wallet.entity';
-import { WALLETS_QUERY_KEY, useWalletActions } from '@/features/wallets/hooks/use-wallets.hook';
+import { useWalletActions, WALLETS_QUERY_KEY } from '@/features/wallets/hooks/use-wallets.hook';
 import { walletsUseCase } from '@/features/wallets/wallets.dependencies';
-import { useQueryClient } from '@tanstack/react-query';
-import { useNavigate } from '@tanstack/react-router';
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { type UseFormReturn, useWatch } from 'react-hook-form';
 import { clearPaymentDraft } from '../data/payment-draft.store';
 import type { PaymentFormValues } from '../data/schemas/payment-form.schema';
 import type { WalletConnection, WalletNetwork } from '../domain/entities/wallet-connection.entity';

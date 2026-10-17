@@ -4,6 +4,7 @@ import { createAuthStore } from './auth-store';
 import { createCommerceBroadcast } from './commerce-broadcast';
 import { COMMERCE_STORAGE_KEY, createCommerceStore } from './commerce-store';
 import { createNftFixtures } from './fixtures';
+
 it('notifica somente após persistir, sem conteúdo privado no canal, e encerra listeners', () => {
   const records = new Map<string, string>();
   let failing = false;

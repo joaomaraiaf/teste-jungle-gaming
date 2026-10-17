@@ -1,8 +1,9 @@
 // @vitest-environment node
-import { AxiosAdapter } from '@/core/api/axios-adapter';
-import { HttpAuthRepository } from '@/features/auth/data/repositories/http-auth.repository.impl';
+
 import { setupServer } from 'msw/node';
 import { afterAll, beforeAll, beforeEach, expect, it } from 'vitest';
+import { AxiosAdapter } from '@/core/api/axios-adapter';
+import { HttpAuthRepository } from '@/features/auth/data/repositories/http-auth.repository.impl';
 import { createAuthHandlers } from './auth-handlers';
 import { ACCOUNT_LIFETIME_MS, AUTH_STORAGE_KEY, createAuthStore } from './auth-store';
 import { DEMO_ACCOUNTS } from './demo-accounts';

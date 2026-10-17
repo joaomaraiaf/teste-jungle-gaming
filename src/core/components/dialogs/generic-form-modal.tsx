@@ -1,3 +1,5 @@
+import type * as React from 'react';
+import { type FieldValues, FormProvider, type UseFormReturn } from 'react-hook-form';
 import { Button } from '@/core/components/ui/button';
 import {
   Dialog,
@@ -10,8 +12,6 @@ import {
   DialogTrigger,
 } from '@/core/components/ui/dialog';
 import { cn } from '@/core/lib/utils';
-import type * as React from 'react';
-import { type FieldValues, FormProvider, type UseFormReturn } from 'react-hook-form';
 
 interface GenericFormModalProps<TFormValues extends FieldValues>
   extends React.HTMLAttributes<HTMLDivElement> {

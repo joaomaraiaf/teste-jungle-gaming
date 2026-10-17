@@ -1,5 +1,5 @@
-import { environment } from '@/core/config/environment';
 import { setupWorker } from 'msw/browser';
+import { environment } from '@/core/config/environment';
 import { createMockEnvironment } from './environment';
 
 const mocks = createMockEnvironment({

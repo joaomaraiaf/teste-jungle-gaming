@@ -1,7 +1,8 @@
+import { z } from 'zod';
 import type { NftUpdatedEventDto } from '@/features/catalog/data/dtos/realtime.dto';
 import type { OrderUpdatedEvent } from '@/features/orders/domain/entities/order-updated-event.entity';
-import { z } from 'zod';
 import type { CommerceStore } from './commerce-store';
+
 const noticeSchema = z.object({
   epoch: z.string(),
   nftIds: z.array(z.string()).max(1000),

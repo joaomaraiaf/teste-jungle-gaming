@@ -1,12 +1,12 @@
+import { Link } from '@tanstack/react-router';
+import { ChevronLeft, MoreVertical, Wallet } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Controller } from 'react-hook-form';
 import { AppForm } from '@/core/components/forms/app-form';
 import { Button } from '@/core/components/ui/button';
 import { formatWeiAsEth } from '@/features/cart/domain/entities/cart-totals';
 import { useCart } from '@/features/cart/hooks/use-cart.hook';
 import type { WalletSlot } from '@/features/wallets/domain/entities/saved-wallet.entity';
-import { Link } from '@tanstack/react-router';
-import { ChevronLeft, MoreVertical, Wallet } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { Controller } from 'react-hook-form';
 import type { usePaymentViewModel } from '../hooks/use-payment-view-model.hook';
 import { PaymentCheckoutStatus } from './payment-checkout-status';
 import { PaymentCollectorForm } from './payment-collector-form';
@@ -204,7 +204,11 @@ export function PaymentMobileView({ viewModel }: PaymentMobileViewProps) {
               />
             </section>
             <PaymentCheckoutStatus checkout={viewModel.checkout} />
-            <div aria-label='Valores do pedido' className='flex justify-end gap-7 font-bold'>
+            <div
+              role='group'
+              aria-label='Valores do pedido'
+              className='flex justify-end gap-7 font-bold'
+            >
               <span>Total:</span>
               <span className='text-lg text-[#E89B55]'>
                 {formatWeiAsEth(viewModel.preview.totalWei)} ETH

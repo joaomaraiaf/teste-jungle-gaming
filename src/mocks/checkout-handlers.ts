@@ -1,15 +1,15 @@
-import { orderUpdatedEventSchema } from '@/features/orders/data/schemas/order-updated-event.schema';
+import { HttpResponse, http } from 'msw';
+import { z } from 'zod';
 import {
   createOrderSchema,
   idempotencyKeySchema,
 } from '@/features/orders/data/schemas/order.schema';
-import type { OrderUpdatedEvent } from '@/features/orders/domain/entities/order-updated-event.entity';
+import { orderUpdatedEventSchema } from '@/features/orders/data/schemas/order-updated-event.schema';
 import type { CreateOrderInput, Order } from '@/features/orders/domain/entities/order.entity';
+import type { OrderUpdatedEvent } from '@/features/orders/domain/entities/order-updated-event.entity';
 import { walletConnectionInputSchema } from '@/features/payment/data/schemas/wallet-connection.schema';
 import { quoteInputSchema } from '@/features/quotes/data/schemas/quote.schema';
 import type { Quote } from '@/features/quotes/domain/entities/quote.entity';
-import { http, HttpResponse } from 'msw';
-import { z } from 'zod';
 import type { AuthStore } from './auth-store';
 import { CheckoutError, checkoutFail, stableOrderInput } from './checkout-utils';
 import { COMMERCE_SCENARIOS } from './commerce-scenarios';

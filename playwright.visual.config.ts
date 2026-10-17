@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+
 const port = process.env.PLAYWRIGHT_PORT ?? '3102';
 export default defineConfig({
   testDir: './tests',

@@ -1,18 +1,18 @@
+import { useQueryClient } from '@tanstack/react-query';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { toast } from 'sonner';
 import { useAppMutation } from '@/core/hooks/use-app-mutation';
 import { useAppQuery } from '@/core/hooks/use-app-query';
 import type { AuthSession } from '@/features/auth/domain/entities/auth-session.entity';
 import { useAuthSession } from '@/features/auth/hooks/use-auth-session.hook';
 import { useSessionErrorHandler } from '@/features/auth/hooks/use-session-error-handler.hook';
 import { AUTH_SESSION_QUERY_KEY } from '@/features/auth/hooks/use-session-view-model.hook';
-import { useQueryClient } from '@tanstack/react-query';
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { toast } from 'sonner';
 import { createCartUseCase } from '../cart.dependencies';
 import { getGuestCartId } from '../data/guest-cart.store';
+import type { Cart } from '../domain/entities/cart.entity';
 import type { CartItem } from '../domain/entities/cart-item.entity';
 import { getCartItemKey } from '../domain/entities/cart-item.entity';
 import { parseEthToWei } from '../domain/entities/cart-totals';
-import type { Cart } from '../domain/entities/cart.entity';
 
 export const CART_QUERY_KEY = ['cart'] as const;
 export const CART_MUTATION_KEY = ['cart', 'change'] as const;

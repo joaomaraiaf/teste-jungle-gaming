@@ -1,9 +1,9 @@
+import { useQueryClient } from '@tanstack/react-query';
+import { useLocation, useNavigate } from '@tanstack/react-router';
+import { createContext, type ReactNode, useEffect, useRef } from 'react';
 import { useRealtimeSocket } from '@/core/hooks/use-realtime-socket.hook';
 import { usePaymentDraftCleanup } from '@/features/payment/hooks/use-payment-draft.hook';
 import { usePaymentReceipt } from '@/features/payment/hooks/use-payment-receipt.hook';
-import { useQueryClient } from '@tanstack/react-query';
-import { useLocation, useNavigate } from '@tanstack/react-router';
-import { type ReactNode, createContext, useEffect, useRef } from 'react';
 import { useSessionViewModel } from '../hooks/use-session-view-model.hook';
 import { isPrivateDestination } from '../private-destinations';
 

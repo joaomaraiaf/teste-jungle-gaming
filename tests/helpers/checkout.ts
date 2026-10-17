@@ -1,4 +1,4 @@
-import { type Page, expect } from '@playwright/test';
+import { expect, type Page } from '@playwright/test';
 export const checkoutAddress = `0x${'a'.repeat(40)}`;
 export async function saveCheckoutWallet(page: Page) {
   const status = await page.evaluate(

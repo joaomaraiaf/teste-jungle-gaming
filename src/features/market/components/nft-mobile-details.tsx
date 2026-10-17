@@ -1,10 +1,10 @@
+import { Link } from '@tanstack/react-router';
+import { ChevronLeft, Heart, Minus, Plus, ShoppingCart, Star } from 'lucide-react';
+import { toast } from 'sonner';
 import { ArtworkImage } from '@/core/components/artwork-image';
 import { BackgroundRequestStatus } from '@/core/components/background-request-status';
 import { Button } from '@/core/components/ui/button';
 import { Skeleton } from '@/core/components/ui/skeleton';
-import { Link } from '@tanstack/react-router';
-import { ChevronLeft, Heart, Minus, Plus, ShoppingCart, Star } from 'lucide-react';
-import { toast } from 'sonner';
 import type { useMarketView } from '../hooks/use-market-view.hook';
 
 interface NftMobileDetailsProps {
@@ -89,6 +89,7 @@ export function NftMobileDetails({ view, onBuy, onAddToCart }: NftMobileDetailsP
             <div className='flex items-center justify-between gap-3'>
               <h1 className='min-w-0 text-xl font-bold leading-tight'>{nft.name}</h1>
               <p
+                role='img'
                 aria-label={`Avaliação ${nft.details.rating} de 5, ${nft.details.reviewsCount} avaliações`}
                 className='flex shrink-0 items-center gap-1 rounded-full border border-[#D28A4C] px-1.5 py-1 text-sm leading-4'
               >
@@ -133,7 +134,11 @@ export function NftMobileDetails({ view, onBuy, onAddToCart }: NftMobileDetailsP
             className='sticky bottom-0 z-10 flex flex-col gap-5 rounded-t-[2.5rem] bg-[#241612] px-6 pb-[max(2.25rem,env(safe-area-inset-bottom))] pt-5 shadow-[0_0_1.25rem_rgba(10,6,4,0.45)]'
           >
             <div className='flex items-center justify-between gap-3'>
-              <div aria-label='Quantidade' className='flex items-center gap-3'>
+              <div
+                role='group'
+                aria-label='Controles de quantidade'
+                className='flex items-center gap-3'
+              >
                 <span className='text-[0.9375rem] text-[#CFB28C]'>Qtd.</span>
                 <Button
                   type='button'
@@ -144,7 +149,9 @@ export function NftMobileDetails({ view, onBuy, onAddToCart }: NftMobileDetailsP
                 >
                   <Minus aria-hidden='true' className='size-4' />
                 </Button>
-                <span className='text-lg font-medium'>{view.quantity}</span>
+                <output aria-label='Quantidade' className='text-lg font-medium'>
+                  {view.quantity}
+                </output>
                 <Button
                   type='button'
                   aria-label='Aumentar quantidade'

@@ -1,4 +1,4 @@
-import { type Page, expect, test } from '@playwright/test';
+import { expect, type Page, test } from '@playwright/test';
 import { loginDemo, loginInDialog, loginTrigger } from './helpers/auth';
 import { saveCheckoutWallet } from './helpers/checkout';
 

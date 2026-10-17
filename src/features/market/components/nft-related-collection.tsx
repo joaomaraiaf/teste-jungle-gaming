@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import { Skeleton } from '@/core/components/ui/skeleton';
 import type { Nft } from '@/features/catalog/domain/entities/nft.entity';
-import { useState } from 'react';
 import { useMarketCollection } from '../hooks/use-market-collection.hook';
 import { MarketCollectionCard } from './market-collection-card';
 
@@ -26,6 +26,7 @@ export function NftRelatedCollection({ nft }: NftRelatedCollectionProps) {
       </div>
       {related.isPending ? (
         <div
+          role='status'
           className='grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5'
           aria-label='Carregando itens relacionados'
         >

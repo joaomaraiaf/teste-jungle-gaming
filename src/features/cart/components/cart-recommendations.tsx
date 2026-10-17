@@ -1,7 +1,7 @@
+import { useState } from 'react';
 import { MARKETPLACE_FULL_WIDTH_CLASS } from '@/core/components/layout/marketplace-page-container';
 import { NftCard } from '@/features/catalog/components/nft-card';
 import { useCatalog } from '@/features/catalog/hooks/use-catalog.hook';
-import { useState } from 'react';
 
 export function CartRecommendations() {
   const [page, setPage] = useState(1);

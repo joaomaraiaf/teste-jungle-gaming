@@ -1,17 +1,19 @@
 // @vitest-environment node
+
+import { setupServer } from 'msw/node';
+import { afterAll, beforeAll, beforeEach, expect, it } from 'vitest';
 import { AxiosAdapter } from '@/core/api/axios-adapter';
 import { HttpCartRepository } from '@/features/cart/data/repositories/http-cart.repository.impl';
 import { HttpOrdersRepository } from '@/features/orders/data/repositories/http-orders.repository.impl';
 import type { CreateOrderInput } from '@/features/orders/domain/entities/order.entity';
 import { HttpWalletConnectionRepository } from '@/features/payment/data/repositories/http-wallet-connection.repository.impl';
 import { HttpQuotesRepository } from '@/features/quotes/data/repositories/http-quotes.repository.impl';
-import { setupServer } from 'msw/node';
-import { afterAll, beforeAll, beforeEach, expect, it } from 'vitest';
 import { createAuthStore } from './auth-store';
 import { createCheckoutHandlers } from './checkout-handlers';
 import { createCommerceHandlers } from './commerce-handlers';
 import { COMMERCE_STORAGE_KEY, type CommerceState, createCommerceStore } from './commerce-store';
 import { createMockStore } from './store';
+
 const records = new Map<string, string>();
 let failWrite = false;
 const storage = {

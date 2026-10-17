@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import {
   Select,
   SelectContent,
@@ -9,7 +10,6 @@ import type {
   SavedWallets,
   WalletSlot,
 } from '@/features/wallets/domain/entities/saved-wallet.entity';
-import { useId } from 'react';
 
 interface PaymentSavedWalletsProps {
   wallets?: SavedWallets;

@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
-import { NFT_IMAGE_URLS, createNftFixtures } from './fixtures';
-import { MOCK_STORAGE_KEY, createMockStore } from './store';
+import { createNftFixtures, NFT_IMAGE_URLS } from './fixtures';
+import { createMockStore, MOCK_STORAGE_KEY } from './store';
 
 describe('mock persistence', () => {
   it('recupera alterações após recriar o runtime e restaura fixtures no reset', () => {

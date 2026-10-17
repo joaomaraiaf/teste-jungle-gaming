@@ -1,7 +1,7 @@
+import { toast } from 'sonner';
 import { AppForm } from '@/core/components/forms/app-form';
 import { FormFieldFactory } from '@/core/components/forms/form-field-factory';
 import { Button } from '@/core/components/ui/button';
-import { toast } from 'sonner';
 import { useLoginForm } from '../hooks/use-login-form.hook';
 import { AUTH_FIELD_CLASS } from './auth-form.styles';
 

@@ -1,4 +1,4 @@
-import { type Page, expect } from '@playwright/test';
+import { expect, type Page } from '@playwright/test';
 export interface NetworkRule {
   path: string;
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE';

@@ -1,3 +1,4 @@
+import { createRouter } from '@tanstack/react-router';
 import { indexRoute } from '@/routes';
 import { activityRoute } from '@/routes/activity';
 import { cartRoute } from '@/routes/cart';
@@ -7,7 +8,6 @@ import { paymentConfirmationRoute } from '@/routes/payment-confirmation';
 import { profileRoute } from '@/routes/profile';
 import { rootRoute } from '@/routes/root';
 import { walletsRoute } from '@/routes/wallets';
-import { createRouter } from '@tanstack/react-router';
 
 const routeTree = rootRoute.addChildren([
   indexRoute,

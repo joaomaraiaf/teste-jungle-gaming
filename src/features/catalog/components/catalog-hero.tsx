@@ -1,6 +1,6 @@
+import { ChevronRight } from 'lucide-react';
 import { ArtworkImage } from '@/core/components/artwork-image';
 import { ScrollReveal } from '@/core/components/scroll-reveal';
-import { ChevronRight } from 'lucide-react';
 import { useCatalogHeroCarousel } from '../hooks/use-catalog-hero-carousel.hook';
 
 export interface CatalogHeroSlide {
@@ -94,6 +94,7 @@ export function CatalogHero({ slides }: CatalogHeroProps) {
         </ScrollReveal>
       </div>
       <div
+        role='group'
         className='absolute bottom-3 left-0 z-10 flex w-full justify-center gap-2 lg:relative lg:bottom-auto lg:left-auto lg:mt-8'
         aria-label={`Slide ${activeSlide + 1} de ${slides.length}`}
       >

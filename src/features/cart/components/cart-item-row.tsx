@@ -35,7 +35,7 @@ export function CartItemRow({ item, onUpdateQuantity, onRemove }: CartItemRowPro
       </th>
       <td className='whitespace-nowrap px-3 py-3 text-[#CFB28C]'>{item.unitPriceEth} ETH</td>
       <td className='px-3 py-3'>
-        <div className='flex items-center gap-2'>
+        <div className='flex items-center gap-2' role='group' aria-label='Controles de quantidade'>
           <Button
             type='button'
             aria-label={`Diminuir quantidade de ${item.name}`}
@@ -45,9 +45,9 @@ export function CartItemRow({ item, onUpdateQuantity, onRemove }: CartItemRowPro
           >
             −
           </Button>
-          <span className='min-w-4 text-center' aria-label='Quantidade'>
+          <output aria-label='Quantidade' className='min-w-4 text-center'>
             {item.quantity}
-          </span>
+          </output>
           <Button
             type='button'
             aria-label={`Aumentar quantidade de ${item.name}`}

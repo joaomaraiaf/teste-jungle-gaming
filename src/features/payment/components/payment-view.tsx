@@ -1,3 +1,5 @@
+import { Link } from '@tanstack/react-router';
+import { useState } from 'react';
 import { AppForm } from '@/core/components/forms/app-form';
 import { MarketplaceFooter } from '@/core/components/layout/marketplace-footer';
 import { MarketplaceHeader } from '@/core/components/layout/marketplace-header';
@@ -9,8 +11,6 @@ import { Button } from '@/core/components/ui/button';
 import { useMobileViewport } from '@/core/hooks/use-mobile-viewport.hook';
 import { CartRequestState } from '@/features/cart/components/cart-request-state';
 import { useCart } from '@/features/cart/hooks/use-cart.hook';
-import { Link } from '@tanstack/react-router';
-import { useState } from 'react';
 import { usePaymentViewModel } from '../hooks/use-payment-view-model.hook';
 import { PaymentCheckoutStatus } from './payment-checkout-status';
 import { PaymentCollectorForm } from './payment-collector-form';

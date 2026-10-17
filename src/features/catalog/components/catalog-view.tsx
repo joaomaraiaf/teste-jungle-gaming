@@ -1,3 +1,4 @@
+import { lazy, Suspense, useState } from 'react';
 import { MarketplaceFooter } from '@/core/components/layout/marketplace-footer';
 import { MarketplaceHeader } from '@/core/components/layout/marketplace-header';
 import {
@@ -5,7 +6,6 @@ import {
   MarketplacePageContainer,
 } from '@/core/components/layout/marketplace-page-container';
 import { useCart } from '@/features/cart/hooks/use-cart.hook';
-import { Suspense, lazy, useState } from 'react';
 import {
   CATALOG_FEATURED_IMAGE,
   CATALOG_HERO_SLIDES,
@@ -14,9 +14,11 @@ import {
   JOURNAL_ARTICLES,
 } from '../content/catalog-content';
 import { useCatalogView } from '../hooks/use-catalog-view.hook';
+
 const CatalogFiltersDialog = lazy(() =>
   import('./catalog-filters-dialog').then((module) => ({ default: module.CatalogFiltersDialog }))
 );
+
 import { CatalogHero } from './catalog-hero';
 import { CatalogJournal } from './catalog-journal';
 import { CatalogListing } from './catalog-listing';

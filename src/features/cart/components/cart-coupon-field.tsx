@@ -1,6 +1,6 @@
+import { useId, useState } from 'react';
 import { Button } from '@/core/components/ui/button';
 import { Input } from '@/core/components/ui/input';
-import { useId, useState } from 'react';
 import { useCart } from '../hooks/use-cart.hook';
 export function CartCouponField({ payment = false }: { payment?: boolean }) {
   const cart = useCart();

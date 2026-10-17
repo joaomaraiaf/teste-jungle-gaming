@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'node:url';
 import { setupServer } from 'msw/node';
-import { type Plugin, createServer } from 'vite';
+import { createServer, type Plugin } from 'vite';
 
 /** A public build snapshot comes from the same REST handlers, never from private browser storage. */
 export function publicCatalogSnapshot(): Plugin {

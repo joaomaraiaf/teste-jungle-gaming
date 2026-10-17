@@ -1,5 +1,5 @@
-import { expect, test } from '@playwright/test';
 import type { Locator, Page } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 const primaryAddress = `0x${'a'.repeat(40)}`;
 const secondaryAddress = `0x${'b'.repeat(40)}`;

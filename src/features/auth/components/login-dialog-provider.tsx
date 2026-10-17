@@ -1,9 +1,9 @@
 import { useLocation, useNavigate } from '@tanstack/react-router';
 import {
-  type ReactNode,
-  Suspense,
   createContext,
   lazy,
+  type ReactNode,
+  Suspense,
   useCallback,
   useEffect,
   useMemo,
@@ -12,6 +12,7 @@ import {
 } from 'react';
 import { useAuthSession } from '../hooks/use-auth-session.hook';
 import { isPrivateDestination } from '../private-destinations';
+
 const LoginDialog = lazy(() =>
   import('./login-dialog').then((module) => ({ default: module.LoginDialog }))
 );

@@ -1,5 +1,5 @@
-import { nftSchema } from '@/features/catalog/data/schemas/catalog.schema';
 import { z } from 'zod';
+import { nftSchema } from '@/features/catalog/data/schemas/catalog.schema';
 import type { MarketNft } from '../../domain/entities/market-nft.entity';
 
 export const nftDetailsSchema = z.object({

@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { loginDemo } from './helpers/auth';
 import { configureCheckout, openPreparedCheckout } from './helpers/checkout';
+
 test.beforeEach(async ({ page }) => {
   await loginDemo(page);
 });

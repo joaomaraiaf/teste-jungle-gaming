@@ -1,6 +1,6 @@
+import { Link } from '@tanstack/react-router';
 import { ArtworkImage } from '@/core/components/artwork-image';
 import type { Nft } from '@/features/catalog/domain/entities/nft.entity';
-import { Link } from '@tanstack/react-router';
 
 interface MarketCollectionCardProps {
   nft: Nft;

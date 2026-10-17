@@ -1,6 +1,6 @@
-import { cn } from '@/core/lib/utils';
 import type { ReactNode } from 'react';
 import { useEffect, useRef, useState } from 'react';
+import { cn } from '@/core/lib/utils';
 
 interface ScrollRevealProps {
   children: ReactNode;

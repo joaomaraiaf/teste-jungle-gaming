@@ -1,4 +1,4 @@
-import { type ReactNode, createContext } from 'react';
+import { createContext, type ReactNode } from 'react';
 import { useCartViewModel } from '../hooks/use-cart-view-model.hook';
 export const CartContext = createContext<ReturnType<typeof useCartViewModel> | null>(null);
 export function CartProvider({ children }: { children: ReactNode }) {

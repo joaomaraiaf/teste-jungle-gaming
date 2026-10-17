@@ -1,10 +1,10 @@
+import { useQueryClient } from '@tanstack/react-query';
 import { useAppMutation } from '@/core/hooks/use-app-mutation';
 import { useAppQuery } from '@/core/hooks/use-app-query';
 import type { AuthSession } from '@/features/auth/domain/entities/auth-session.entity';
 import { useAuthSession } from '@/features/auth/hooks/use-auth-session.hook';
 import { useSessionErrorHandler } from '@/features/auth/hooks/use-session-error-handler.hook';
 import { AUTH_SESSION_QUERY_KEY } from '@/features/auth/hooks/use-session-view-model.hook';
-import { useQueryClient } from '@tanstack/react-query';
 import type { SavedWallet, SavedWallets, WalletSlot } from '../domain/entities/saved-wallet.entity';
 import { walletsUseCase } from '../wallets.dependencies';
 

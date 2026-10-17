@@ -1,12 +1,12 @@
+import { HttpResponse, http } from 'msw';
 import { loginFormSchema } from '@/features/auth/data/schemas/login-form.schema';
 import { signupInputSchema } from '@/features/auth/data/schemas/signup-form.schema';
 import type { AuthSession } from '@/features/auth/domain/entities/auth-session.entity';
-import { http, HttpResponse } from 'msw';
 import {
   ACCOUNT_LIFETIME_MS,
   type AuthStore,
-  SESSION_LIFETIME_MS,
   hashMockPassword,
+  SESSION_LIFETIME_MS,
   toHex,
 } from './auth-store';
 

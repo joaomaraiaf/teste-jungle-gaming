@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+
 const baseURL = process.env.PUBLIC_BASE_URL;
 if (!baseURL || !/^https?:\/\//.test(baseURL))
   throw new Error('Informe PUBLIC_BASE_URL com a URL real da publicação.');

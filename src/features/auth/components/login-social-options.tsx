@@ -1,5 +1,5 @@
-import { Button } from '@/core/components/ui/button';
 import { toast } from 'sonner';
+import { Button } from '@/core/components/ui/button';
 
 export function LoginSocialOptions() {
   return (

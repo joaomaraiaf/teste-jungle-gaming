@@ -1,5 +1,5 @@
-import { nftSchema } from '@/features/catalog/data/schemas/catalog.schema';
 import { z } from 'zod';
+import { nftSchema } from '@/features/catalog/data/schemas/catalog.schema';
 import type { WalletConnection } from '../../domain/entities/wallet-connection.entity';
 export const walletConnectionInputSchema = z.object({
   walletSlot: z.enum(['primary', 'secondary']),

@@ -1,9 +1,9 @@
+import { createRoute, lazyRouteComponent } from '@tanstack/react-router';
 import {
-  type PrivateDestination,
   isPrivateDestination,
+  type PrivateDestination,
 } from '@/features/auth/private-destinations';
 import { catalogQuerySchema } from '@/features/catalog/data/schemas/catalog.schema';
-import { createRoute, lazyRouteComponent } from '@tanstack/react-router';
 import { rootRoute } from './root';
 
 export const indexRoute = createRoute({

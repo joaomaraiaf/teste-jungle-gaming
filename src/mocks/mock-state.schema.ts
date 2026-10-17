@@ -1,5 +1,5 @@
-import { ethAmountSchema, nftSchema } from '@/features/catalog/data/schemas/catalog.schema';
 import { z } from 'zod';
+import { ethAmountSchema, nftSchema } from '@/features/catalog/data/schemas/catalog.schema';
 
 export const scenarioSchema = z.enum([
   'default',

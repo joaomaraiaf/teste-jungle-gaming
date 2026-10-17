@@ -1,9 +1,9 @@
-import { Application } from '@/app';
-import { setServerMobile } from '@/core/hooks/use-mobile-viewport.hook';
-import { router } from '@/router';
 import { QueryClient } from '@tanstack/react-query';
 import { createMemoryHistory } from '@tanstack/react-router';
 import { renderToReadableStream } from 'react-dom/server';
+import { Application } from '@/app';
+import { setServerMobile } from '@/core/hooks/use-mobile-viewport.hook';
+import { router } from '@/router';
 
 export async function renderPublicPage(
   path: string,

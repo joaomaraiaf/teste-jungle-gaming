@@ -1,6 +1,6 @@
+import type { UseFormReturn } from 'react-hook-form';
 import { FormFieldFactory } from '@/core/components/forms/form-field-factory';
 import { Textarea } from '@/core/components/ui/textarea';
-import type { UseFormReturn } from 'react-hook-form';
 import type { PaymentFormValues } from '../data/schemas/payment-form.schema';
 
 interface PaymentCollectorFormProps {

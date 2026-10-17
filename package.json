@@ -58,7 +58,7 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
     "@biomejs/biome": "2.5.15",
-    "@playwright/test": "1.64.0",
+    "@playwright/test": "1.58.2",
     "@tailwindcss/postcss": "4.3.3",
     "@tanstack/react-query-devtools": "5.91.3",
     "@testing-library/dom": "10.4.2",
@@ -85,6 +85,8 @@
   },
   "type": "module",
   "msw": {
-    "workerDirectory": ["public"]
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

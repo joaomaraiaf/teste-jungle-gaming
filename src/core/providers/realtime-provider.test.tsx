@@ -1,6 +1,6 @@
-import type { RealtimeSocket } from '@/core/realtime/socket-client';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { beforeEach, expect, it, vi } from 'vitest';
+import type { RealtimeSocket } from '@/core/realtime/socket-client';
 import { RealtimeProvider } from './realtime-provider';
 
 const { createSocketClient } = vi.hoisted(() => ({ createSocketClient: vi.fn() }));

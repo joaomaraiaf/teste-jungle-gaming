@@ -1,9 +1,9 @@
+import { Link } from '@tanstack/react-router';
+import { Check, ShoppingBag } from 'lucide-react';
 import { Button } from '@/core/components/ui/button';
 import { Skeleton } from '@/core/components/ui/skeleton';
 import { formatWeiAsEth, parseEthToWei } from '@/features/cart/domain/entities/cart-totals';
 import { AccountPage } from '@/features/profile/components/account-page';
-import { Link } from '@tanstack/react-router';
-import { Check, ShoppingBag } from 'lucide-react';
 import type { PurchaseActivity } from '../domain/entities/purchase-activity.entity';
 import { useActivity } from '../hooks/use-activity.hook';
 

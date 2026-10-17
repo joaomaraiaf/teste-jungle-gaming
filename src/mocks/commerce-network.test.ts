@@ -1,18 +1,20 @@
 // @vitest-environment node
+
+import { setupServer } from 'msw/node';
+import { afterAll, beforeAll, beforeEach, expect, it } from 'vitest';
 import { AxiosAdapter } from '@/core/api/axios-adapter';
 import { HttpActivityRepository } from '@/features/activity/data/repositories/http-activity.repository.impl';
 import { HttpAuthRepository } from '@/features/auth/data/repositories/http-auth.repository.impl';
 import { HttpCartRepository } from '@/features/cart/data/repositories/http-cart.repository.impl';
 import { calculateCartTotals } from '@/features/cart/domain/entities/cart-totals';
 import { HttpFavoritesRepository } from '@/features/favorites/data/repositories/http-favorites.repository.impl';
-import { setupServer } from 'msw/node';
-import { afterAll, beforeAll, beforeEach, expect, it } from 'vitest';
 import { createActivityHandlers } from './activity-handlers';
 import { createAuthHandlers } from './auth-handlers';
 import { createAuthStore } from './auth-store';
 import { createCommerceHandlers } from './commerce-handlers';
 import { createCommerceStore } from './commerce-store';
 import { createMockStore } from './store';
+
 const data = new Map<string, string>();
 const storage = {
   getItem: (key: string) => data.get(key) ?? null,

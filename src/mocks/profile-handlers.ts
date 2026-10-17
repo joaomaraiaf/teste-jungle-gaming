@@ -1,6 +1,6 @@
+import { HttpResponse, http } from 'msw';
 import { updateProfileSchema } from '@/features/profile/data/schemas/profile.schema';
 import type { CollectorProfile } from '@/features/profile/domain/entities/collector-profile.entity';
-import { http, HttpResponse } from 'msw';
 import { type AuthStore, hashMockPassword, toHex } from './auth-store';
 
 export function createProfileHandlers(store: AuthStore, apiBase: string) {

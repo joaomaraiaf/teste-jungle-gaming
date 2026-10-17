@@ -1,3 +1,5 @@
+import { Link } from '@tanstack/react-router';
+import { LogOut, ShoppingBag, UserRound } from 'lucide-react';
 import { Button } from '@/core/components/ui/button';
 import {
   DropdownMenu,
@@ -7,8 +9,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/core/components/ui/dropdown-menu';
-import { Link } from '@tanstack/react-router';
-import { LogOut, ShoppingBag, UserRound } from 'lucide-react';
 import { useAuthSession } from '../hooks/use-auth-session.hook';
 
 export function AuthenticatedAccountMenu({ compact = false }: { compact?: boolean }) {

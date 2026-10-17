@@ -1,12 +1,12 @@
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useQueryClient } from '@tanstack/react-query';
+import { useRef } from 'react';
+import { type SubmitHandler, useForm } from 'react-hook-form';
 import { ApiError } from '@/core/api/api-error';
 import { useAppMutation } from '@/core/hooks/use-app-mutation';
 import type { AuthSession } from '@/features/auth/domain/entities/auth-session.entity';
 import { useSessionErrorHandler } from '@/features/auth/hooks/use-session-error-handler.hook';
 import { AUTH_SESSION_QUERY_KEY } from '@/features/auth/hooks/use-session-view-model.hook';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useQueryClient } from '@tanstack/react-query';
-import { useRef } from 'react';
-import { type SubmitHandler, useForm } from 'react-hook-form';
 import {
   MAX_AVATAR_BYTES,
   type ProfileFormValues,

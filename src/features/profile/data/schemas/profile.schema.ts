@@ -1,5 +1,5 @@
-import { passwordSchema } from '@/core/utils/password.schema';
 import { z } from 'zod';
+import { passwordSchema } from '@/core/utils/password.schema';
 
 export const MAX_AVATAR_BYTES = 256 * 1024;
 export const avatarDataUrlSchema = z

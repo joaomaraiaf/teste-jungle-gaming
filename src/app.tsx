@@ -1,11 +1,11 @@
-import { environment } from '@/core/config/environment';
-import { QueryProvider } from '@/core/providers/query-provider';
-import { RealtimeProvider } from '@/core/providers/realtime-provider';
-import { router } from '@/router';
 import type { QueryClient } from '@tanstack/react-query';
 import { RouterProvider } from '@tanstack/react-router';
 import { StrictMode, useEffect } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
+import { environment } from '@/core/config/environment';
+import { QueryProvider } from '@/core/providers/query-provider';
+import { RealtimeProvider } from '@/core/providers/realtime-provider';
+import { router } from '@/router';
 
 function StartTransport({ start }: { start: () => void }) {
   useEffect(start, [start]);
@@ -15,7 +15,10 @@ function StartTransport({ start }: { start: () => void }) {
 export function Application({
   startTransport,
   client,
-}: { startTransport?: () => void; client?: QueryClient }) {
+}: {
+  startTransport?: () => void;
+  client?: QueryClient;
+}) {
   return (
     <StrictMode>
       {startTransport && <StartTransport start={startTransport} />}

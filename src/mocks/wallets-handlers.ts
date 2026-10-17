@@ -1,7 +1,7 @@
+import { HttpResponse, http } from 'msw';
+import { z } from 'zod';
 import { savedWalletSchema } from '@/features/wallets/data/schemas/wallet.schema';
 import type { SavedWallets } from '@/features/wallets/domain/entities/saved-wallet.entity';
-import { http, HttpResponse } from 'msw';
-import { z } from 'zod';
 import type { AuthStore } from './auth-store';
 
 export function createWalletsHandlers(store: AuthStore, apiBase: string) {

@@ -1,11 +1,11 @@
+import { HttpResponse, http } from 'msw';
 import { completePurchaseSchema } from '@/features/activity/data/schemas/activity.schema';
 import {
-  type PurchaseActivity,
   getPurchaseFingerprint,
+  type PurchaseActivity,
 } from '@/features/activity/domain/entities/purchase-activity.entity';
 import type { CartItem } from '@/features/cart/domain/entities/cart-item.entity';
 import { calculateCartTotals } from '@/features/cart/domain/entities/cart-totals';
-import { http, HttpResponse } from 'msw';
 import { type AuthStore, toHex } from './auth-store';
 import { COUPON_FIXTURES } from './commerce-scenarios';
 import type { CommerceStore } from './commerce-store';

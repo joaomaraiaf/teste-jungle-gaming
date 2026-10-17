@@ -1,7 +1,7 @@
+import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 import { Button } from '@/core/components/ui/button';
 import { Input } from '@/core/components/ui/input';
 import { FOOTER_FEATURES, FOOTER_LINK_COLUMNS } from '@/core/content/marketplace-footer.content';
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 
 const socialLinks = [
   { label: 'Facebook', Icon: Facebook },

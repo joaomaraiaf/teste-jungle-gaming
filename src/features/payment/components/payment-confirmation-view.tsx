@@ -1,6 +1,6 @@
-import { Button } from '@/core/components/ui/button';
 import { Link } from '@tanstack/react-router';
 import { toast } from 'sonner';
+import { Button } from '@/core/components/ui/button';
 import { useConfirmation } from '../hooks/use-confirmation.hook';
 import { useReceiptViewport } from '../hooks/use-receipt-viewport.hook';
 import { PaymentReceiptDetails } from './payment-receipt-details';

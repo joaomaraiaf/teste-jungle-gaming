@@ -1,6 +1,7 @@
-import { type Page, expect, test } from '@playwright/test';
+import { expect, type Page, test } from '@playwright/test';
 import { loginDemo } from './helpers/auth';
 import { configureCheckout, saveCheckoutWallet } from './helpers/checkout';
+
 async function add(page: Page, edition = '1/1') {
   await page.goto('/market/nft-001');
   await page.getByRole('button', { name: edition, exact: true }).click();

@@ -1,11 +1,11 @@
+import { delay, HttpResponse, http } from 'msw';
+import { z } from 'zod';
 import type { ApiErrorResponseDto } from '@/core/api/dtos/api-error.dto';
 import { apiErrorResponseSchema } from '@/core/api/schemas/api-error.schema';
 import type { CatalogResponseDto } from '@/features/catalog/data/dtos/catalog.dto';
 import type { NftUpdatedEventDto } from '@/features/catalog/data/dtos/realtime.dto';
 import { catalogQuerySchema } from '@/features/catalog/data/schemas/catalog.schema';
 import { nftUpdatedEventSchema } from '@/features/catalog/data/schemas/realtime.schema';
-import { http, HttpResponse, delay } from 'msw';
-import { z } from 'zod';
 import { CATALOG_COLLECTION_FILTERS, CATALOG_NETWORK_FILTERS } from './catalog-view.mock';
 import { createNftDetails } from './market-details.mock';
 import { resetScenarioSchema, updateMockNftSchema } from './mock-state.schema';
