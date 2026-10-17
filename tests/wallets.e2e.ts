@@ -111,6 +111,13 @@ test('salva carteiras, vincula a secundária, persiste e permite escolher no pag
     await page.getByRole('button', { name: 'Trocar carteira', exact: true }).click();
     await page.getByRole('button', { name: 'Fechar', exact: true }).click();
     await page.getByRole('radio', { name: 'Coinbase Wallet', exact: true }).check();
+    const acceptUpdatedQuote = page.getByRole('button', {
+      name: 'Revisar e aceitar novos valores',
+      exact: true,
+    });
+    await expect(acceptUpdatedQuote).toBeVisible();
+    await acceptUpdatedQuote.click();
+    await expect(page.getByRole('button', { name: 'Confirmar compra', exact: true })).toBeEnabled();
     await page.getByRole('button', { name: 'Confirmar compra', exact: true }).click();
     await expect(page).toHaveURL(/\/payment\/confirmation(?:\?|$)/);
     await page.goto('/activity');

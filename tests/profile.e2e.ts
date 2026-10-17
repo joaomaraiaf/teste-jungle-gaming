@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import type { Page } from '@playwright/test';
+import { loginTrigger } from './helpers/auth';
 
 async function signup(page: Page) {
   const dialog = page.getByRole('dialog', { name: 'Entrar', exact: true });
@@ -15,7 +16,7 @@ async function signup(page: Page) {
 
 async function openProfile(page: Page) {
   await page.goto('/');
-  await page.getByRole('button', { name: /^Entrar(?: na conta)?$/ }).click();
+  await loginTrigger(page).click();
   await signup(page);
   await page.getByRole('button', { name: 'Conta de Colecionador' }).click();
   await page.getByRole('menuitem', { name: 'Meu perfil', exact: true }).click();
@@ -52,7 +53,7 @@ test('abre Meu perfil, salva os dados e o avatar e preserva após refresh', asyn
   await expect(page.getByAltText('Avatar do colecionador')).toHaveCount(0);
   await page.getByRole('complementary').getByRole('button', { name: 'Sair', exact: true }).click();
   await expect(page).toHaveURL(/\/\?/);
-  await expect(page.getByRole('button', { name: /^Entrar(?: na conta)?$/ })).toBeVisible();
+  await expect(loginTrigger(page)).toBeVisible();
 });
 
 test('pede login para o acesso direto e retoma o perfil após cadastrar', async ({ page }) => {
@@ -83,7 +84,7 @@ test('confere a senha atual e permite entrar com a nova senha', async ({ page })
   await page.getByRole('button', { name: 'Salvar', exact: true }).click();
   await expect(page.getByText('Perfil salvo com sucesso.', { exact: true })).toBeVisible();
   await page.getByRole('complementary').getByRole('button', { name: 'Sair', exact: true }).click();
-  await page.getByRole('button', { name: /^Entrar(?: na conta)?$/ }).click();
+  await loginTrigger(page).click();
   const dialog = page.getByRole('dialog', { name: 'Entrar', exact: true });
   await dialog.getByRole('textbox', { name: 'E-mail', exact: true }).fill('perfil@example.com');
   await dialog.getByLabel('Senha', { exact: true }).fill('Nova123!');
