@@ -82,6 +82,7 @@ test('cria uma conta, sai, entra novamente e recupera a sessão após refresh', 
   page,
 }, testInfo) => {
   await page.goto('/market/nft-001');
+  await expect(page.locator('html')).toHaveAttribute('data-transport-ready', 'true');
   await page.getByRole('button', { name: 'Comprar', exact: true }).click();
   if (testInfo.project.name === 'mobile')
     await page.getByRole('link', { name: 'Voltar para o início', exact: true }).click();

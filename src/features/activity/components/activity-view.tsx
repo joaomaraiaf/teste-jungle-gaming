@@ -88,10 +88,6 @@ function PurchaseCard({ activity }: { activity: PurchaseActivity }) {
             {date}
           </time>
         </div>
-        <span className='flex items-center gap-2 rounded-full border border-[#D28A4C]/40 px-3 py-1 text-xs text-[#E89B55]'>
-          <Check aria-hidden='true' className='size-3' />
-          Demonstrativa
-        </span>
       </header>
       <ul className='divide-y divide-[#3F2319] px-4'>
         {activity.items.map((item) => (

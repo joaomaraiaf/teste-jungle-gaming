@@ -166,9 +166,6 @@ export function PaymentOrderSummary({
         >
           {isSubmitting ? 'Salvando compra…' : 'Confirmar compra'}
         </Button>
-        <p className='text-center text-xs text-[#B39463]'>
-          Compra demonstrativa: nenhum valor será cobrado e nenhum NFT será transferido.
-        </p>
       </section>
     </aside>
   );

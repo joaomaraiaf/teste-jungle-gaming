@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Check out repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up Node.js and pnpm
         uses: pnpm/setup@v3
@@ -47,7 +47,7 @@ jobs:
       pull-requests: read
     steps:
       - name: Review dependency changes
-        uses: actions/dependency-review-action@v4
+        uses: actions/dependency-review-action@v5
         with:
           fail-on-severity: high
           fail-on-scopes: runtime, development
@@ -62,7 +62,7 @@ jobs:
       security-events: write
     steps:
       - name: Check out repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v4

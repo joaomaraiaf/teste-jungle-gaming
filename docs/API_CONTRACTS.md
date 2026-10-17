@@ -115,7 +115,7 @@ Use `pnpm dev:mock`, `pnpm build:mock` e `pnpm preview:mock`. `.env.mock` é ver
 
 O worker gerado pelo CLI fica em `public/mockServiceWorker.js`, é copiado para `dist/` pelo Vite e não deve ser editado manualmente. O postinstall do MSW atualiza o worker no diretório registrado em package.json.
 
-Na Vercel, use o build com mocks, sirva o worker como JavaScript e preserve os assets antes do fallback SPA. `vercel.json` já configura esses requisitos; a publicação e a validação da URL pública permanecem pendentes e estão descritas em [DEPLOYMENT.md](DEPLOYMENT.md).
+Na Vercel, use o build com mocks, sirva o worker como JavaScript e preserve os assets antes do fallback SPA. `vercel.json` configura esses requisitos. A aplicação está publicada em [teste-jungle-gaming-59kluuver-joaomaraiafs-projects.vercel.app](https://teste-jungle-gaming-59kluuver-joaomaraiafs-projects.vercel.app/); procedimentos para validar rotas e futuras publicações estão em [DEPLOYMENT.md](DEPLOYMENT.md).
 
 Testes de integração exercitam Axios → MSW e cliente Socket.IO → binding; cobrem filtros, erros, precisão decimal, duplicatas, versões antigas, reconexão e unsubscribe. E2E verifica inicialização dos mocks/conexão no build, persistência após refresh e reset em desktop/mobile, sem requests HTTP externos. As telas de catálogo e os fluxos locais de autenticação estão implementados; cotação, conexões simuladas e pedidos possuem testes REST/E2E; eventos entre abas estão cobertos na etapa 5.
 
@@ -212,7 +212,7 @@ Cupons: `KURIO10` aplica 10% sobre subtotal; `EXPIRADO` falha com 422; código d
 
 Endpoints funcionais: `POST /quotes`, `GET /quotes/:id`, `POST /quotes/:id/accept`; `POST/GET/DELETE /wallet-connections`; `POST/GET /orders`, `GET /orders/:id`, `GET /orders/:id/receipt`. Paths individuais de conexão incluem `/:id`. Contratos e cenários completos estão em [COMMERCE_CONTRACTS.md](COMMERCE_CONTRACTS.md#cotação--etapa-4-implementada).
 
-Todos exigem sessão e aceitam a precondição `X-Expected-User`; recurso de outro proprietário retorna 404. Criação de pedido exige UUID em `Idempotency-Key`; mesmo conteúdo recupera o mesmo pedido, conflito retorna 409. Preço/estoque/cupom/taxa são revalidados antes da criação e da confirmação. Rede da carteira/cotação/NFT deve ser compatível. A conexão usa carteira cadastrada e não altera implicitamente os cadastros.
+Todos exigem sessão e aceitam a precondição `X-Expected-User`; recurso de outro proprietário retorna 404. Criação de pedido exige UUID em `Idempotency-Key`; mesmo conteúdo recupera o mesmo pedido, conflito retorna 409. Preço/estoque/cupom/taxa são revalidados antes da criação e da confirmação. A rede da carteira conectada deve corresponder à rede escolhida na cotação; o mock não impõe que essa rede corresponda à rede dos NFTs. A conexão usa carteira cadastrada e não altera implicitamente os cadastros.
 
 Totais são strings decimais calculadas em wei. Cotações e recibos são snapshots. Pedidos `pending` têm resolução persistida e recuperável por REST. Confirmar grava pedido/estoque/idempotência/carrinho em uma operação sob Web Lock. Consultas não repetem baixa de um pedido terminal. `POST /__mock/checkout` controla sucesso, recusa, timeout após criação, conexão recusada, cupom expirado e última unidade.
 

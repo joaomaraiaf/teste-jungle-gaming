@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { loginDemo } from './helpers/auth';
-import { checkoutAddress, saveCheckoutWallet } from './helpers/checkout';
+import { checkoutAddress } from './helpers/checkout';
 
 test.beforeEach(async ({ page }) => {
   await loginDemo(page);
@@ -86,10 +86,15 @@ test('conclui a compra demonstrativa e retorna ao catálogo com o carrinho vazio
   await page.getByRole('textbox', { name: 'Nome de usuário' }).fill('colecionador');
   await page.getByRole('textbox', { name: 'Nome do perfil' }).fill('Minha coleção');
   const total = await page.getByLabel('Valores do pedido').getByText(/ETH$/).last().innerText();
-  await saveCheckoutWallet(page);
   await page.getByRole('button', { name: 'Confirmar compra' }).click();
 
   await expect(page).toHaveURL(/\/payment\/confirmation(?:\?|$)/);
+  const savedWallets = await page.evaluate(async () => (await fetch('/api/wallets')).json());
+  expect(savedWallets.primary).toMatchObject({
+    network: 'ethereum',
+    walletAddress: checkoutAddress,
+    walletType: 'metamask',
+  });
   await page.locator('.receipt-reveal').evaluate(async (element) => {
     await Promise.all(
       element.getAnimations({ subtree: true }).map((animation) => animation.finished)

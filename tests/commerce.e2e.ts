@@ -7,9 +7,22 @@ async function logout(page: Page) {
   await expect(page.getByRole('button', { name: /^Entrar(?: na conta)?$/ })).toBeVisible();
 }
 async function add(page: Page) {
+  const cartReady = page.waitForResponse(
+    (response) =>
+      new URL(response.url()).pathname === '/api/cart' &&
+      response.request().method() === 'GET' &&
+      response.ok()
+  );
   await page.goto('/market/nft-001');
+  await cartReady;
+  const addToCart = page.waitForResponse(
+    (response) =>
+      new URL(response.url()).pathname === '/api/cart/items' &&
+      response.request().method() === 'POST'
+  );
   await page.getByRole('button', { name: 'Comprar', exact: true }).click();
-  await expect(page).toHaveURL(/\/cart$/);
+  expect((await addToCart).ok()).toBe(true);
+  await expect(page).toHaveURL(/\/cart$/, { timeout: 15000 });
   await expect(page.getByRole('button', { name: 'Aplicar', exact: true })).toBeVisible();
 }
 async function failNext(page: Page, resource: 'favorites' | 'cart') {

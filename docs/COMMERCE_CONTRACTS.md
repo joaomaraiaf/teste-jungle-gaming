@@ -65,7 +65,7 @@ Criar/revalidar recalcula catálogo, estoque, cupom e taxa. Alteração relevant
 | GET | `/wallet-connections/:id` | `WalletConnection` |
 | DELETE | `/wallet-connections/:id` | Conexão atualizada como `disconnected` |
 
-`WalletConnection = { id, userId, walletSlot, network, provider, walletAddress, status, version }`. Slot: `primary`/`secondary`; rede: `ethereum`/`polygon`/`solana`; provider: `metamask`/`coinbase`/`walletconnect`; status: `connected`/`refused`/`disconnected`. O endereço é resolvido da carteira cadastrada. Carteira ausente ou rede incompatível retorna 422. Recusa simulada é uma resposta com `status: refused`; não habilita compra. Nenhum endereço ou sessão de outra conta pode ser usado.
+`WalletConnection = { id, userId, walletSlot, network, provider, walletAddress, status, version }`. Slot: `primary`/`secondary`; rede: `ethereum`/`polygon`/`solana`; provider: `metamask`/`coinbase`/`walletconnect`; status: `connected`/`refused`/`disconnected`. O endereço é resolvido da carteira cadastrada. Carteira ausente ou rede da carteira diferente da rede selecionada retorna 422. A rede da cotação não precisa corresponder à rede dos NFTs simulados. Recusa simulada é uma resposta com `status: refused`; não habilita compra. Nenhum endereço ou sessão de outra conta pode ser usado.
 
 ## Pedidos e recibos — etapa 4 implementada
 
@@ -86,7 +86,7 @@ Base do pedido: `{ id, userId, attemptId, quoteId, connectionId, version, create
 
 Pedido novo retorna 201; repetição idêntica retorna 200 e o mesmo pedido. A chave é isolada por conta e vinculada ao conteúdo canônico integral da requisição; conteúdo diferente retorna `IDEMPOTENCY_CONFLICT` (409). Falha antes da criação não consome a chave. Após criação, timeout nunca cria outro pedido quando a mesma tentativa é reenviada.
 
-Criação exige cotação aceita e atual, carteira conectada, rede compatível e sessão válida. Cotação desatualizada retorna `QUOTE_CHANGED` (409). Pedido pendente não reserva estoque; confirmação verifica a disponibilidade sob bloqueio, grava pedido/estoque/idempotência em uma operação e remove apenas as quantidades compradas. Em disputa pela última unidade, somente um pedido confirma. Confirmação/recusa são terminais. Snapshot confirmado é imutável e alterações futuras no catálogo não modificam o recibo.
+Criação exige cotação aceita e atual, carteira conectada na mesma rede da cotação e sessão válida. A rede escolhida não é comparada à rede dos NFTs. Cotação desatualizada retorna `QUOTE_CHANGED` (409). Pedido pendente não reserva estoque; confirmação verifica a disponibilidade sob bloqueio, grava pedido/estoque/idempotência em uma operação e remove apenas as quantidades compradas. Em disputa pela última unidade, somente um pedido confirma. Confirmação/recusa são terminais. Snapshot confirmado é imutável e alterações futuras no catálogo não modificam o recibo.
 
 Tentativa, corpo da requisição e id do pedido são preservados por conta na aba antes do envio. Refresh/reconexão consulta o pedido existente. O processamento simulado usa `resolveAt` persistido para recuperar pendências sem depender exclusivamente de timers de uma aba aberta. Atividade projeta os pedidos confirmados; compras antigas vinculadas a contas são migradas uma vez, sem vincular histórico visitante a uma conta.
 
