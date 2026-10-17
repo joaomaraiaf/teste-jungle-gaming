@@ -1,9 +1,9 @@
-import { useAuthSession } from '@/features/auth/hooks/use-auth-session.hook';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { type SubmitHandler, useForm } from 'react-hook-form';
+import { useAuthSession } from '@/features/auth/hooks/use-auth-session.hook';
 import {
-  type WalletFormValues,
   savedWalletSchema,
+  type WalletFormValues,
   walletFormSchema,
 } from '../data/schemas/wallet.schema';
 import type { SavedWallet, WalletSlot } from '../domain/entities/saved-wallet.entity';

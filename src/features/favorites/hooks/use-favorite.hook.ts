@@ -1,3 +1,5 @@
+import { useIsMutating, useQueryClient } from '@tanstack/react-query';
+import { useMemo } from 'react';
 import { useAppMutation } from '@/core/hooks/use-app-mutation';
 import { useAppQuery } from '@/core/hooks/use-app-query';
 import type { AuthSession } from '@/features/auth/domain/entities/auth-session.entity';
@@ -5,8 +7,6 @@ import { useAuthSession } from '@/features/auth/hooks/use-auth-session.hook';
 import { useFavoriteAccess } from '@/features/auth/hooks/use-favorite-access.hook';
 import { useSessionErrorHandler } from '@/features/auth/hooks/use-session-error-handler.hook';
 import { AUTH_SESSION_QUERY_KEY } from '@/features/auth/hooks/use-session-view-model.hook';
-import { useIsMutating, useQueryClient } from '@tanstack/react-query';
-import { useMemo } from 'react';
 import type { Favorites } from '../domain/entities/favorites.entity';
 import { createFavoritesUseCase } from '../favorites.dependencies';
 

@@ -1,5 +1,5 @@
-import { expect, test } from '@playwright/test';
 import type { Page } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { loginTrigger } from './helpers/auth';
 
 async function signup(page: Page) {

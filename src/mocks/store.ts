@@ -1,5 +1,5 @@
 import type { CommerceStore } from './commerce-store';
-import { NFT_IMAGE_URLS, createNftFixtures } from './fixtures';
+import { createNftFixtures, NFT_IMAGE_URLS } from './fixtures';
 import { type MockScenario, type MockState, mockStateSchema } from './mock-state.schema';
 
 export const MOCK_STORAGE_KEY = 'greenmint:mocks:v1';

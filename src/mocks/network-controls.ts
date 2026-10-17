@@ -1,4 +1,4 @@
-import { http, HttpResponse, delay } from 'msw';
+import { delay, HttpResponse, http } from 'msw';
 import { z } from 'zod';
 
 const ruleSchema = z.object({

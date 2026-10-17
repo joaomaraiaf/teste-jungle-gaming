@@ -1,10 +1,10 @@
+import { useMemo } from 'react';
 import { useAppQuery } from '@/core/hooks/use-app-query';
 import { useAuthSession } from '@/features/auth/hooks/use-auth-session.hook';
 import { useSessionErrorHandler } from '@/features/auth/hooks/use-session-error-handler.hook';
 import { parseEthToWei } from '@/features/cart/domain/entities/cart-totals';
 import { orderToActivity } from '@/features/orders/domain/entities/order-presenters';
 import { createOrdersUseCase } from '@/features/orders/orders.dependencies';
-import { useMemo } from 'react';
 export const ACTIVITY_QUERY_KEY = ['activity'] as const;
 export function useActivity() {
   const { session, isLoading } = useAuthSession();

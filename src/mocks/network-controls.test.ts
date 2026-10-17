@@ -1,7 +1,8 @@
 // @vitest-environment node
-import { AxiosAdapter } from '@/core/api/axios-adapter';
+
 import { setupServer } from 'msw/node';
 import { afterAll, beforeAll, expect, it } from 'vitest';
+import { AxiosAdapter } from '@/core/api/axios-adapter';
 import { createMockEnvironment } from './environment';
 
 const values = new Map<string, string>();

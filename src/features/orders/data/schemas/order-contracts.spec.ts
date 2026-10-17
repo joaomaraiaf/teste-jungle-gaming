@@ -1,9 +1,9 @@
+import { describe, expect, it } from 'vitest';
 import { cartSchema, cartSelectionSchema } from '@/features/cart/data/schemas/cart.schema';
 import { favoritesSchema } from '@/features/favorites/data/schemas/favorites.schema';
 import { quoteTotalsSchema } from '@/features/quotes/data/schemas/quote.schema';
-import { describe, expect, it } from 'vitest';
-import { orderUpdatedEventSchema } from './order-updated-event.schema';
 import { confirmedOrderSchema, orderSchema } from './order.schema';
+import { orderUpdatedEventSchema } from './order-updated-event.schema';
 
 const id = '11111111-1111-4111-8111-111111111111';
 const otherId = '22222222-2222-4222-8222-222222222222';

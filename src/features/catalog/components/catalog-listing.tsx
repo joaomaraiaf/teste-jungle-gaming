@@ -1,8 +1,8 @@
+import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import { BackgroundRequestStatus } from '@/core/components/background-request-status';
 import { Button } from '@/core/components/ui/button';
 import { Skeleton } from '@/core/components/ui/skeleton';
 import { navigateTabList } from '@/core/lib/tab-keyboard';
-import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { CatalogQuery } from '../domain/usecases/list-nfts.usecase';
 import type { useCatalog } from '../hooks/use-catalog.hook';
 import { NftCard } from './nft-card';

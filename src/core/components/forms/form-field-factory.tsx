@@ -1,3 +1,6 @@
+import { Eye, EyeOff } from 'lucide-react';
+import { type ReactNode, useId, useState } from 'react';
+import { type Control, Controller, type FieldValues, type Path } from 'react-hook-form';
 import { Field, FieldError, FieldLabel } from '@/core/components/ui/field';
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@/core/components/ui/input-group';
 import {
@@ -7,9 +10,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/core/components/ui/select';
-import { Eye, EyeOff } from 'lucide-react';
-import { type ReactNode, useId, useState } from 'react';
-import { type Control, Controller, type FieldValues, type Path } from 'react-hook-form';
 
 interface FormFieldFactoryProps<TFieldValues extends FieldValues> {
   name: Path<TFieldValues>;

@@ -1,11 +1,11 @@
+import { useSearch } from '@tanstack/react-router';
+import { useMemo } from 'react';
 import { useAppQuery } from '@/core/hooks/use-app-query';
 import { useAuthSession } from '@/features/auth/hooks/use-auth-session.hook';
 import { useSessionErrorHandler } from '@/features/auth/hooks/use-session-error-handler.hook';
 import { readLastOrder } from '@/features/orders/data/order-attempt.store';
 import { orderToReceipt } from '@/features/orders/domain/entities/order-presenters';
 import { createOrdersUseCase } from '@/features/orders/orders.dependencies';
-import { useSearch } from '@tanstack/react-router';
-import { useMemo } from 'react';
 export const RECEIPT_QUERY_KEY = ['receipt'] as const;
 export function useConfirmation() {
   const { session } = useAuthSession();

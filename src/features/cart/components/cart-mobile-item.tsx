@@ -29,7 +29,7 @@ export function CartMobileItem({ item, onUpdateQuantity, onRemove }: CartMobileI
           <p className='mt-1 text-xs font-bold text-[#E89B55]'>{item.unitPriceEth} ETH</p>
         </div>
         <div className='flex shrink-0 flex-col items-end gap-1'>
-          <div className='flex items-center gap-1'>
+          <div className='flex items-center gap-1' role='group' aria-label='Quantidade'>
             <Button
               type='button'
               aria-label={`Diminuir quantidade de ${item.name}`}
@@ -39,9 +39,7 @@ export function CartMobileItem({ item, onUpdateQuantity, onRemove }: CartMobileI
             >
               −
             </Button>
-            <span className='min-w-3 text-center text-[0.625rem]' aria-label='Quantidade'>
-              {item.quantity}
-            </span>
+            <span className='min-w-3 text-center text-[0.625rem]'>{item.quantity}</span>
             <Button
               type='button'
               aria-label={`Aumentar quantidade de ${item.name}`}

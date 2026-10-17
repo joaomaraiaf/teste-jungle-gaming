@@ -1,3 +1,5 @@
+import { X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import {
   Dialog,
   DialogClose,
@@ -5,8 +7,6 @@ import {
   DialogDescription,
   DialogTitle,
 } from '@/core/components/ui/dialog';
-import { X } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
 import { LoginForm } from './login-form';
 import { LoginSocialOptions } from './login-social-options';
 import { SignupForm } from './signup-form';

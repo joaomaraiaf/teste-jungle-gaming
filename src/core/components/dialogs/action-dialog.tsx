@@ -1,3 +1,5 @@
+import type { DialogProps } from '@radix-ui/react-dialog';
+import type { ReactNode } from 'react';
 import { Alert, AlertDescription, AlertTitle } from '@/core/components/ui/alert';
 import {
   Dialog,
@@ -6,8 +8,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/core/components/ui/dialog';
-import type { DialogProps } from '@radix-ui/react-dialog';
-import type { ReactNode } from 'react';
 
 interface ActionDialogProps extends DialogProps {
   title: ReactNode;

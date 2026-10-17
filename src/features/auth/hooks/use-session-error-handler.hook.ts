@@ -1,5 +1,5 @@
-import { ApiError } from '@/core/api/api-error';
 import { useCallback } from 'react';
+import { ApiError } from '@/core/api/api-error';
 import { useAuthSession } from './use-auth-session.hook';
 
 export function useSessionErrorHandler() {

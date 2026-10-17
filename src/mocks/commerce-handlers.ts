@@ -1,12 +1,12 @@
+import { delay, HttpResponse, http } from 'msw';
+import { z } from 'zod';
 import {
   cartMergeInputSchema,
   cartSelectionSchema,
   couponInputSchema,
 } from '@/features/cart/data/schemas/cart.schema';
-import { calculateCartTotals } from '@/features/cart/domain/entities/cart-totals';
 import type { Cart, CartSelection } from '@/features/cart/domain/entities/cart.entity';
-import { http, HttpResponse, delay } from 'msw';
-import { z } from 'zod';
+import { calculateCartTotals } from '@/features/cart/domain/entities/cart-totals';
 import type { AuthStore } from './auth-store';
 import { couponRate } from './checkout-utils';
 import { COUPON_FIXTURES } from './commerce-scenarios';

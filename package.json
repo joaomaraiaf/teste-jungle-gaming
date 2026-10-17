@@ -85,6 +85,8 @@
   },
   "type": "module",
   "msw": {
-    "workerDirectory": ["public"]
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

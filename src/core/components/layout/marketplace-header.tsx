@@ -1,9 +1,9 @@
-import { Button } from '@/core/components/ui/button';
-import { Input } from '@/core/components/ui/input';
-import { AccountMenu } from '@/features/auth/components/account-menu';
 import { Link } from '@tanstack/react-router';
 import { Search, ShoppingCart, SlidersHorizontal } from 'lucide-react';
 import { useState } from 'react';
+import { Button } from '@/core/components/ui/button';
+import { Input } from '@/core/components/ui/input';
+import { AccountMenu } from '@/features/auth/components/account-menu';
 import { MarketplaceBottomNavigation } from './marketplace-bottom-navigation';
 
 type MenuItem = 'home' | 'market' | 'creators' | 'learn';

@@ -1,5 +1,5 @@
-import { ArtworkImage } from '@/core/components/artwork-image';
 import { ChevronRight } from 'lucide-react';
+import { ArtworkImage } from '@/core/components/artwork-image';
 
 export interface CatalogPromotion {
   title: string;

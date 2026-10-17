@@ -1,7 +1,7 @@
+import { z } from 'zod';
 import { cartItemSchema } from '@/features/cart/data/schemas/cart.schema';
 import { walletConnectionInputSchema } from '@/features/payment/data/schemas/wallet-connection.schema';
 import { quoteTotalsSchema } from '@/features/quotes/data/schemas/quote.schema';
-import { z } from 'zod';
 import type { Order } from '../../domain/entities/order.entity';
 export const orderCollectorSchema = z.object({
   displayName: z.string().trim().min(2),

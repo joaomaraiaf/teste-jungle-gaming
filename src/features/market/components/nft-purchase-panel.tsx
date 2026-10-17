@@ -1,6 +1,6 @@
-import { Button } from '@/core/components/ui/button';
 import { Heart, Linkedin, Mail, Minus, Plus, ShoppingCart, Twitter } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { Button } from '@/core/components/ui/button';
 import type { MarketNft } from '../domain/entities/market-nft.entity';
 
 interface NftPurchasePanelProps {
@@ -48,6 +48,7 @@ export function NftPurchasePanel({
             {selectedEdition?.priceEth ?? '—'} ETH
           </p>
           <p
+            role='img'
             className='flex w-full min-w-0 flex-wrap items-center justify-end gap-2 text-right text-xs leading-4 text-[#CFB28C]'
             aria-label={`Avaliação ${nft.details.rating} de 5, ${nft.details.reviewsCount} avaliações`}
           >
@@ -87,7 +88,7 @@ export function NftPurchasePanel({
       </div>
 
       <div className='flex w-full flex-wrap items-center gap-4'>
-        <div className='flex items-center gap-3' aria-label='Quantidade'>
+        <div role='group' className='flex items-center gap-3' aria-label='Quantidade'>
           <Button
             type='button'
             aria-label='Diminuir quantidade'

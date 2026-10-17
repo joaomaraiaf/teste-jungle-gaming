@@ -1,6 +1,6 @@
-import { useFavorite } from '@/features/favorites/hooks/use-favorite.hook';
 import { useParams } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
+import { useFavorite } from '@/features/favorites/hooks/use-favorite.hook';
 import { useMarketNft } from './use-market-nft.hook';
 
 export function useMarketView() {

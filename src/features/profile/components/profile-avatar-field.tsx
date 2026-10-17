@@ -1,7 +1,7 @@
-import { Button } from '@/core/components/ui/button';
 import { Smile } from 'lucide-react';
 import { useRef } from 'react';
 import { type UseFormReturn, useWatch } from 'react-hook-form';
+import { Button } from '@/core/components/ui/button';
 import type { ProfileFormValues } from '../data/schemas/profile.schema';
 
 interface ProfileAvatarFieldProps {

@@ -1,5 +1,5 @@
-import { cn } from '@/core/lib/utils';
 import type { ReactNode } from 'react';
+import { cn } from '@/core/lib/utils';
 
 export const MARKETPLACE_FULL_WIDTH_CLASS = 'lg:-mx-[7.5rem] lg:w-[calc(100%+15rem)]';
 

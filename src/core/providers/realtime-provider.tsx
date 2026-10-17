@@ -1,6 +1,6 @@
-import { type RealtimeSocket, createSocketClient } from '@/core/realtime/socket-client';
-import { SocketContext } from '@/core/realtime/socket-context';
 import { type ReactNode, useEffect, useState } from 'react';
+import { createSocketClient, type RealtimeSocket } from '@/core/realtime/socket-client';
+import { SocketContext } from '@/core/realtime/socket-context';
 
 interface RealtimeProviderProps {
   socket?: RealtimeSocket | null;

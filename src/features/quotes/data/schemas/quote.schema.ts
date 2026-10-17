@@ -1,7 +1,7 @@
+import { z } from 'zod';
 import { cartItemSchema } from '@/features/cart/data/schemas/cart.schema';
 import { parseEthToWei } from '@/features/cart/domain/entities/cart-totals';
 import { ethAmountSchema, nftSchema } from '@/features/catalog/data/schemas/catalog.schema';
-import { z } from 'zod';
 import type { Quote } from '../../domain/entities/quote.entity';
 export const quoteTotalsSchema = z
   .object({

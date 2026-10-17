@@ -1,5 +1,5 @@
-import { Button } from '@/core/components/ui/button';
 import { useEffect, useState } from 'react';
+import { Button } from '@/core/components/ui/button';
 
 interface CatalogPriceRangeFilterProps {
   minPriceEth?: string;

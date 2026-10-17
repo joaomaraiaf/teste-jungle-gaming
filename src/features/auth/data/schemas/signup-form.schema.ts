@@ -1,5 +1,5 @@
-import { passwordSchema } from '@/core/utils/password.schema';
 import { z } from 'zod';
+import { passwordSchema } from '@/core/utils/password.schema';
 
 export const signupInputSchema = z.object({
   username: z.string().trim().min(2, 'Informe um nome de usuário com pelo menos 2 caracteres.'),

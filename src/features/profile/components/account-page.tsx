@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+import { useState } from 'react';
 import { MarketplaceHeader } from '@/core/components/layout/marketplace-header';
 import { MarketplacePageContainer } from '@/core/components/layout/marketplace-page-container';
 import { Button } from '@/core/components/ui/button';
@@ -5,8 +7,6 @@ import { Skeleton } from '@/core/components/ui/skeleton';
 import { useAuthSession } from '@/features/auth/hooks/use-auth-session.hook';
 import { useLoginDialog } from '@/features/auth/hooks/use-login-dialog.hook';
 import { useCart } from '@/features/cart/hooks/use-cart.hook';
-import type { ReactNode } from 'react';
-import { useState } from 'react';
 import { ProfileSidebar } from './profile-sidebar';
 
 interface AccountPageProps {

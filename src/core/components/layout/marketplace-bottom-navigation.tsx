@@ -1,7 +1,7 @@
-import { AccountMenu } from '@/features/auth/components/account-menu';
 import { Link, useLocation } from '@tanstack/react-router';
 import { Heart, House, ScanLine, ShoppingCart } from 'lucide-react';
 import { toast } from 'sonner';
+import { AccountMenu } from '@/features/auth/components/account-menu';
 
 interface MarketplaceBottomNavigationProps {
   cartItemCount: number;

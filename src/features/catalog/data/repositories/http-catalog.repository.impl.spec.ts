@@ -1,6 +1,6 @@
-import type { IHttpClient, IRequestOptions, QueryParams } from '@/core/api/http-client';
 import { describe, expect, it, vi } from 'vitest';
 import { ZodError } from 'zod';
+import type { IHttpClient, IRequestOptions, QueryParams } from '@/core/api/http-client';
 import type { CatalogQuery } from '../../domain/usecases/list-nfts.usecase';
 import { HttpCatalogRepository } from './http-catalog.repository.impl';
 

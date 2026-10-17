@@ -24,7 +24,7 @@ export function CartRequestState() {
             <Skeleton className='h-8 w-1/2' />
             <Skeleton className='h-28 w-full' />
           </div>
-          <div aria-label='Resumo do carrinho' className='space-y-5'>
+          <div role='group' aria-label='Resumo do carrinho' className='space-y-5'>
             <Skeleton className='h-8 w-2/3' />
             <Skeleton className='h-28 w-full' />
             <Skeleton className='h-12 w-full' />

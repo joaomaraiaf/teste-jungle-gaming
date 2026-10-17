@@ -1,5 +1,6 @@
 import type { CatalogHeroSlide } from '../components/catalog-hero';
 import type { CatalogQuery } from '../domain/usecases/list-nfts.usecase';
+
 const artwork = [
   '/images/2986a7cb16d09de8970824d2dd58bf0bb021702c.webp',
   '/images/87580f2def9af0ce13f4b6f6ce17bb2449bcfc16.webp',

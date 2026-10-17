@@ -1,10 +1,10 @@
+import { z } from 'zod';
 import { cartSchema } from '@/features/cart/data/schemas/cart.schema';
 import { nftSchema } from '@/features/catalog/data/schemas/catalog.schema';
 import { favoritesSchema } from '@/features/favorites/data/schemas/favorites.schema';
 import { createOrderSchema, orderSchema } from '@/features/orders/data/schemas/order.schema';
 import { walletConnectionSchema } from '@/features/payment/data/schemas/wallet-connection.schema';
 import { quoteSchema } from '@/features/quotes/data/schemas/quote.schema';
-import { z } from 'zod';
 import type { AuthStore } from './auth-store';
 
 export const COMMERCE_STORAGE_KEY = 'kurio:mock-commerce:v1';

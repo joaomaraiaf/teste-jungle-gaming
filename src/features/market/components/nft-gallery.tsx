@@ -1,5 +1,5 @@
-import { ArtworkImage } from '@/core/components/artwork-image';
 import { Heart } from 'lucide-react';
+import { ArtworkImage } from '@/core/components/artwork-image';
 
 interface NftGalleryProps {
   name: string;

@@ -1,5 +1,5 @@
-import { calculateCartTotals } from '@/features/cart/domain/entities/cart-totals';
 import type { Cart } from '@/features/cart/domain/entities/cart.entity';
+import { calculateCartTotals } from '@/features/cart/domain/entities/cart-totals';
 import type { WalletNetwork } from '@/features/payment/domain/entities/wallet-connection.entity';
 import type { Quote, QuoteIssue } from '@/features/quotes/domain/entities/quote.entity';
 import { canonicalItem, checkoutFail, couponRate } from './checkout-utils';

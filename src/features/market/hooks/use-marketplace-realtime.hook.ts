@@ -1,3 +1,5 @@
+import { type Query, useQueryClient } from '@tanstack/react-query';
+import { useEffect } from 'react';
 import { useRealtimeSocket } from '@/core/hooks/use-realtime-socket.hook';
 import type { AuthSession } from '@/features/auth/domain/entities/auth-session.entity';
 import { useAuthSession } from '@/features/auth/hooks/use-auth-session.hook';
@@ -6,8 +8,6 @@ import { subscribeNftUpdates } from '@/features/catalog/data/realtime/subscribe-
 import type { Nft } from '@/features/catalog/domain/entities/nft.entity';
 import { subscribeOrderUpdates } from '@/features/orders/data/realtime/subscribe-order-updates';
 import type { Order } from '@/features/orders/domain/entities/order.entity';
-import { type Query, useQueryClient } from '@tanstack/react-query';
-import { useEffect } from 'react';
 export function useMarketplaceRealtime() {
   const socket = useRealtimeSocket();
   const { session } = useAuthSession();

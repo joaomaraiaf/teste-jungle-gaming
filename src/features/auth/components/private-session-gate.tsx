@@ -1,7 +1,7 @@
-import { Button } from '@/core/components/ui/button';
-import { Skeleton } from '@/core/components/ui/skeleton';
 import { useLocation } from '@tanstack/react-router';
 import type { ReactNode } from 'react';
+import { Button } from '@/core/components/ui/button';
+import { Skeleton } from '@/core/components/ui/skeleton';
 import { useAuthSession } from '../hooks/use-auth-session.hook';
 import { useLoginDialog } from '../hooks/use-login-dialog.hook';
 import { isPrivateDestination } from '../private-destinations';

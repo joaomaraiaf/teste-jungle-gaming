@@ -1,7 +1,7 @@
-import { ArtworkImage } from '@/core/components/artwork-image';
-import { useFavorite } from '@/features/favorites/hooks/use-favorite.hook';
 import { Link } from '@tanstack/react-router';
 import { Heart } from 'lucide-react';
+import { ArtworkImage } from '@/core/components/artwork-image';
+import { useFavorite } from '@/features/favorites/hooks/use-favorite.hook';
 import type { Nft } from '../domain/entities/nft.entity';
 
 interface NftCardProps {

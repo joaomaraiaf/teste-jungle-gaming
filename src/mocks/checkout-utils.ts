@@ -1,5 +1,5 @@
-import { calculateCartTotals } from '@/features/cart/domain/entities/cart-totals';
 import type { Cart, CartSelection } from '@/features/cart/domain/entities/cart.entity';
+import { calculateCartTotals } from '@/features/cart/domain/entities/cart-totals';
 import { COUPON_FIXTURES } from './commerce-scenarios';
 import type { CommerceState } from './commerce-store';
 export class CheckoutError extends Error {

@@ -1,8 +1,8 @@
+import { z } from 'zod';
 import { activityListSchema } from '@/features/activity/data/schemas/activity.schema';
 import { collectorSchema } from '@/features/auth/data/schemas/auth-session.schema';
 import { storedProfileSchema } from '@/features/profile/data/schemas/profile.schema';
 import { savedWalletsSchema } from '@/features/wallets/data/schemas/wallet.schema';
-import { z } from 'zod';
 import { DEMO_ACCOUNTS } from './demo-accounts';
 
 export const AUTH_STORAGE_KEY = 'kurio:mock-auth:v1';

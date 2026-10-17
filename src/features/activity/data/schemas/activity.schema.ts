@@ -1,6 +1,6 @@
+import { z } from 'zod';
 import { cartItemSchema } from '@/features/cart/data/schemas/cart.schema';
 import { ethAmountSchema } from '@/features/catalog/data/schemas/catalog.schema';
-import { z } from 'zod';
 
 export const completePurchaseSchema = z
   .object({

@@ -1,3 +1,5 @@
+import { Link, useNavigate } from '@tanstack/react-router';
+import { useState } from 'react';
 import { BackgroundRequestStatus } from '@/core/components/background-request-status';
 import { MarketplaceFooter } from '@/core/components/layout/marketplace-footer';
 import { MarketplaceHeader } from '@/core/components/layout/marketplace-header';
@@ -9,8 +11,6 @@ import { Button } from '@/core/components/ui/button';
 import { Skeleton } from '@/core/components/ui/skeleton';
 import { useMobileViewport } from '@/core/hooks/use-mobile-viewport.hook';
 import { useCart } from '@/features/cart/hooks/use-cart.hook';
-import { Link, useNavigate } from '@tanstack/react-router';
-import { useState } from 'react';
 import { useMarketView } from '../hooks/use-market-view.hook';
 import { NftDescription } from './nft-description';
 import { NftGallery } from './nft-gallery';
@@ -87,6 +87,7 @@ export function NftDetailsView() {
             />
             {view.nftQuery.isPending ? (
               <div
+                role='status'
                 className='grid gap-8 lg:grid-cols-[573px_minmax(0,1fr)]'
                 aria-label='Carregando NFT'
               >

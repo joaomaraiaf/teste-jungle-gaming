@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createOrderSchema } from './schemas/order.schema';
+
 const schema = z.object({ key: z.uuid(), input: createOrderSchema, orderId: z.uuid().nullable() });
 export type OrderAttempt = z.infer<typeof schema>;
 const keyFor = (ownerId: string) => `kurio:order-attempt:v1:${ownerId}`;

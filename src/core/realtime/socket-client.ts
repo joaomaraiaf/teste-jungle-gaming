@@ -1,5 +1,5 @@
-import { waitForTransport } from '@/core/api/transport-ready';
 import type { Socket } from 'socket.io-client';
+import { waitForTransport } from '@/core/api/transport-ready';
 
 export type RealtimeSocket = Socket;
 

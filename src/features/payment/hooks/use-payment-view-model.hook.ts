@@ -1,11 +1,11 @@
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useCallback, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useAuthSession } from '@/features/auth/hooks/use-auth-session.hook';
 import { parseEthToWei } from '@/features/cart/domain/entities/cart-totals';
 import { useCart } from '@/features/cart/hooks/use-cart.hook';
 import type { WalletSlot } from '@/features/wallets/domain/entities/saved-wallet.entity';
 import { useWallets } from '@/features/wallets/hooks/use-wallets.hook';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useCallback, useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { readPaymentDraft } from '../data/payment-draft.store';
 import { type PaymentFormValues, paymentFormSchema } from '../data/schemas/payment-form.schema';
 import { useCheckoutFlow } from './use-checkout-flow.hook';

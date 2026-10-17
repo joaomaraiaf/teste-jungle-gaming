@@ -1,5 +1,6 @@
-import { type Page, expect, test } from '@playwright/test';
+import { expect, type Page, test } from '@playwright/test';
 import { loginDemo, loginInDialog } from './helpers/auth';
+
 async function logout(page: Page) {
   await page.goto('/');
   await page.getByRole('button', { name: 'Conta de AliceDemo' }).click();

@@ -1,13 +1,16 @@
-import { AxiosAdapter } from '@/core/api/axios-adapter';
-import { type RealtimeSocket, createSocketClient } from '@/core/realtime/socket-client';
-import type { NftUpdatedEventDto } from '@/features/catalog/data/dtos/realtime.dto';
-import { subscribeNftUpdates } from '@/features/catalog/data/realtime/subscribe-nft-updates';
-import { catalogFacetsSchema } from '@/features/catalog/data/schemas/catalog.schema';
-import { catalogResponseSchema, nftSchema } from '@/features/catalog/data/schemas/catalog.schema';
-import { marketNftSchema } from '@/features/market/data/schemas/market-nft.schema';
 // @vitest-environment node
 import { setupServer } from 'msw/node';
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import { AxiosAdapter } from '@/core/api/axios-adapter';
+import { createSocketClient, type RealtimeSocket } from '@/core/realtime/socket-client';
+import type { NftUpdatedEventDto } from '@/features/catalog/data/dtos/realtime.dto';
+import { subscribeNftUpdates } from '@/features/catalog/data/realtime/subscribe-nft-updates';
+import {
+  catalogFacetsSchema,
+  catalogResponseSchema,
+  nftSchema,
+} from '@/features/catalog/data/schemas/catalog.schema';
+import { marketNftSchema } from '@/features/market/data/schemas/market-nft.schema';
 import { createMockEnvironment } from './environment';
 
 const origin = 'http://127.0.0.1:3002';

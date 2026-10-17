@@ -85,6 +85,7 @@ export function NftDescription({
                   <p className='text-xs text-[#B39463]'>{review.date}</p>
                 </div>
                 <span
+                  role='img'
                   className='ml-auto tracking-widest text-[#D28A4C]'
                   aria-label={`${review.rating} de 5 estrelas`}
                 >

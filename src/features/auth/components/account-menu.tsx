@@ -1,8 +1,9 @@
-import { Button } from '@/core/components/ui/button';
 import { UserRound } from 'lucide-react';
-import { Suspense, lazy } from 'react';
+import { lazy, Suspense } from 'react';
+import { Button } from '@/core/components/ui/button';
 import { useAuthSession } from '../hooks/use-auth-session.hook';
 import { useLoginDialog } from '../hooks/use-login-dialog.hook';
+
 const AuthenticatedAccountMenu = lazy(() =>
   import('./authenticated-account-menu').then((module) => ({
     default: module.AuthenticatedAccountMenu,

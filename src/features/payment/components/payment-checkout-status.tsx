@@ -1,10 +1,12 @@
+import { Link } from '@tanstack/react-router';
 import { Button } from '@/core/components/ui/button';
 import { formatWeiAsEth, parseEthToWei } from '@/features/cart/domain/entities/cart-totals';
-import { Link } from '@tanstack/react-router';
 import type { usePaymentViewModel } from '../hooks/use-payment-view-model.hook';
 export function PaymentCheckoutStatus({
   checkout,
-}: { checkout: ReturnType<typeof usePaymentViewModel>['checkout'] }) {
+}: {
+  checkout: ReturnType<typeof usePaymentViewModel>['checkout'];
+}) {
   const order = checkout.attempt.order;
   return (
     <section

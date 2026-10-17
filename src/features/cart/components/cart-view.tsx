@@ -1,3 +1,5 @@
+import { Link } from '@tanstack/react-router';
+import { useState } from 'react';
 import { BackgroundRequestStatus } from '@/core/components/background-request-status';
 import { MarketplaceFooter } from '@/core/components/layout/marketplace-footer';
 import { MarketplaceHeader } from '@/core/components/layout/marketplace-header';
@@ -6,8 +8,6 @@ import {
   MarketplacePageContainer,
 } from '@/core/components/layout/marketplace-page-container';
 import { Button } from '@/core/components/ui/button';
-import { Link } from '@tanstack/react-router';
-import { useState } from 'react';
 import { useCart } from '../hooks/use-cart.hook';
 import { CartItemRow } from './cart-item-row';
 import { CartMobileHeader } from './cart-mobile-header';

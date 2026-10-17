@@ -1,5 +1,5 @@
-import { formatWeiAsEth } from '@/features/cart/domain/entities/cart-totals';
 import { Fragment } from 'react';
+import { formatWeiAsEth } from '@/features/cart/domain/entities/cart-totals';
 import type { PaymentReceipt } from '../domain/entities/payment-receipt.entity';
 
 interface PaymentReceiptMetadataProps {

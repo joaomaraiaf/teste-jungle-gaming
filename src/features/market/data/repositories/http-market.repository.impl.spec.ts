@@ -1,7 +1,7 @@
-import type { IHttpClient, IRequestOptions, QueryParams } from '@/core/api/http-client';
-import { createNftDetails } from '@/mocks/market-details.mock';
 import { describe, expect, it, vi } from 'vitest';
 import { ZodError } from 'zod';
+import type { IHttpClient, IRequestOptions, QueryParams } from '@/core/api/http-client';
+import { createNftDetails } from '@/mocks/market-details.mock';
 import { HttpMarketRepository } from './http-market.repository.impl';
 
 function createHttpClient(response: unknown): IHttpClient {

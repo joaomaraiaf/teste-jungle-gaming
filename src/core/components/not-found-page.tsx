@@ -1,5 +1,5 @@
-import { Button } from '@/core/components/ui/button';
 import { Link } from '@tanstack/react-router';
+import { Button } from '@/core/components/ui/button';
 
 export function NotFoundPage() {
   return (

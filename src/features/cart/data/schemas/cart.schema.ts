@@ -1,5 +1,5 @@
-import { ethAmountSchema } from '@/features/catalog/data/schemas/catalog.schema';
 import { z } from 'zod';
+import { ethAmountSchema } from '@/features/catalog/data/schemas/catalog.schema';
 import type { Cart } from '../../domain/entities/cart.entity';
 
 export const cartSelectionSchema = z.object({

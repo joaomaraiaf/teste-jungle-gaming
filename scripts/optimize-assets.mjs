@@ -1,6 +1,7 @@
 import { readdir, stat } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
+
 const directory = new URL('../public/images/', import.meta.url);
 for (const name of await readdir(directory)) {
   if (!/^[a-f0-9]{40}\.png$/.test(name)) continue;
