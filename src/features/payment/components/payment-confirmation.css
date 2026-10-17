@@ -1,0 +1,183 @@
+.receipt-scene {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(42rem, calc(100dvw - 2rem));
+  transform-origin: center;
+}
+
+.receipt-reveal {
+  position: relative;
+  isolation: isolate;
+  --receipt-opening: 30%;
+}
+
+.receipt-paper-window {
+  position: relative;
+  z-index: 1;
+  animation: receipt-extract-mask 3.4s linear both;
+}
+
+.receipt-paper {
+  position: relative;
+  transform-origin: center top;
+  animation: receipt-unfold 3.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.receipt-envelope {
+  position: absolute;
+  top: var(--receipt-opening);
+  left: 0;
+  width: 100%;
+  height: 13rem;
+  pointer-events: none;
+  perspective: 50rem;
+  animation: receipt-envelope-conceal 3.4s linear both;
+}
+
+.receipt-envelope-rear {
+  z-index: 0;
+}
+
+.receipt-envelope-cover {
+  z-index: 2;
+}
+
+.receipt-envelope-back,
+.receipt-envelope-front,
+.receipt-envelope-flap {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.375rem;
+}
+
+.receipt-envelope-back {
+  background: #55321f;
+  box-shadow: 0 1.5rem 4rem #0006;
+}
+
+.receipt-envelope-front {
+  background: linear-gradient(135deg, #b77843, #d28a4c 55%, #a86a39);
+  clip-path: polygon(0 0, 50% 52%, 100% 0, 100% 100%, 0 100%);
+}
+
+.receipt-envelope-flap {
+  z-index: 1;
+  background: #e0a16b;
+  clip-path: polygon(0 0, 100% 0, 50% 54%);
+  transform-origin: center top;
+  backface-visibility: hidden;
+  animation: receipt-envelope-open 0.7s 0.15s ease-in-out both;
+}
+
+.receipt-envelope-seal {
+  position: absolute;
+  z-index: 2;
+  top: 40%;
+  left: calc(50% - 1.25rem);
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 0.125rem solid #e89b55;
+  border-radius: 50%;
+  background: #38220f;
+  color: #e89b55;
+  font-weight: 700;
+  animation: receipt-seal-release 0.3s 0.15s ease both;
+}
+
+.receipt-check {
+  animation: receipt-check-arrive 0.5s 2.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes receipt-envelope-open {
+  to {
+    transform: rotateX(180deg);
+  }
+}
+
+@keyframes receipt-envelope-conceal {
+  0%,
+  88% {
+    opacity: 1;
+    visibility: visible;
+  }
+  96%,
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes receipt-seal-release {
+  to {
+    opacity: 0;
+    transform: scale(0.7) translateY(0.5rem);
+  }
+}
+
+/* The envelope stays still. The paper clears its opening before moving
+   in front of the cover and settling into the center of the viewport. */
+@keyframes receipt-extract-mask {
+  0%,
+  64% {
+    z-index: 1;
+    clip-path: inset(-50% 0 70%);
+  }
+  65%,
+  100% {
+    z-index: 3;
+    clip-path: inset(-50% -5% -10%);
+  }
+}
+
+@keyframes receipt-unfold {
+  0%,
+  24% {
+    transform: translateY(30%) scale(0.42);
+  }
+  60%,
+  68% {
+    transform: translateY(-14%) scale(0.42);
+  }
+  92% {
+    transform: translateY(0.75rem) scale(1);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes receipt-check-arrive {
+  from {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .receipt-paper-window {
+    z-index: 3;
+  }
+
+  .receipt-paper-window,
+  .receipt-paper,
+  .receipt-check {
+    animation: none;
+  }
+
+  .receipt-envelope {
+    display: none;
+    animation: none;
+  }
+
+  .receipt-envelope-flap,
+  .receipt-envelope-seal {
+    animation: none;
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-10-17T00:17:17.016Z",
+  "source": "/Users/joaofranco/Projetos/teste-jungle-gaming",
+  "cleanDirectory": "/var/folders/7d/lpsz7ky90jq72bl38157_st40000gn/T/kurio-clean-5uGnYQ",
+  "note": "Cópia limpa dos arquivos da revisão local, sem .git/node_modules/dist. Cache pnpm reutilizado, sem node_modules/dist copiados. Smoke de deploy executado localmente, não comprova URL pública. O código 1 do Lighthouse significa meta de qualidade não atingida e permanece registrado separadamente; passed verifica reprodução/execução, não aprovação das metas.",
+  "steps": [
+    {
+      "command": "pnpm install --frozen-lockfile --store-dir /Users/joaofranco/Library/pnpm/store",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm lint",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm test",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm build:mock",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm test:public --workers=1",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm audit:lighthouse --runs=1 --profile=mobile --page=inicio --output=docs/audits/clean-smoke --port=4183",
+      "exitCode": 0
+    }
+  ],
+  "buildSha256": "59fa5a254319a7b7edfb665e2a58d3d76958396d5bb77288de4bc2d32d71e008",
+  "auditTargetsPassed": true,
+  "auditMedians": [
+    {
+      "page": "inicio",
+      "profile": "mobile",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "fcpMs": 1060.634,
+      "speedIndexMs": 1060.634,
+      "lcpMs": 1660.634,
+      "cls": 0,
+      "tbtMs": 14
+    }
+  ],
+  "passed": true
+}

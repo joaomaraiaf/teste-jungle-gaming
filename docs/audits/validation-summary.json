@@ -1,0 +1,101 @@
+{
+  "generatedAt": "2026-10-17T00:21:01.043243+00:00",
+  "packageManager": "pnpm@11.5.2",
+  "lint": "passed",
+  "typecheck": "passed",
+  "vitest": {
+    "files": 26,
+    "passed": 101
+  },
+  "playwright": {
+    "passed": 117,
+    "skipped": 9,
+    "failed": 0,
+    "reasonForSkips": "Cenários específicos do layout oposto; cada variante executa no viewport correspondente.",
+    "command": "pnpm exec playwright test --workers=2 --reporter=line",
+    "buildSha256": "59fa5a254319a7b7edfb665e2a58d3d76958396d5bb77288de4bc2d32d71e008",
+    "htmlReport": "Historical previous execution; current run used the console reporter."
+  },
+  "visual": {
+    "passed": 12,
+    "failed": 0,
+    "baselineCount": 12,
+    "widths": [390, 768, 1440],
+    "environment": "macOS + Playwright Chromium 1.58.2",
+    "command": "pnpm exec playwright test --config=playwright.visual.config.ts --workers=2"
+  },
+  "publicDeploy": "deferred by user",
+  "lighthouse": {
+    "measurements": 12,
+    "targetsPassed": true,
+    "medians": [
+      {
+        "page": "inicio",
+        "profile": "mobile",
+        "scores": {
+          "performance": 94,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "fcpMs": 1821.7639999999997,
+        "speedIndexMs": 1821.7639999999997,
+        "lcpMs": 2882.6459999999993,
+        "cls": 0,
+        "tbtMs": 49
+      },
+      {
+        "page": "detalhe",
+        "profile": "mobile",
+        "scores": {
+          "performance": 98,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "fcpMs": 1303.165,
+        "speedIndexMs": 1303.165,
+        "lcpMs": 2414.11,
+        "cls": 0,
+        "tbtMs": 0
+      },
+      {
+        "page": "inicio",
+        "profile": "desktop",
+        "scores": {
+          "performance": 100,
+          "accessibility": 97,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "fcpMs": 293.452,
+        "speedIndexMs": 293.452,
+        "lcpMs": 413.452,
+        "cls": 0,
+        "tbtMs": 0
+      },
+      {
+        "page": "detalhe",
+        "profile": "desktop",
+        "scores": {
+          "performance": 100,
+          "accessibility": 97,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "fcpMs": 342.48199999999997,
+        "speedIndexMs": 342.48199999999997,
+        "lcpMs": 493.98799999999994,
+        "cls": 0,
+        "tbtMs": 0
+      }
+    ],
+    "buildSha256": "59fa5a254319a7b7edfb665e2a58d3d76958396d5bb77288de4bc2d32d71e008"
+  },
+  "cleanCheckout": {
+    "passed": true,
+    "matchesAuditedBuild": true,
+    "smokePassed": 2,
+    "auditTargetsPassed": true
+  }
+}

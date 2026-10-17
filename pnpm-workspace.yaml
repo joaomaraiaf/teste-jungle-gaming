@@ -1,0 +1,66 @@
+# Repo de pacote único: o pnpm v11 trata este arquivo como workspace e EXIGE o campo
+# `packages`. '.' inclui a própria raiz (consistente com o importer '.' do lockfile).
+packages:
+  - '.'
+
+# Configurações do pnpm (v11 lê settings daqui, não mais do "pnpm" em package.json).
+# Endurecimento contra supply-chain:
+minimumReleaseAge: 10080 # 7 dias em minutos (não instala versão recém-publicada). Default v11 = 1440 (1 dia).
+blockExoticSubdeps: true # bloqueia deps via git/tarball/path (equivale ao allow-git=none do npm)
+strictDepBuilds: true # falha o install se um pacote NÃO listado abaixo tentar rodar build script
+
+# Allowlist explícita de quem pode rodar postinstall/build. Tudo que não está aqui é bloqueado.
+allowBuilds:
+  msw: true # postinstall atualiza o worker nos diretórios registrados; sem diretório, não faz nada
+  '@biomejs/biome': true # linter/formatter — precisa do binário nativo
+  sharp: true # otimização local dos assets de imagem
+  protobufjs: false # transitivo (telemetria) — script não essencial
+  cpu-features: false # nativo opcional do ssh2 (perf) — tem fallback
+  ssh2: false # nativo opcional (testcontainers) — tem fallback JS
+
+# Overrides de segurança (migrados de package.json -> "pnpm.overrides", que a v11 ignora).
+overrides:
+  'postcss@<8.5.23': '>=8.5.23 <9.0.0'
+  # Fixes high severity issues in PostCSS's CSS parser and source map chain.
+  'nanoid@<3.3.18': '>=3.3.18 <4.0.0'
+  'source-map-js@<1.2.2': '>=1.2.2 <2.0.0'
+  # Fixes critical prototype pollution in Plop's Handlebars dependency.
+  'handlebars@<=4.7.9': '>=4.7.10 <5.0.0'
+  'systeminformation@>=4.17.0 <=5.31.5': '>=5.31.6'
+  # Teto <8.0.0 de propósito: sem ele, o pnpm resolve ">=7.5.8" pra mais nova
+  # versão que satisfaça (flutua até a última release, hoje 8.5.0 — que caiu
+  # de novo numa faixa vulnerável, ver override de protobufjs 8.x abaixo). Quem
+  # pede protobufjs aqui (@grpc/proto-loader) declara "^7.5.5" (só 7.x).
+  'protobufjs@<=7.5.7': '>=7.5.8 <8.0.0'
+  # form-data: CRLF injection via nomes de campo/arquivo não escapados (sub-dep
+  # do axios, que não expõe uma versão própria corrigida — GHSA-hmw2-7cc7-3qxx).
+  # Teto <5.0.0 de propósito (axios declara "^4.0.5" — só 4.x; sem teto o pnpm
+  # flutuaria pra última release geral numa major futura, quebrando o axios).
+  'form-data@>=4.0.0 <4.0.6': '>=4.0.6 <5.0.0'
+  # undici: múltiplas CVEs (bypass de validação TLS via SOCKS5, DoS em
+  # WebSocket, roteamento cross-origin, injeção de header Set-Cookie,
+  # poisoning de fila HTTP, downgrade de SameSite) — sub-dep de
+  # @testcontainers/* e jsdom (via vitest), não tem versão própria pra travar.
+  # Teto <8.0.0 de propósito (mesmo motivo do protobufjs acima): sem ele o
+  # pnpm flutua pra última release geral (8.x), e o jsdom (que declara
+  # "^7.21.0") faz require direto de um caminho interno do undici que mudou
+  # de lugar na 8.x — "Cannot find module 'undici/lib/handler/wrap-handler.js'".
+  'undici@>=7.0.0 <7.29.1': '>=7.29.1 <8.0.0'
+  # protobufjs 8.x: nomes derivados do schema podem sombrear propriedades
+  # relevantes em runtime (GHSA-f38q-mgvj-vph7) — faixa diferente do override
+  # 7.x acima; sub-dep de @grpc/proto-loader (telemetria OTel).
+  'protobufjs@>=8.0.0 <=8.5.0': '>=8.5.1'
+  # @opentelemetry/core: alocação de memória sem limite na propagação de
+  # baggage W3C (GHSA-8988-4f7v-96qf) — sub-dep profundo de
+  # auto-instrumentations-node, sem versão própria exposta pra travar.
+  # Teto <3.0.0 de propósito (o resto do grafo @opentelemetry/* nesta versão
+  # pina "2.7.1" exato — uma major nova do core quebraria compatibilidade).
+  '@opentelemetry/core@<2.8.0': '>=2.8.0 <3.0.0'
+  # brace-expansion: DoS por expansão de tempo exponencial (GHSA-v6h2-p8h4-qcjw)
+  # — sub-dep de @testcontainers/mongodb (via archiver>glob>minimatch). Faixa 2.x
+  # afetada; teto <3.0.0 (minimatch pede "^2.0.0"). Há também linha 1.x no grafo,
+  # não afetada por esta faixa.
+  'brace-expansion@>=2.0.0 <2.1.2': '>=2.1.2 <3.0.0'
+  # js-yaml: consumo quadrático de CPU via cadeias de merge-key (GHSA-hj48-42vr-x3v9)
+  # — sub-dep de @commitlint/cli (via cosmiconfig). Teto <5.0.0 (cosmiconfig pede "^4").
+  'js-yaml@>=4.0.0 <4.3.0': '>=4.3.0 <5.0.0'

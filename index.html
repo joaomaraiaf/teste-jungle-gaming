@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Descubra e colecione arte digital na Kurio." />
+    <script>
+      // Match the actual rendered image sizes before the application modules are downloaded.
+      if (location.pathname === '/' || location.pathname === '/market/nft-001') {
+        const image = '/images/8459204731e6eba9d474cbc8ebc37071360d3ba5';
+        const preload = document.createElement('link');
+        preload.rel = 'preload';
+        preload.as = 'image';
+        preload.href = `${image}.webp`;
+        preload.imageSrcset = `${image}-256.webp 256w, ${image}-512.webp 512w, ${image}.webp 1024w`;
+        preload.imageSizes = location.pathname === '/'
+          ? '(max-width: 1023px) 40vw, 25vw'
+          : '(max-width: 767px) 90vw, (max-width: 1023px) 60vw, 36rem';
+        preload.fetchPriority = 'high';
+        document.head.append(preload);
+      }
+    </script>
+    <link rel="preload" as="font" type="font/woff2" href="/node_modules/@fontsource/roboto-mono/files/roboto-mono-latin-400-normal.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/node_modules/@fontsource/roboto-mono/files/roboto-mono-latin-700-normal.woff2" crossorigin />
+    <title>Kurio — Marketplace de NFTs</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
