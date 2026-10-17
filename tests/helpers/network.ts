@@ -9,7 +9,7 @@ export interface NetworkRule {
   times?: number;
 }
 export async function networkRules(page: Page, rules: NetworkRule[]) {
-  await expect(page.locator('main')).toBeVisible();
+  await expect(page.locator('html')).toHaveAttribute('data-transport-ready', 'true');
   expect(
     await page.evaluate(
       async (rules) =>
@@ -25,7 +25,7 @@ export async function networkRules(page: Page, rules: NetworkRule[]) {
   ).toBe(204);
 }
 export async function resetMocks(page: Page, scenario = 'default') {
-  await expect(page.locator('main')).toBeVisible();
+  await expect(page.locator('html')).toHaveAttribute('data-transport-ready', 'true');
   expect(
     await page.evaluate(
       async (scenario) =>

@@ -76,11 +76,15 @@ export function useMarketplaceRealtime() {
           );
         })
       : () => undefined;
+    let hasConnected = socket.connected;
     const reconnect = () => {
+      if (!hasConnected) {
+        hasConnected = true;
+        return;
+      }
       if (active()) void refresh(currentResources);
     };
     socket.on('connect', reconnect);
-    if (socket.connected) reconnect();
     return () => {
       live = false;
       stopNfts();

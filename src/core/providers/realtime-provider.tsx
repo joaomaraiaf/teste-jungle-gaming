@@ -18,7 +18,7 @@ export function RealtimeProvider({ socket: suppliedSocket, url, children }: Real
     let live = true;
     let instance: RealtimeSocket | null = null;
     setFailed(false);
-    // The application mounts only after MSW starts. Transport loading never blocks its first paint.
+    // The transport boundary waits for MSW; loading never blocks the first paint.
     void createSocketClient(url)
       .then((socket) => {
         instance = socket;

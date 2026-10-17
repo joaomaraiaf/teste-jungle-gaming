@@ -110,6 +110,8 @@ try {
                 Math.round(value.score * 100),
               ])
             ),
+            fcpMs: result.lhr.audits['first-contentful-paint'].numericValue,
+            speedIndexMs: result.lhr.audits['speed-index'].numericValue,
             lcpMs: result.lhr.audits['largest-contentful-paint'].numericValue,
             cls: result.lhr.audits['cumulative-layout-shift'].numericValue,
             tbtMs: result.lhr.audits['total-blocking-time'].numericValue,
@@ -128,6 +130,8 @@ try {
         scores: Object.fromEntries(
           Object.keys(targets).map((key) => [key, median(group.map((item) => item.scores[key]))])
         ),
+        fcpMs: median(group.map((item) => item.fcpMs)),
+        speedIndexMs: median(group.map((item) => item.speedIndexMs)),
         lcpMs: median(group.map((item) => item.lcpMs)),
         cls: median(group.map((item) => item.cls)),
         tbtMs: median(group.map((item) => item.tbtMs)),
@@ -137,7 +141,17 @@ try {
     Object.entries(targets).every(([key, value]) => item.scores[key] >= value)
   );
   console.log('Medianas:', JSON.stringify(summary.medians, null, 2));
-  if (!summary.passed) process.exitCode = 1;
+  if (!summary.passed) {
+    for (const item of summary.medians) {
+      for (const [category, target] of Object.entries(targets)) {
+        if (item.scores[category] < target)
+          console.error(
+            `Meta não atingida: ${item.page}/${item.profile} ${category}=${item.scores[category]}, mínimo=${target}. Consulte ${output}/${item.page}-${item.profile}-1.html`
+          );
+      }
+    }
+    process.exitCode = 1;
+  }
 } finally {
   await writeFile(join(output, 'summary.json'), `${JSON.stringify(summary, null, 2)}\n`);
   const rows = summary.medians.map(

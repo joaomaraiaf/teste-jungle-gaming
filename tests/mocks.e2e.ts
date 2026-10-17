@@ -8,6 +8,7 @@ test('inicia MSW e Socket.IO no build, persiste alterações e permite reset', a
     if (new URL(request.url()).origin !== applicationOrigin) externalRequests.push(request.url());
   });
   await page.goto('/');
+  await expect(page.locator('html')).toHaveAttribute('data-transport-ready', 'true');
   await expect(
     page.getByRole('heading', {
       level: 1,

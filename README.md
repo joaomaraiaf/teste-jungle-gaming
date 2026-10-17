@@ -167,7 +167,7 @@ pnpm generate catalog   # cria o esqueleto de uma feature
 
 O Playwright inicia seu próprio build/preview na porta `3102` (`PLAYWRIGHT_PORT` permite alterá-la); não usa o servidor de desenvolvimento na porta `3002`. A matriz cobre desktop e mobile, com verificações adicionais em tablet. Os testes de rede usam MSW e os sockets simulados, sem API externa.
 
-Na última execução documentada, Vitest passou com 94 testes em 25 arquivos e Playwright passou com 113 testes; 9 casos foram ignorados por não se aplicarem à variante de viewport. As baselines visuais passaram nas 12 comparações. Lighthouse atingiu as metas de acessibilidade, boas práticas e SEO, mas a mediana de Performance mobile ficou em 84 no início e 83 no detalhe, abaixo da meta 90. Consulte as [evidências e condições de validação](docs/VALIDATION.md) e os [relatórios Lighthouse](docs/audits/README.md).
+Na última execução documentada, Vitest passou com 101 testes em 26 arquivos e Playwright passou com 117 testes; 9 casos foram ignorados por não se aplicarem à variante de viewport. As 12 comparações visuais passaram sem atualizar baselines. As 12 auditorias Lighthouse atingiram todas as metas: medianas de Performance 94/98 no mobile e 100/100 no desktop (início/detalhe). A cópia limpa reproduziu instalação, checks, build e smoke, com o mesmo hash do build auditado. Consulte as [evidências e condições de validação](docs/VALIDATION.md), os [relatórios Lighthouse](docs/audits/README.md) e a [decisão de pré-renderização pública](docs/ADRs/0007-pre-renderizacao-publica-e-inicializacao.md).
 
 ## Estrutura e arquitetura
 

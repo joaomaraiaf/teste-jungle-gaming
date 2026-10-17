@@ -52,9 +52,7 @@ test('mantém contas independentes em duas abas, inclusive após refresh e logou
   ).toBeUndefined();
   await page.getByRole('complementary').getByRole('button', { name: 'Sair', exact: true }).click();
   await expect(page).toHaveURL(/\/\?/);
-  await expect(
-    page.locator('header').getByRole('button', { name: 'Entrar', exact: true })
-  ).toBeVisible();
+  await expect(page.getByRole('button', { name: /^Entrar(?: na conta)?$/ })).toBeVisible();
   await other.reload();
   await expect(other.getByRole('textbox', { name: 'E-mail', exact: true })).toHaveValue(
     'bruno@kurio.test'

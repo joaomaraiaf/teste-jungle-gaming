@@ -1,7 +1,10 @@
 import axios, { AxiosError, AxiosHeaders, type AxiosAdapter as NetworkAdapter } from 'axios';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { ApiError } from './api-error';
 import { AxiosAdapter } from './axios-adapter';
+import { setTransportReady } from './transport-ready';
+
+afterEach(() => setTransportReady(Promise.resolve()));
 
 function createTransport(network: NetworkAdapter) {
   const client = axios.create({ adapter: network });
@@ -10,6 +13,34 @@ function createTransport(network: NetworkAdapter) {
 }
 
 describe('AxiosAdapter', () => {
+  it('aguarda a interceptação e descarta uma consulta cancelada durante o bootstrap', async () => {
+    let ready!: () => void;
+    setTransportReady(
+      new Promise<void>((resolve) => {
+        ready = resolve;
+      })
+    );
+    const network = vi.fn<NetworkAdapter>(async (config) => ({
+      data: 'ok',
+      status: 200,
+      statusText: 'OK',
+      headers: {},
+      config,
+    }));
+    const http = createTransport(network);
+    const controller = new AbortController();
+    const canceled = http.get('/obsolete', undefined, { signal: controller.signal });
+    const active = http.get('/nfts');
+    await Promise.resolve();
+    expect(network).not.toHaveBeenCalled();
+    controller.abort();
+    ready();
+    await expect(canceled).rejects.toSatisfy(axios.isCancel);
+    await expect(active).resolves.toBe('ok');
+    expect(network).toHaveBeenCalledOnce();
+    expect(network.mock.calls[0][0].url).toBe('/nfts');
+  });
+
   it('preserva parâmetros, signal, headers de idempotência e corpo da resposta', async () => {
     const network = vi.fn<NetworkAdapter>(async (config) => ({
       data: { id: 'order-1' },

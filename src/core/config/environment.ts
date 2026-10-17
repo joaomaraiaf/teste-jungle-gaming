@@ -6,5 +6,5 @@ if (mocksFlag !== undefined && mocksFlag !== 'true' && mocksFlag !== 'false') {
 export const environment = {
   mocksEnabled: mocksFlag === 'true',
   apiUrl: import.meta.env.VITE_API_URL || '/api',
-  socketUrl: import.meta.env.VITE_SOCKET_URL || window.location.origin,
+  socketUrl: import.meta.env.VITE_SOCKET_URL || globalThis.location?.origin || 'http://localhost',
 };

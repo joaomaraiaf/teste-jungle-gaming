@@ -74,6 +74,7 @@ export function CatalogHero({ slides }: CatalogHeroProps) {
               loading={index === 0 ? 'eager' : 'lazy'}
               fetchPriority={index === 0 ? 'high' : 'low'}
               alt={slide.imageAlt}
+              sizes='(max-width: 1023px) 40vw, min(31vw, 28.125rem)'
               aria-hidden={activeSlide !== index}
               className={`absolute inset-0 h-full w-full rounded-[1rem] object-cover transition-[opacity,transform] duration-700 ease-in-out motion-reduce:transition-none lg:rounded-none ${
                 activeSlide === index ? 'scale-100 opacity-100' : 'scale-[1.04] opacity-0'

@@ -28,7 +28,7 @@ export function NftCard({ nft, priority = false }: NftCardProps) {
                 src={nft.imageUrl}
                 loading={priority ? 'eager' : 'lazy'}
                 fetchPriority={priority ? 'high' : 'auto'}
-                sizes='(max-width: 1023px) 45vw, 25vw'
+                sizes='(max-width: 1023px) 40vw, 25vw'
                 alt={`${nft.name}, da coleção ${nft.collection}`}
                 className='h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]'
               />

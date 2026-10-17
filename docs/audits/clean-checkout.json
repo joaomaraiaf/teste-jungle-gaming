@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-16T21:32:37.787Z",
+  "generatedAt": "2026-10-17T00:17:17.016Z",
   "source": "/Users/joaofranco/Projetos/teste-jungle-gaming",
-  "cleanDirectory": "/var/folders/7d/lpsz7ky90jq72bl38157_st40000gn/T/kurio-clean-Ny3YcS",
-  "note": "C\u00f3pia limpa dos arquivos de entrega; esta origem ainda n\u00e3o possui Git. Cache pnpm reutilizado, sem node_modules/dist copiados. Smoke de deploy executado localmente, n\u00e3o comprova URL p\u00fablica. O c\u00f3digo 1 do Lighthouse significa meta de qualidade n\u00e3o atingida e permanece registrado separadamente; passed verifica reprodu\u00e7\u00e3o/execu\u00e7\u00e3o, n\u00e3o aprova\u00e7\u00e3o das metas.",
+  "cleanDirectory": "/var/folders/7d/lpsz7ky90jq72bl38157_st40000gn/T/kurio-clean-5uGnYQ",
+  "note": "Cópia limpa dos arquivos da revisão local, sem .git/node_modules/dist. Cache pnpm reutilizado, sem node_modules/dist copiados. Smoke de deploy executado localmente, não comprova URL pública. O código 1 do Lighthouse significa meta de qualidade não atingida e permanece registrado separadamente; passed verifica reprodução/execução, não aprovação das metas.",
   "steps": [
     {
       "command": "pnpm install --frozen-lockfile --store-dir /Users/joaofranco/Library/pnpm/store",
@@ -30,26 +30,27 @@
     },
     {
       "command": "pnpm audit:lighthouse --runs=1 --profile=mobile --page=inicio --output=docs/audits/clean-smoke --port=4183",
-      "exitCode": 1
+      "exitCode": 0
     }
   ],
-  "buildSha256": "dad623493b027640959b95711ab5ae280f4fc7ac1153420351dd544e451041e0",
-  "auditTargetsPassed": false,
+  "buildSha256": "59fa5a254319a7b7edfb665e2a58d3d76958396d5bb77288de4bc2d32d71e008",
+  "auditTargetsPassed": true,
   "auditMedians": [
     {
       "page": "inicio",
       "profile": "mobile",
       "scores": {
-        "performance": 83,
+        "performance": 100,
         "accessibility": 100,
         "best-practices": 100,
         "seo": 100
       },
-      "lcpMs": 4258.010250000001,
+      "fcpMs": 1060.634,
+      "speedIndexMs": 1060.634,
+      "lcpMs": 1660.634,
       "cls": 0,
-      "tbtMs": 29.5
+      "tbtMs": 14
     }
   ],
-  "passed": true,
-  "matchesAuditedBuild": true
+  "passed": true
 }

@@ -1,8 +1,10 @@
+import { waitForTransport } from '@/core/api/transport-ready';
 import type { Socket } from 'socket.io-client';
 
 export type RealtimeSocket = Socket;
 
 export async function createSocketClient(url: string): Promise<RealtimeSocket> {
+  await waitForTransport();
   // Import after MSW starts: Engine.IO captures the global WebSocket constructor on import.
   const { io, WebSocket } = await import('socket.io-client');
   return io(url, {

@@ -1,6 +1,7 @@
 import axios, { type AxiosInstance, type AxiosRequestConfig } from 'axios';
 import { ApiError } from './api-error';
 import type { IHttpClient, IRequestOptions, QueryParams } from './http-client';
+import { waitForTransport } from './transport-ready';
 
 export class AxiosAdapter implements IHttpClient {
   private readonly client: AxiosInstance;
@@ -11,6 +12,8 @@ export class AxiosAdapter implements IHttpClient {
 
   private async request<T>(config: AxiosRequestConfig): Promise<T> {
     try {
+      await waitForTransport();
+      if (config.signal?.aborted) throw new axios.CanceledError('Request canceled');
       const response = await this.client.request<T>(config);
       return response.data;
     } catch (error) {

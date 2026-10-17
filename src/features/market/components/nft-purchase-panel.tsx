@@ -1,5 +1,6 @@
 import { Button } from '@/core/components/ui/button';
 import { Heart, Linkedin, Mail, Minus, Plus, ShoppingCart, Twitter } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import type { MarketNft } from '../domain/entities/market-nft.entity';
 
 interface NftPurchasePanelProps {
@@ -25,9 +26,13 @@ export function NftPurchasePanel({
   onToggleFavorite,
   onAddToCart,
 }: NftPurchasePanelProps) {
+  const [pageUrl, setPageUrl] = useState(`/market/${encodeURIComponent(nft.id)}`);
+  useEffect(() => {
+    setPageUrl(window.location.href);
+  }, [nft.id]);
   const tokenId = nft.name.match(/#(\d+)/)?.[1]?.padStart(4, '0') ?? nft.id;
-  const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`;
-  const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(nft.name)}`;
+  const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
+  const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(nft.name)}`;
 
   return (
     <section
@@ -143,7 +148,7 @@ export function NftPurchasePanel({
             <Linkedin size={15} />
           </a>
           <a
-            href={`mailto:?subject=${encodeURIComponent(nft.name)}&body=${encodeURIComponent(window.location.href)}`}
+            href={`mailto:?subject=${encodeURIComponent(nft.name)}&body=${encodeURIComponent(pageUrl)}`}
             aria-label='Compartilhar por e-mail'
             className='hover:text-[#E89B55]'
           >

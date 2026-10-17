@@ -7,7 +7,11 @@ const subscribe = (notify: () => void) => {
   return () => media.removeEventListener('change', notify);
 };
 const getSnapshot = () => window.matchMedia(query).matches;
-const getServerSnapshot = () => false;
+let serverMobile = false;
+export function setServerMobile(value: boolean) {
+  serverMobile = value;
+}
+const getServerSnapshot = () => (typeof window === 'undefined' ? serverMobile : getSnapshot());
 
 export function useMobileViewport() {
   return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);

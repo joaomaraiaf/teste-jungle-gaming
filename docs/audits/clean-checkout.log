@@ -1,12 +1,10 @@
 Lockfile is up to date, resolution step is skipped
 Progress: resolved 1, reused 0, downloaded 0, added 0
-Packages: +540
+Packages: +440
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Progress: resolved 540, reused 310, downloaded 0, added 0
-Progress: resolved 540, reused 540, downloaded 0, added 239
-Progress: resolved 540, reused 540, downloaded 0, added 382
-Progress: resolved 540, reused 540, downloaded 0, added 539
-Progress: resolved 540, reused 540, downloaded 0, added 540, done
+Progress: resolved 440, reused 440, downloaded 0, added 257
+Progress: resolved 440, reused 440, downloaded 0, added 435
+Progress: resolved 440, reused 440, downloaded 0, added 440, done
 .../node_modules/msw postinstall$ node -e "import('./config/scripts/postinstall.js').catch(() => void 0)"
 .../node_modules/msw postinstall: Done
 
@@ -17,7 +15,7 @@ dependencies:
 + @radix-ui/react-dialog 1.1.15
 + @tanstack/react-query 5.90.21
 + @tanstack/react-router 1.170.41
-+ axios 1.18.1
++ axios 1.20.0
 + class-variance-authority 0.7.1
 + clsx 2.1.1
 + lucide-react 0.575.0
@@ -45,37 +43,35 @@ devDependencies:
 + @types/react 19.2.14
 + @types/react-dom 19.2.3
 + @vitejs/plugin-react 6.0.1
-+ @vitest/coverage-v8 4.1.2
++ @vitest/coverage-v8 4.1.11
 + jsdom 28.1.0
 + lighthouse 13.5.0
-+ plop 4.0.5
 + sharp 0.35.5
 + tailwindcss 4.2.4
 + typescript 5.9.3
 + vite 8.0.16
-+ vitest 4.1.2
++ vitest 4.1.11
 
-Done in 6.1s using pnpm v11.5.2
+Done in 3.5s using pnpm v11.5.2
 $ biome check .
-Checked 346 files in 96ms. No fixes applied.
+Checked 354 files in 105ms. No fixes applied.
 $ tsc --noEmit
 $ vitest run
 
- RUN  v4.1.2 /private/var/folders/7d/lpsz7ky90jq72bl38157_st40000gn/T/kurio-clean-Ny3YcS
+ RUN  v4.1.11 /private/var/folders/7d/lpsz7ky90jq72bl38157_st40000gn/T/kurio-clean-5uGnYQ
 
 
- Test Files  25 passed (25)
-      Tests  94 passed (94)
-   Start at  18:32:52
-   Duration  7.90s (transform 675ms, setup 2.07s, import 3.07s, tests 3.41s, environment 3.88s)
+ Test Files  26 passed (26)
+      Tests  101 passed (101)
+   Start at  21:17:28
+   Duration  8.21s (transform 576ms, setup 2.27s, import 3.24s, tests 3.41s, environment 4.13s)
 
 $ pnpm typecheck && vite build --mode mock
 $ tsc --noEmit
 vite v8.0.16 building client environment for mock...
-[2Ktransforming...✓ 2578 modules transformed.
+[2Ktransforming...✓ 2585 modules transformed.
 rendering chunks...
 computing gzip size...
-dist/index.html                                            1.18 kB │ gzip:   0.55 kB
 dist/assets/roboto-mono-latin-400-normal-GekRknry.woff2   12.68 kB
 dist/assets/roboto-mono-latin-700-normal-foxDnrFi.woff2   12.69 kB
 dist/assets/roboto-mono-latin-600-normal-B8NnDpAt.woff2   12.93 kB
@@ -84,96 +80,102 @@ dist/assets/roboto-mono-latin-400-normal-DBZPkcnn.woff    15.72 kB
 dist/assets/roboto-mono-latin-700-normal-CHYrj1DZ.woff    15.84 kB
 dist/assets/roboto-mono-latin-500-normal-D6j6AMzd.woff    15.93 kB
 dist/assets/roboto-mono-latin-600-normal-CKms5zu1.woff    16.00 kB
+dist/index.html                                          196.12 kB │ gzip:  26.84 kB
 dist/assets/payment-confirmation-view-BG9saJge.css         2.43 kB │ gzip:   0.91 kB
 dist/assets/index-BswcCuhP.css                            93.58 kB │ gzip:  16.54 kB
-dist/assets/check-B8yYKk96.js                              0.12 kB │ gzip:   0.14 kB
-dist/assets/chevron-down-CjdwQ5TW.js                       0.12 kB │ gzip:   0.14 kB
-dist/assets/chevron-left-BDbmDTNa.js                       0.13 kB │ gzip:   0.14 kB
-dist/assets/useSearch-CS1Un2U5.js                          0.22 kB │ gzip:   0.17 kB
-dist/assets/favorites.schema-lc7QXwSq.js                   0.23 kB │ gzip:   0.20 kB
-dist/assets/log-out-Cvwvc0yS.js                            0.23 kB │ gzip:   0.18 kB
-dist/assets/password.schema-Dg7Lm4YH.js                    0.26 kB │ gzip:   0.22 kB
-dist/assets/triangle-alert-CK0GRcu3.js                     0.26 kB │ gzip:   0.21 kB
-dist/assets/useParams-CHwnuJyi.js                          0.26 kB │ gzip:   0.20 kB
-dist/assets/wallet-D1tevVQl.js                             0.28 kB │ gzip:   0.20 kB
-dist/assets/shopping-bag-Bvplwco4.js                       0.34 kB │ gzip:   0.24 kB
-dist/assets/use-mobile-viewport.hook-CWSKqc26.js           0.35 kB │ gzip:   0.25 kB
+dist/assets/check-C2q-eggM.js                              0.12 kB │ gzip:   0.14 kB
+dist/assets/chevron-down-Dq8l2wSl.js                       0.12 kB │ gzip:   0.14 kB
+dist/assets/chevron-left-Bdh3EPHO.js                       0.13 kB │ gzip:   0.14 kB
+dist/assets/useSearch-B_w_syLA.js                          0.22 kB │ gzip:   0.17 kB
+dist/assets/log-out-Dild_g7c.js                            0.23 kB │ gzip:   0.18 kB
+dist/assets/favorites.schema-D50hhKXO.js                   0.23 kB │ gzip:   0.20 kB
+dist/assets/password.schema-AzeHikVV.js                    0.26 kB │ gzip:   0.22 kB
+dist/assets/triangle-alert-CaIg2LXt.js                     0.26 kB │ gzip:   0.21 kB
+dist/assets/useParams-Dh-XhqZn.js                          0.26 kB │ gzip:   0.20 kB
+dist/assets/wallet-CHsWBv9D.js                             0.28 kB │ gzip:   0.20 kB
+dist/assets/shopping-bag-CxcbvkBn.js                       0.34 kB │ gzip:   0.24 kB
 dist/assets/tab-keyboard-xsxfam7B.js                       0.38 kB │ gzip:   0.28 kB
-dist/assets/artwork-image-DlRnA5Ys.js                      0.44 kB │ gzip:   0.31 kB
-dist/assets/signup-form.schema-CBXke7dQ.js                 0.57 kB │ gzip:   0.33 kB
-dist/assets/order-presenters-CrIyQ1Fw.js                   0.70 kB │ gzip:   0.34 kB
-dist/assets/order-attempt.store-B_BHxv-F.js                0.77 kB │ gzip:   0.38 kB
-dist/assets/input-B8um-CWE.js                              0.82 kB │ gzip:   0.45 kB
-dist/assets/catalog-filters-dialog-JwJ4SqoC.js             0.86 kB │ gzip:   0.49 kB
-dist/assets/orders.dependencies-BpcTVmi1.js                0.98 kB │ gzip:   0.41 kB
-dist/assets/use-wallets.hook-DAC1bybQ.js                   1.46 kB │ gzip:   0.64 kB
-dist/assets/profile.schema-DpiyJzgU.js                     1.64 kB │ gzip:   0.77 kB
-dist/assets/wallet.schema-BufjeD4s.js                      1.80 kB │ gzip:   0.85 kB
-dist/assets/dist-B3ft4Grn.js                               2.11 kB │ gzip:   0.94 kB
-dist/assets/order-updated-event.schema-DHsVCnhn.js         2.79 kB │ gzip:   1.22 kB
-dist/assets/use-catalog.hook-DZb2df6a.js                   2.90 kB │ gzip:   1.34 kB
-dist/assets/cart-coupon-field-CyLCdics.js                  3.02 kB │ gzip:   1.36 kB
-dist/assets/use-favorite.hook-D2OATt-8.js                  3.22 kB │ gzip:   1.60 kB
-dist/assets/index-qvZzAnKF.js                              4.08 kB │ gzip:   1.97 kB
-dist/assets/account-page-DXmI0KxC.js                       4.10 kB │ gzip:   1.60 kB
-dist/assets/catalog-filters-DBtYY7lJ.js                    4.30 kB │ gzip:   1.42 kB
-dist/assets/cart-provider-CtJHgCYI.js                      5.15 kB │ gzip:   2.19 kB
-dist/assets/activity-view-D_5t-7Mk.js                      5.57 kB │ gzip:   2.12 kB
-dist/assets/marketplace-footer-CLja8qcs.js                 6.06 kB │ gzip:   2.41 kB
-dist/assets/wallets-view-CxoBkt3D.js                       7.06 kB │ gzip:   2.43 kB
-dist/assets/dialog-D1TwuK2T.js                             7.18 kB │ gzip:   2.66 kB
-dist/assets/profile-view-CIIHqmCT.js                       7.94 kB │ gzip:   3.01 kB
-dist/assets/login-dialog-BICNJbwj.js                       8.06 kB │ gzip:   2.70 kB
-dist/assets/payment-confirmation-view-BN8l-4OP.js          8.76 kB │ gzip:   3.16 kB
-dist/assets/use-cart.hook-BdK-KNCl.js                     10.04 kB │ gzip:   3.84 kB
-dist/assets/esm-CUCzhBaE.js                               10.53 kB │ gzip:   3.82 kB
-dist/assets/cart-view-Dfyget7I.js                         12.67 kB │ gzip:   3.52 kB
-dist/assets/catalog-view-7Ei7iHia.js                      19.96 kB │ gzip:   6.59 kB
-dist/assets/es2015-2rqZcddi.js                            23.03 kB │ gzip:   8.36 kB
-dist/assets/authenticated-account-menu-BVqV3ABa.js        24.13 kB │ gzip:   7.31 kB
-dist/assets/nft-details-view-jgL887-S.js                  24.46 kB │ gzip:   6.94 kB
-dist/assets/dist-B-MfTtQ8.js                              27.81 kB │ gzip:  10.71 kB
-dist/assets/payment-view-D0zbxejk.js                      28.44 kB │ gzip:   8.21 kB
-dist/assets/esm-BIAdb2Zk.js                               30.81 kB │ gzip:   9.58 kB
-dist/assets/zod-C3n7JfwP.js                               59.86 kB │ gzip:  20.21 kB
-dist/assets/cart-totals-r3KrO1MQ.js                       71.17 kB │ gzip:  19.59 kB
-dist/assets/cart-item.entity-LeKVrsZo.js                 168.55 kB │ gzip:  56.12 kB
-dist/assets/app-DfUIf9Ok.js                              260.15 kB │ gzip:  84.63 kB
-dist/assets/browser-C_GCpMEu.js                          471.62 kB │ gzip: 174.02 kB
+dist/assets/use-mobile-viewport.hook-Bptcal_F.js           0.38 kB │ gzip:   0.28 kB
+dist/assets/artwork-image-z_eEKX7q.js                      0.44 kB │ gzip:   0.32 kB
+dist/assets/catalog.dependencies-DL9_8iIc.js               0.56 kB │ gzip:   0.29 kB
+dist/assets/signup-form.schema-MhYJM8CB.js                 0.57 kB │ gzip:   0.33 kB
+dist/assets/order-presenters-Bay0PANQ.js                   0.70 kB │ gzip:   0.34 kB
+dist/assets/order-attempt.store-BOfzBLpL.js                0.77 kB │ gzip:   0.38 kB
+dist/assets/input-iob2NxsX.js                              0.82 kB │ gzip:   0.45 kB
+dist/assets/catalog-filters-dialog-B1qqRox4.js             0.86 kB │ gzip:   0.49 kB
+dist/assets/orders.dependencies-B8wHf2UW.js                0.97 kB │ gzip:   0.41 kB
+dist/assets/market.dependencies-DUaexKap.js                1.13 kB │ gzip:   0.62 kB
+dist/assets/prefetch-initial-route-BIXZsY5n.js             1.32 kB │ gzip:   0.66 kB
+dist/assets/use-wallets.hook-DDyW1T11.js                   1.49 kB │ gzip:   0.67 kB
+dist/assets/cart-totals-Bpv1-Nqu.js                        1.54 kB │ gzip:   0.79 kB
+dist/assets/profile.schema-CHMZmpUu.js                     1.64 kB │ gzip:   0.76 kB
+dist/assets/wallet.schema-DlSqWNbk.js                      1.81 kB │ gzip:   0.85 kB
+dist/assets/dist-JQTafIPT.js                               2.11 kB │ gzip:   0.95 kB
+dist/assets/use-catalog.hook-KCs03jAQ.js                   2.45 kB │ gzip:   1.20 kB
+dist/assets/order-updated-event.schema-CnCvN3ND.js         2.83 kB │ gzip:   1.25 kB
+dist/assets/cart-coupon-field-CE1xONx0.js                  3.02 kB │ gzip:   1.36 kB
+dist/assets/use-favorite.hook-CwwsBVp-.js                  3.25 kB │ gzip:   1.61 kB
+dist/assets/account-page-BtQBNPSt.js                       4.10 kB │ gzip:   1.60 kB
+dist/assets/catalog-filters-CWt3r-86.js                    4.31 kB │ gzip:   1.42 kB
+dist/assets/cart-provider-BNnE8wuK.js                      5.23 kB │ gzip:   2.23 kB
+dist/assets/index-DHr-zfSx.js                              5.47 kB │ gzip:   2.38 kB
+dist/assets/activity-view-B7XKSnwo.js                      5.62 kB │ gzip:   2.14 kB
+dist/assets/marketplace-footer-BfU0z6gu.js                 6.06 kB │ gzip:   2.41 kB
+dist/assets/wallets-view-aHF34zdN.js                       7.07 kB │ gzip:   2.43 kB
+dist/assets/dialog-oOt6PaRT.js                             7.18 kB │ gzip:   2.65 kB
+dist/assets/query-client-C6JM7O2d.js                       7.80 kB │ gzip:   2.54 kB
+dist/assets/profile-view-pU_41Tgz.js                       7.97 kB │ gzip:   3.02 kB
+dist/assets/login-dialog-FXmBbOqF.js                       8.06 kB │ gzip:   2.70 kB
+dist/assets/payment-confirmation-view-Cc8kHRY9.js          8.81 kB │ gzip:   3.18 kB
+dist/assets/use-cart.hook-C7mFj5zB.js                     10.12 kB │ gzip:   3.88 kB
+dist/assets/esm-BpPPmfMR.js                               10.54 kB │ gzip:   3.82 kB
+dist/assets/cart-view-BOMVCBbd.js                         12.72 kB │ gzip:   3.52 kB
+dist/assets/catalog-view-DLEFudAO.js                      20.09 kB │ gzip:   6.66 kB
+dist/assets/es2015-rbxMObhO.js                            23.03 kB │ gzip:   8.36 kB
+dist/assets/nft-details-view-D1-pA8WJ.js                  23.55 kB │ gzip:   6.55 kB
+dist/assets/authenticated-account-menu--FB3oFRU.js        24.14 kB │ gzip:   7.26 kB
+dist/assets/dist-Cz6pe4xc.js                              27.82 kB │ gzip:  10.71 kB
+dist/assets/payment-view-B894xnl7.js                      28.52 kB │ gzip:   8.24 kB
+dist/assets/esm-Dq2MR8-V.js                               30.81 kB │ gzip:   9.58 kB
+dist/assets/zod-Bo7MdWVX.js                               59.86 kB │ gzip:  20.22 kB
+dist/assets/api-client-BLn8JnRV.js                        67.51 kB │ gzip:  23.87 kB
+dist/assets/catalog.schema-BcIPkm2W.js                    69.70 kB │ gzip:  19.07 kB
+dist/assets/cart-item.entity-HWMB_2f9.js                 106.46 kB │ gzip:  34.58 kB
+dist/assets/app-DpY--5Ku.js                              253.44 kB │ gzip:  82.77 kB
+dist/assets/browser-D0oYrWfP.js                          471.66 kB │ gzip: 174.03 kB
 
-✓ built in 443ms
+✓ built in 1.35s
 $ playwright test --config=playwright.public.config.ts --workers=1
 
 Running 2 tests using 1 worker
 
-[1A[2K(node:62024) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[1A[2K(node:78658) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 
-[1A[2K(node:62024) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[1A[2K(node:78658) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 
 [1A[2K[1/2] [desktop] › tests/deployment.public.ts:5:1 › rotas diretas, compra, refresh do recibo e aviso em outra aba na origem publicada
-[1A[2K(node:62074) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[1A[2K(node:78669) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 
-[1A[2K(node:62074) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[1A[2K(node:78669) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 
 [1A[2K[2/2] [mobile] › tests/deployment.public.ts:5:1 › rotas diretas, compra, refresh do recibo e aviso em outra aba na origem publicada
-[1A[2K  2 passed (19.3s)
+[1A[2K  2 passed (14.7s)
 $ node scripts/lighthouse.mjs --runs=1 --profile=mobile --page=inicio --output=docs/audits/clean-smoke --port=4183
 Compilando build de demonstração completo…
 $ pnpm typecheck && vite build --mode mock
 $ tsc --noEmit
 vite v8.0.16 building client environment for mock...
-[2Ktransforming...✓ 2578 modules transformed.
+[2Ktransforming...✓ 2585 modules transformed.
 rendering chunks...
 computing gzip size...
-dist/index.html                                            1.18 kB │ gzip:   0.55 kB
 dist/assets/roboto-mono-latin-400-normal-GekRknry.woff2   12.68 kB
 dist/assets/roboto-mono-latin-700-normal-foxDnrFi.woff2   12.69 kB
 dist/assets/roboto-mono-latin-600-normal-B8NnDpAt.woff2   12.93 kB
@@ -182,78 +184,86 @@ dist/assets/roboto-mono-latin-400-normal-DBZPkcnn.woff    15.72 kB
 dist/assets/roboto-mono-latin-700-normal-CHYrj1DZ.woff    15.84 kB
 dist/assets/roboto-mono-latin-500-normal-D6j6AMzd.woff    15.93 kB
 dist/assets/roboto-mono-latin-600-normal-CKms5zu1.woff    16.00 kB
+dist/index.html                                          196.12 kB │ gzip:  26.84 kB
 dist/assets/payment-confirmation-view-BG9saJge.css         2.43 kB │ gzip:   0.91 kB
 dist/assets/index-BswcCuhP.css                            93.58 kB │ gzip:  16.54 kB
-dist/assets/check-B8yYKk96.js                              0.12 kB │ gzip:   0.14 kB
-dist/assets/chevron-down-CjdwQ5TW.js                       0.12 kB │ gzip:   0.14 kB
-dist/assets/chevron-left-BDbmDTNa.js                       0.13 kB │ gzip:   0.14 kB
-dist/assets/useSearch-CS1Un2U5.js                          0.22 kB │ gzip:   0.17 kB
-dist/assets/favorites.schema-lc7QXwSq.js                   0.23 kB │ gzip:   0.20 kB
-dist/assets/log-out-Cvwvc0yS.js                            0.23 kB │ gzip:   0.18 kB
-dist/assets/password.schema-Dg7Lm4YH.js                    0.26 kB │ gzip:   0.22 kB
-dist/assets/triangle-alert-CK0GRcu3.js                     0.26 kB │ gzip:   0.21 kB
-dist/assets/useParams-CHwnuJyi.js                          0.26 kB │ gzip:   0.20 kB
-dist/assets/wallet-D1tevVQl.js                             0.28 kB │ gzip:   0.20 kB
-dist/assets/shopping-bag-Bvplwco4.js                       0.34 kB │ gzip:   0.24 kB
-dist/assets/use-mobile-viewport.hook-CWSKqc26.js           0.35 kB │ gzip:   0.25 kB
+dist/assets/check-C2q-eggM.js                              0.12 kB │ gzip:   0.14 kB
+dist/assets/chevron-down-Dq8l2wSl.js                       0.12 kB │ gzip:   0.14 kB
+dist/assets/chevron-left-Bdh3EPHO.js                       0.13 kB │ gzip:   0.14 kB
+dist/assets/useSearch-B_w_syLA.js                          0.22 kB │ gzip:   0.17 kB
+dist/assets/log-out-Dild_g7c.js                            0.23 kB │ gzip:   0.18 kB
+dist/assets/favorites.schema-D50hhKXO.js                   0.23 kB │ gzip:   0.20 kB
+dist/assets/password.schema-AzeHikVV.js                    0.26 kB │ gzip:   0.22 kB
+dist/assets/triangle-alert-CaIg2LXt.js                     0.26 kB │ gzip:   0.21 kB
+dist/assets/useParams-Dh-XhqZn.js                          0.26 kB │ gzip:   0.20 kB
+dist/assets/wallet-CHsWBv9D.js                             0.28 kB │ gzip:   0.20 kB
+dist/assets/shopping-bag-CxcbvkBn.js                       0.34 kB │ gzip:   0.24 kB
 dist/assets/tab-keyboard-xsxfam7B.js                       0.38 kB │ gzip:   0.28 kB
-dist/assets/artwork-image-DlRnA5Ys.js                      0.44 kB │ gzip:   0.31 kB
-dist/assets/signup-form.schema-CBXke7dQ.js                 0.57 kB │ gzip:   0.33 kB
-dist/assets/order-presenters-CrIyQ1Fw.js                   0.70 kB │ gzip:   0.34 kB
-dist/assets/order-attempt.store-B_BHxv-F.js                0.77 kB │ gzip:   0.38 kB
-dist/assets/input-B8um-CWE.js                              0.82 kB │ gzip:   0.45 kB
-dist/assets/catalog-filters-dialog-JwJ4SqoC.js             0.86 kB │ gzip:   0.49 kB
-dist/assets/orders.dependencies-BpcTVmi1.js                0.98 kB │ gzip:   0.41 kB
-dist/assets/use-wallets.hook-DAC1bybQ.js                   1.46 kB │ gzip:   0.64 kB
-dist/assets/profile.schema-DpiyJzgU.js                     1.64 kB │ gzip:   0.77 kB
-dist/assets/wallet.schema-BufjeD4s.js                      1.80 kB │ gzip:   0.85 kB
-dist/assets/dist-B3ft4Grn.js                               2.11 kB │ gzip:   0.94 kB
-dist/assets/order-updated-event.schema-DHsVCnhn.js         2.79 kB │ gzip:   1.22 kB
-dist/assets/use-catalog.hook-DZb2df6a.js                   2.90 kB │ gzip:   1.34 kB
-dist/assets/cart-coupon-field-CyLCdics.js                  3.02 kB │ gzip:   1.36 kB
-dist/assets/use-favorite.hook-D2OATt-8.js                  3.22 kB │ gzip:   1.60 kB
-dist/assets/index-qvZzAnKF.js                              4.08 kB │ gzip:   1.97 kB
-dist/assets/account-page-DXmI0KxC.js                       4.10 kB │ gzip:   1.60 kB
-dist/assets/catalog-filters-DBtYY7lJ.js                    4.30 kB │ gzip:   1.42 kB
-dist/assets/cart-provider-CtJHgCYI.js                      5.15 kB │ gzip:   2.19 kB
-dist/assets/activity-view-D_5t-7Mk.js                      5.57 kB │ gzip:   2.12 kB
-dist/assets/marketplace-footer-CLja8qcs.js                 6.06 kB │ gzip:   2.41 kB
-dist/assets/wallets-view-CxoBkt3D.js                       7.06 kB │ gzip:   2.43 kB
-dist/assets/dialog-D1TwuK2T.js                             7.18 kB │ gzip:   2.66 kB
-dist/assets/profile-view-CIIHqmCT.js                       7.94 kB │ gzip:   3.01 kB
-dist/assets/login-dialog-BICNJbwj.js                       8.06 kB │ gzip:   2.70 kB
-dist/assets/payment-confirmation-view-BN8l-4OP.js          8.76 kB │ gzip:   3.16 kB
-dist/assets/use-cart.hook-BdK-KNCl.js                     10.04 kB │ gzip:   3.84 kB
-dist/assets/esm-CUCzhBaE.js                               10.53 kB │ gzip:   3.82 kB
-dist/assets/cart-view-Dfyget7I.js                         12.67 kB │ gzip:   3.52 kB
-dist/assets/catalog-view-7Ei7iHia.js                      19.96 kB │ gzip:   6.59 kB
-dist/assets/es2015-2rqZcddi.js                            23.03 kB │ gzip:   8.36 kB
-dist/assets/authenticated-account-menu-BVqV3ABa.js        24.13 kB │ gzip:   7.31 kB
-dist/assets/nft-details-view-jgL887-S.js                  24.46 kB │ gzip:   6.94 kB
-dist/assets/dist-B-MfTtQ8.js                              27.81 kB │ gzip:  10.71 kB
-dist/assets/payment-view-D0zbxejk.js                      28.44 kB │ gzip:   8.21 kB
-dist/assets/esm-BIAdb2Zk.js                               30.81 kB │ gzip:   9.58 kB
-dist/assets/zod-C3n7JfwP.js                               59.86 kB │ gzip:  20.21 kB
-dist/assets/cart-totals-r3KrO1MQ.js                       71.17 kB │ gzip:  19.59 kB
-dist/assets/cart-item.entity-LeKVrsZo.js                 168.55 kB │ gzip:  56.12 kB
-dist/assets/app-DfUIf9Ok.js                              260.15 kB │ gzip:  84.63 kB
-dist/assets/browser-C_GCpMEu.js                          471.62 kB │ gzip: 174.02 kB
+dist/assets/use-mobile-viewport.hook-Bptcal_F.js           0.38 kB │ gzip:   0.28 kB
+dist/assets/artwork-image-z_eEKX7q.js                      0.44 kB │ gzip:   0.32 kB
+dist/assets/catalog.dependencies-DL9_8iIc.js               0.56 kB │ gzip:   0.29 kB
+dist/assets/signup-form.schema-MhYJM8CB.js                 0.57 kB │ gzip:   0.33 kB
+dist/assets/order-presenters-Bay0PANQ.js                   0.70 kB │ gzip:   0.34 kB
+dist/assets/order-attempt.store-BOfzBLpL.js                0.77 kB │ gzip:   0.38 kB
+dist/assets/input-iob2NxsX.js                              0.82 kB │ gzip:   0.45 kB
+dist/assets/catalog-filters-dialog-B1qqRox4.js             0.86 kB │ gzip:   0.49 kB
+dist/assets/orders.dependencies-B8wHf2UW.js                0.97 kB │ gzip:   0.41 kB
+dist/assets/market.dependencies-DUaexKap.js                1.13 kB │ gzip:   0.62 kB
+dist/assets/prefetch-initial-route-BIXZsY5n.js             1.32 kB │ gzip:   0.66 kB
+dist/assets/use-wallets.hook-DDyW1T11.js                   1.49 kB │ gzip:   0.67 kB
+dist/assets/cart-totals-Bpv1-Nqu.js                        1.54 kB │ gzip:   0.79 kB
+dist/assets/profile.schema-CHMZmpUu.js                     1.64 kB │ gzip:   0.76 kB
+dist/assets/wallet.schema-DlSqWNbk.js                      1.81 kB │ gzip:   0.85 kB
+dist/assets/dist-JQTafIPT.js                               2.11 kB │ gzip:   0.95 kB
+dist/assets/use-catalog.hook-KCs03jAQ.js                   2.45 kB │ gzip:   1.20 kB
+dist/assets/order-updated-event.schema-CnCvN3ND.js         2.83 kB │ gzip:   1.25 kB
+dist/assets/cart-coupon-field-CE1xONx0.js                  3.02 kB │ gzip:   1.36 kB
+dist/assets/use-favorite.hook-CwwsBVp-.js                  3.25 kB │ gzip:   1.61 kB
+dist/assets/account-page-BtQBNPSt.js                       4.10 kB │ gzip:   1.60 kB
+dist/assets/catalog-filters-CWt3r-86.js                    4.31 kB │ gzip:   1.42 kB
+dist/assets/cart-provider-BNnE8wuK.js                      5.23 kB │ gzip:   2.23 kB
+dist/assets/index-DHr-zfSx.js                              5.47 kB │ gzip:   2.38 kB
+dist/assets/activity-view-B7XKSnwo.js                      5.62 kB │ gzip:   2.14 kB
+dist/assets/marketplace-footer-BfU0z6gu.js                 6.06 kB │ gzip:   2.41 kB
+dist/assets/wallets-view-aHF34zdN.js                       7.07 kB │ gzip:   2.43 kB
+dist/assets/dialog-oOt6PaRT.js                             7.18 kB │ gzip:   2.65 kB
+dist/assets/query-client-C6JM7O2d.js                       7.80 kB │ gzip:   2.54 kB
+dist/assets/profile-view-pU_41Tgz.js                       7.97 kB │ gzip:   3.02 kB
+dist/assets/login-dialog-FXmBbOqF.js                       8.06 kB │ gzip:   2.70 kB
+dist/assets/payment-confirmation-view-Cc8kHRY9.js          8.81 kB │ gzip:   3.18 kB
+dist/assets/use-cart.hook-C7mFj5zB.js                     10.12 kB │ gzip:   3.88 kB
+dist/assets/esm-BpPPmfMR.js                               10.54 kB │ gzip:   3.82 kB
+dist/assets/cart-view-BOMVCBbd.js                         12.72 kB │ gzip:   3.52 kB
+dist/assets/catalog-view-DLEFudAO.js                      20.09 kB │ gzip:   6.66 kB
+dist/assets/es2015-rbxMObhO.js                            23.03 kB │ gzip:   8.36 kB
+dist/assets/nft-details-view-D1-pA8WJ.js                  23.55 kB │ gzip:   6.55 kB
+dist/assets/authenticated-account-menu--FB3oFRU.js        24.14 kB │ gzip:   7.26 kB
+dist/assets/dist-Cz6pe4xc.js                              27.82 kB │ gzip:  10.71 kB
+dist/assets/payment-view-B894xnl7.js                      28.52 kB │ gzip:   8.24 kB
+dist/assets/esm-Dq2MR8-V.js                               30.81 kB │ gzip:   9.58 kB
+dist/assets/zod-Bo7MdWVX.js                               59.86 kB │ gzip:  20.22 kB
+dist/assets/api-client-BLn8JnRV.js                        67.51 kB │ gzip:  23.87 kB
+dist/assets/catalog.schema-BcIPkm2W.js                    69.70 kB │ gzip:  19.07 kB
+dist/assets/cart-item.entity-HWMB_2f9.js                 106.46 kB │ gzip:  34.58 kB
+dist/assets/app-DpY--5Ku.js                              253.44 kB │ gzip:  82.77 kB
+dist/assets/browser-D0oYrWfP.js                          471.66 kB │ gzip: 174.03 kB
 
-✓ built in 644ms
-inicio-mobile-1 {"page":"inicio","profile":"mobile","run":1,"scores":{"performance":83,"accessibility":100,"best-practices":100,"seo":100},"lcpMs":4258.010250000001,"cls":0,"tbtMs":29.5}
+✓ built in 1.18s
+inicio-mobile-1 {"page":"inicio","profile":"mobile","run":1,"scores":{"performance":100,"accessibility":100,"best-practices":100,"seo":100},"fcpMs":1060.634,"speedIndexMs":1060.634,"lcpMs":1660.634,"cls":0,"tbtMs":14}
 Medianas: [
   {
     "page": "inicio",
     "profile": "mobile",
     "scores": {
-      "performance": 83,
+      "performance": 100,
       "accessibility": 100,
       "best-practices": 100,
       "seo": 100
     },
-    "lcpMs": 4258.010250000001,
+    "fcpMs": 1060.634,
+    "speedIndexMs": 1060.634,
+    "lcpMs": 1660.634,
     "cls": 0,
-    "tbtMs": 29.5
+    "tbtMs": 14
   }
 ]
-[ELIFECYCLE] Command failed with exit code 1.

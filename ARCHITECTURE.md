@@ -6,6 +6,8 @@ SPA React 19/TypeScript com Vite, TanStack Router e TanStack Query. Features seg
 
 As rotas carregam Views sob demanda. Axios é o transporte REST da aplicação, com schemas Zod nas bordas e cancelamento por `AbortSignal`. Valores ETH são strings decimais; cálculos de compra usam `bigint` em wei. Não há blockchain, extensão de carteira ou pagamento real.
 
+O build mock pré-renderiza as entradas públicas do catálogo e do NFT de destaque (`/market/nft-001`) nas variantes mobile/desktop, usando os mesmos componentes e respostas REST MSW. React hidrata o HTML com um cache público preparado antes da montagem. Estado persistido, cenários de rede e URLs filtradas usam o fluxo normal do cliente; dados privados nunca são embutidos no HTML. MSW inicia após o primeiro commit, enquanto Axios e Socket.IO aguardam a prontidão do transporte. Em seguida, os dados públicos são revalidados pela API. Decisão e limites: [ADR 0007](docs/ADRs/0007-pre-renderizacao-publica-e-inicializacao.md).
+
 ## Estado, cache e recuperação
 
 Contas, perfis e carteiras ficam no `localStorage` por sete dias; a sessão fica no `sessionStorage` de cada aba por até 24 horas. Senhas usam PBKDF2 com salt. Isso serve à demonstração local e não constitui autenticação segura de produção. Cada aba tem um identificador de visitante; o carrinho autenticado é persistido por usuário. No login, itens do visitante são incorporados uma única vez, respeitando edição e estoque. Logout explícito inicia um carrinho visitante separado.

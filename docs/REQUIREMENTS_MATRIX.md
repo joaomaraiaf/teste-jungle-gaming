@@ -21,7 +21,8 @@ Referência: `readme-github.md`. “Implementado” exige teste relacionado; rel
 | Teclado/foco/formulários/axe/zoom | responsive.e2e, login.e2e, payment.e2e | Validado: E2E completo sem falhas |
 | Responsividade 390/768/1440 | responsive.e2e, marketplace.visual | Validado: E2E completo sem falhas |
 | 12 baselines de início/detalhe/carrinho/pagamento | playwright.visual.config.ts | 12 baselines revisadas e 12 comparações aprovadas |
-| Lighthouse: 12 medições, metas e métricas | lighthouse.config.mjs, scripts/lighthouse.mjs | 12 auditorias entregues; performance mobile 84 e 83 (meta 90) pendente |
+| HTML público antes dos módulos/hidratação/estado salvo | startup.e2e, can-use-public-snapshot.spec, axios-adapter.spec | Validado: hidratação sem erros e transporte protegido |
+| Lighthouse: 12 medições, metas e métricas | lighthouse.config.mjs, scripts/lighthouse.mjs | 12 auditorias aprovadas: Performance mobile 94/98 e desktop 100/100; demais metas aprovadas |
 | Contratos/cache/retries/concorrência/limites | ARCHITECTURE.md, docs/API_CONTRACTS.md, ADRs | Documentado |
 | Checkout limpo e lockfile reproduzível | docs/VALIDATION.md | Instalação congelada/checks/build/preview/smoke reproduzidos; hash igual ao auditado |
 | Deploy, URLs e refresh público | vercel.json, docs/DEPLOYMENT.md | Pendente por solicitação do usuário |

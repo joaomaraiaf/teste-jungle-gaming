@@ -27,7 +27,7 @@ const report = {
   generatedAt: new Date().toISOString(),
   source,
   cleanDirectory: directory,
-  note: 'Cópia limpa dos arquivos de entrega; esta origem ainda não possui Git. Cache pnpm reutilizado, sem node_modules/dist copiados. Smoke de deploy executado localmente, não comprova URL pública.',
+  note: 'Cópia limpa dos arquivos da revisão local, sem .git/node_modules/dist. Cache pnpm reutilizado, sem node_modules/dist copiados. Smoke de deploy executado localmente, não comprova URL pública.',
   steps,
 };
 function run(command, args, env = {}, allowedCodes = [0]) {

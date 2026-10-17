@@ -1,19 +1,20 @@
 {
-  "generatedAt": "2026-10-16T21:23:07.890300+00:00",
+  "generatedAt": "2026-10-17T00:21:01.043243+00:00",
   "packageManager": "pnpm@11.5.2",
   "lint": "passed",
   "typecheck": "passed",
   "vitest": {
-    "files": 25,
-    "passed": 94
+    "files": 26,
+    "passed": 101
   },
   "playwright": {
-    "passed": 113,
+    "passed": 117,
     "skipped": 9,
     "failed": 0,
-    "reasonForSkips": "Cen\u00e1rios espec\u00edficos do layout oposto; cada variante executa no viewport correspondente.",
-    "command": "pnpm exec playwright test --workers=2",
-    "buildSha256": "d00a13b582712293321cde9d6f5133f01404e9090efa48d909bd380718a137f4"
+    "reasonForSkips": "Cenários específicos do layout oposto; cada variante executa no viewport correspondente.",
+    "command": "pnpm exec playwright test --workers=2 --reporter=line",
+    "buildSha256": "59fa5a254319a7b7edfb665e2a58d3d76958396d5bb77288de4bc2d32d71e008",
+    "htmlReport": "Historical previous execution; current run used the console reporter."
   },
   "visual": {
     "passed": 12,
@@ -24,75 +25,77 @@
     "command": "pnpm exec playwright test --config=playwright.visual.config.ts --workers=2"
   },
   "publicDeploy": "deferred by user",
-  "postCssScopeValidation": {
-    "visualPassed": 12,
-    "responsiveAccessibilityPassed": 6,
-    "buildSha256": "dad623493b027640959b95711ab5ae280f4fc7ac1153420351dd544e451041e0",
-    "note": "Somente a origem da detec\u00e7\u00e3o de classes foi alterada depois da su\u00edte completa; as telas e a acessibilidade foram reconferidas sem atualizar baselines."
-  },
   "lighthouse": {
     "measurements": 12,
-    "targetsPassed": false,
+    "targetsPassed": true,
     "medians": [
       {
         "page": "inicio",
         "profile": "mobile",
         "scores": {
-          "performance": 84,
+          "performance": 94,
           "accessibility": 100,
           "best-practices": 100,
           "seo": 100
         },
-        "lcpMs": 4177.6,
+        "fcpMs": 1821.7639999999997,
+        "speedIndexMs": 1821.7639999999997,
+        "lcpMs": 2882.6459999999993,
         "cls": 0,
-        "tbtMs": 87.60000000000014
+        "tbtMs": 49
       },
       {
         "page": "detalhe",
         "profile": "mobile",
         "scores": {
-          "performance": 83,
+          "performance": 98,
           "accessibility": 100,
           "best-practices": 100,
           "seo": 100
         },
-        "lcpMs": 4225.408,
+        "fcpMs": 1303.165,
+        "speedIndexMs": 1303.165,
+        "lcpMs": 2414.11,
         "cls": 0,
-        "tbtMs": 69
+        "tbtMs": 0
       },
       {
         "page": "inicio",
         "profile": "desktop",
         "scores": {
-          "performance": 97,
+          "performance": 100,
           "accessibility": 97,
           "best-practices": 100,
           "seo": 100
         },
-        "lcpMs": 1121.0900000000001,
-        "cls": 0.00499290780141844,
-        "tbtMs": 101.01800000000009
+        "fcpMs": 293.452,
+        "speedIndexMs": 293.452,
+        "lcpMs": 413.452,
+        "cls": 0,
+        "tbtMs": 0
       },
       {
         "page": "detalhe",
         "profile": "desktop",
         "scores": {
-          "performance": 96,
+          "performance": 100,
           "accessibility": 97,
           "best-practices": 100,
           "seo": 100
         },
-        "lcpMs": 1122.06,
-        "cls": 0.08363435776201734,
+        "fcpMs": 342.48199999999997,
+        "speedIndexMs": 342.48199999999997,
+        "lcpMs": 493.98799999999994,
+        "cls": 0,
         "tbtMs": 0
       }
     ],
-    "buildSha256": "dad623493b027640959b95711ab5ae280f4fc7ac1153420351dd544e451041e0"
+    "buildSha256": "59fa5a254319a7b7edfb665e2a58d3d76958396d5bb77288de4bc2d32d71e008"
   },
   "cleanCheckout": {
     "passed": true,
     "matchesAuditedBuild": true,
     "smokePassed": 2,
-    "auditTargetsPassed": false
+    "auditTargetsPassed": true
   }
 }

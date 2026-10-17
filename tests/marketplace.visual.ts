@@ -3,6 +3,7 @@ import { loginDemo } from './helpers/auth';
 import { openPreparedCheckout } from './helpers/checkout';
 
 async function stable(page: Page) {
+  await expect(page.locator('html')).toHaveAttribute('data-transport-ready', 'true');
   for (const close of (
     await page.locator('[data-sonner-toast] [data-close-button]').all()
   ).reverse())
