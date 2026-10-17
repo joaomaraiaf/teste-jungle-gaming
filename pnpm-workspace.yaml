@@ -20,6 +20,8 @@ allowBuilds:
 
 # Overrides de segurança (migrados de package.json -> "pnpm.overrides", que a v11 ignora).
 overrides:
+  # Mantém o peer do axe-playwright alinhado ao Chromium usado nas auditorias.
+  'playwright-core': '1.58.2'
   'postcss@<8.5.23': '>=8.5.23 <9.0.0'
   # Fixes high severity issues in PostCSS's CSS parser and source map chain.
   'nanoid@<3.3.18': '>=3.3.18 <4.0.0'

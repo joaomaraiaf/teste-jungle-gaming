@@ -74,6 +74,7 @@
       "!**/docs/audits/clean-checkout.json",
       "!**/playwright-visual-report",
       "!**/playwright-public-report",
+      "!**/.lighthouse-*",
       "!**/docs/audits/playwright",
       "!**/docs/audits/visual",
       "!**/docs/audits/responsive"
