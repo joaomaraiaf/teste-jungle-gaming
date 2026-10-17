@@ -212,7 +212,7 @@ Cupons: `KURIO10` aplica 10% sobre subtotal; `EXPIRADO` falha com 422; código d
 
 Endpoints funcionais: `POST /quotes`, `GET /quotes/:id`, `POST /quotes/:id/accept`; `POST/GET/DELETE /wallet-connections`; `POST/GET /orders`, `GET /orders/:id`, `GET /orders/:id/receipt`. Paths individuais de conexão incluem `/:id`. Contratos e cenários completos estão em [COMMERCE_CONTRACTS.md](COMMERCE_CONTRACTS.md#cotação--etapa-4-implementada).
 
-Todos exigem sessão e aceitam a precondição `X-Expected-User`; recurso de outro proprietário retorna 404. Criação de pedido exige UUID em `Idempotency-Key`; mesmo conteúdo recupera o mesmo pedido, conflito retorna 409. Preço/estoque/cupom/taxa são revalidados antes da criação e da confirmação. Rede da carteira/cotação/NFT deve ser compatível. A conexão usa carteira cadastrada e não altera implicitamente os cadastros.
+Todos exigem sessão e aceitam a precondição `X-Expected-User`; recurso de outro proprietário retorna 404. Criação de pedido exige UUID em `Idempotency-Key`; mesmo conteúdo recupera o mesmo pedido, conflito retorna 409. Preço/estoque/cupom/taxa são revalidados antes da criação e da confirmação. A rede da carteira conectada deve corresponder à rede escolhida na cotação; o mock não impõe que essa rede corresponda à rede dos NFTs. A conexão usa carteira cadastrada e não altera implicitamente os cadastros.
 
 Totais são strings decimais calculadas em wei. Cotações e recibos são snapshots. Pedidos `pending` têm resolução persistida e recuperável por REST. Confirmar grava pedido/estoque/idempotência/carrinho em uma operação sob Web Lock. Consultas não repetem baixa de um pedido terminal. `POST /__mock/checkout` controla sucesso, recusa, timeout após criação, conexão recusada, cupom expirado e última unidade.
 

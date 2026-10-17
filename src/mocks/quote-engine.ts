@@ -27,12 +27,6 @@ export function evaluateQuote(
       });
       return { ...selection, available: 0 };
     }
-    if (nft.network !== network)
-      checkoutFail(
-        422,
-        'NETWORK_MISMATCH',
-        'A rede selecionada deve ser a mesma dos NFTs do pedido.'
-      );
     nftVersions[nft.id] = nft.version;
     const item = canonicalItem(state, selection);
     const old = (previous?.items ?? cart.items).find(

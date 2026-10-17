@@ -12,7 +12,7 @@ As features existentes `quotes`, `orders` e `payment` passam a usar repositories
 
 A cotação é um snapshot imutável com itens, versões do catálogo/carrinho/política de preços, rede, cupom e valores decimais calculados em wei. Revalidação cria outro snapshot. Mudança relevante retorna `review-required`; esgotamento retorna `unavailable`. Aceitar revalida outra vez; se algo mudou, exige nova revisão. Só uma cotação aceita e ainda atual pode criar um pedido. O formulário exibe os valores da cotação e exige aceite explícito de alterações antes de habilitar a compra.
 
-Conexões simuladas usam o endereço da carteira principal/secundária cadastrada na conta, sem criar ou editar perfil/carteira implicitamente. A rede da carteira, da cotação e dos NFTs deve ser compatível. Há conexão, recusa e desconexão; um pedido pendente pode ser recusado se a carteira for desconectada antes da resolução. Nenhuma extensão ou assinatura real é solicitada.
+Conexões simuladas usam o endereço da carteira principal/secundária cadastrada na conta. No checkout, os dados preenchidos podem ser salvos antes da conexão, conforme a [ADR 0008](0008-persistencia-de-carteira-no-checkout.md). A rede da carteira conectada deve corresponder à rede da cotação; o mock não exige que essa rede corresponda à rede dos NFTs. Há conexão, recusa e desconexão; um pedido pendente pode ser recusado se a carteira for desconectada antes da resolução. Nenhuma extensão ou assinatura real é solicitada.
 
 ## Persistência transacional
 
