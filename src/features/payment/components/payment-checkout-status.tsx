@@ -81,26 +81,6 @@ export function PaymentCheckoutStatus({
               )}
             </div>
           )}
-          <div className='flex flex-wrap items-center gap-3'>
-            <span>
-              {checkout.connected
-                ? 'Carteira conectada (simulação)'
-                : checkout.connection?.status === 'refused'
-                  ? 'Conexão recusada'
-                  : 'Carteira desconectada'}
-            </span>
-            <button
-              type='button'
-              disabled={checkout.connectionPending}
-              onClick={checkout.connected ? checkout.disconnect : checkout.connect}
-              className='text-[#E89B55] underline hover:text-[#F5F1EB]'
-            >
-              {checkout.connected ? 'Desconectar carteira' : 'Conectar carteira'}
-            </button>
-            <Link to='/wallets' className='text-[#E89B55] underline hover:text-[#F5F1EB]'>
-              Gerenciar carteiras
-            </Link>
-          </div>
         </>
       )}
       {checkout.notice && <p role='alert'>{checkout.notice}</p>}

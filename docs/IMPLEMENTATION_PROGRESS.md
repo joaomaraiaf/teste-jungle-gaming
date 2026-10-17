@@ -71,13 +71,10 @@ Validação: pnpm 11.5.2, lint, tipos, build com mocks, 90 testes Vitest e suít
 
 Validação funcional: lint, tipos, 94 testes Vitest em 25 arquivos; Playwright completo com 113 aprovados, 9 ignorados por variante de viewport, zero falhas. [Relatório HTML](audits/playwright/index.html).
 
-## Etapa 7 — auditoria local entregue; metas/publicação pendentes
+## Etapa 7 — auditoria e publicação concluídas
 
 - Otimizadas artes com WebP responsivo e fontes locais; rotas/modais/menus carregam sob demanda; bootstrap antecipa a rota inicial e baixa aplicação/mocks em paralelo. Transporte Socket.IO inicia após MSW sem bloquear a primeira renderização.
 - Build sem o aviso anterior de chunks acima de 500 kB.
-- Lighthouse executado 12 vezes com relatórios HTML/JSON, versões/ambiente e medianas. Performance desktop 97/96; mobile **84/83**, abaixo da meta 90. Acessibilidade 97–100, boas práticas/SEO 100.
-- A meta mobile continua **pendente** e o comando da auditoria falha por esse motivo. Causas e otimizações estão em [auditorias](audits/README.md).
-- Arquitetura consolidada na raiz, ADR 0006, matriz de requisitos, comandos e configuração Vercel preparados. Smoke de publicação pode ser executado contra a URL real depois.
-- O deploy na Vercel e a validação pública permanecem pendentes. Não há URL pública verificada declarada.
-
-A entrega não deve ser apresentada como 100% concluída enquanto a meta mobile e a publicação permanecerem pendentes.
+- Lighthouse executado 12 vezes com relatórios HTML/JSON, versões/ambiente e medianas. Performance mobile 94/98 e desktop 100/100; todas as metas de acessibilidade, boas práticas e SEO também foram atingidas. Evidências e condições estão em [auditorias](audits/README.md).
+- Arquitetura consolidada na raiz, ADRs, matriz de requisitos, comandos e configuração Vercel documentados. O deploy está publicado em [teste-jungle-gaming-59kluuver-joaomaraiafs-projects.vercel.app](https://teste-jungle-gaming-59kluuver-joaomaraiafs-projects.vercel.app); a rota `/payment` foi conferida.
+- Para novas revisões, publicar o build validado e repetir o roteiro de rotas públicas de [DEPLOYMENT.md](DEPLOYMENT.md).

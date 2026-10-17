@@ -4,18 +4,11 @@ import { configureCheckout, openPreparedCheckout } from './helpers/checkout';
 test.beforeEach(async ({ page }) => {
   await loginDemo(page);
 });
-test('conecta, recusa e desconecta a carteira selecionada sem criar pedido', async ({
-  page,
-}, info) => {
+test('recusa a conexão da carteira no checkout sem criar pedido', async ({ page }, info) => {
   await openPreparedCheckout(page, info.project.name === 'mobile');
   await configureCheckout(page, { refuseConnection: true });
-  await page.getByRole('button', { name: 'Conectar carteira', exact: true }).click();
-  await expect(page.getByText('Conexão recusada', { exact: true })).toBeVisible();
-  await configureCheckout(page, { refuseConnection: false });
-  await page.getByRole('button', { name: 'Conectar carteira', exact: true }).click();
-  await expect(page.getByText('Carteira conectada (simulação)', { exact: true })).toBeVisible();
-  await page.getByRole('button', { name: 'Desconectar carteira', exact: true }).click();
-  await expect(page.getByText('Carteira desconectada', { exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Confirmar compra', exact: true }).click();
+  await expect(page.getByText('A conexão foi recusada. Tente conectar novamente.')).toBeVisible();
   expect(await page.evaluate(async () => (await fetch('/api/orders')).json())).toEqual([]);
 });
 test('recupera pedido pendente após refresh e carrega o mesmo comprovante pela API', async ({
@@ -85,8 +78,7 @@ test('cotação alterada exige aceite explícito antes de enviar novos valores',
   page,
 }, info) => {
   await openPreparedCheckout(page, info.project.name === 'mobile');
-  await page.getByRole('button', { name: 'Conectar carteira', exact: true }).click();
-  await expect(page.getByText('Carteira conectada (simulação)', { exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Confirmar compra', exact: true })).toBeEnabled();
   expect(
     await page.evaluate(
       async () =>

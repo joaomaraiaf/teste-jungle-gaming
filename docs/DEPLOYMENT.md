@@ -4,13 +4,13 @@ Destino padrão: Vercel, SPA Vite. `vercel.json` define instalação congelada, 
 
 ## Situação
 
-A configuração de build e roteamento para Vercel está preparada, mas ainda não há publicação nem URL pública verificada nesta cópia. Registre o repositório, a revisão publicada e a URL pública após concluir o deploy.
+A aplicação está publicada na Vercel: [https://teste-jungle-gaming-59kluuver-joaomaraiafs-projects.vercel.app](https://teste-jungle-gaming-59kluuver-joaomaraiafs-projects.vercel.app). O deploy foi conferido na rota `/payment`. Após publicar novas revisões, registre o identificador da revisão e repita a validação das rotas públicas.
 
 ## Procedimento
 
-1. Disponibilizar esta versão em um repositório acessível ao avaliador, incluindo lockfile, baselines e relatórios.
+1. Disponibilizar a revisão a validar em um repositório acessível ao avaliador, incluindo lockfile, baselines e relatórios.
 2. Importar o repositório na Vercel, usar Node 24 e pnpm 11.5.2 indicado no packageManager. Não definir `VITE_MOCKS_ENABLED=false`.
-3. Publicar a revisão validada, registrar SHA/identificador da revisão, URL do repositório e URL pública neste documento.
+3. Ao publicar uma nova revisão, registrar SHA/identificador da revisão e confirmar que a URL pública continua atendendo essa revisão.
 4. Na URL pública, abrir diretamente `/`, `/market/nft-001`, `/cart`, `/profile`, `/wallets`, `/payment` e `/payment/confirmation`. Recarregar cada rota; rotas privadas devem solicitar login quando necessário.
 5. Executar `PUBLIC_BASE_URL=https://sua-url pnpm test:public`. O teste usa estado isolado e cobre login, compra, recibo após refresh e evento de estoque em outra aba.
 6. Executar manualmente o roteiro de duas contas do README e conferir que o service worker é JavaScript, imagens/fontes carregam e nenhum backend privado é requisitado.

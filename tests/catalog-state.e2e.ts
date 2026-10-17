@@ -160,6 +160,7 @@ test('detalhe e resumo do carrinho usam shimmer e recuperam falhas de consulta',
 
 test('abas respondem às setas e preservam seleção após refresh', async ({ page }) => {
   await page.goto('/');
+  await expect(page.locator('html')).toHaveAttribute('data-transport-ready', 'true');
   const first = page.getByRole('tab', { name: 'Todos os NFTs', exact: true });
   await first.focus();
   await page.keyboard.press('ArrowRight');

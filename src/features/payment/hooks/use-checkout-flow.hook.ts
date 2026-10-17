@@ -11,6 +11,13 @@ import { rememberOrder } from '@/features/orders/data/order-attempt.store';
 import { useOrderAttempt } from '@/features/orders/hooks/use-order-attempt.hook';
 import type { Quote } from '@/features/quotes/domain/entities/quote.entity';
 import { createQuotesUseCase } from '@/features/quotes/quotes.dependencies';
+import type {
+  SavedWallet,
+  SavedWallets,
+  WalletSlot,
+} from '@/features/wallets/domain/entities/saved-wallet.entity';
+import { WALLETS_QUERY_KEY, useWalletActions } from '@/features/wallets/hooks/use-wallets.hook';
+import { walletsUseCase } from '@/features/wallets/wallets.dependencies';
 import { useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from '@tanstack/react-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -22,6 +29,14 @@ import { createWalletConnectionUseCase } from '../payment.dependencies';
 
 export const QUOTE_QUERY_KEY = ['quote'] as const;
 export const CHECKOUT_MUTATION_KEY = ['checkout'] as const;
+
+interface ConnectWalletInput {
+  network: WalletNetwork;
+  provider: WalletConnection['provider'];
+  walletSlot: WalletSlot;
+  walletAddress: string;
+}
+
 export function useCheckoutFlow(form: UseFormReturn<PaymentFormValues>) {
   const { session, refreshSession } = useAuthSession();
   const ownerId = session?.user.id ?? '';
@@ -31,6 +46,7 @@ export function useCheckoutFlow(form: UseFormReturn<PaymentFormValues>) {
   const onSessionError = useSessionErrorHandler();
   const quotes = useMemo(() => createQuotesUseCase(ownerId), [ownerId]);
   const wallets = useMemo(() => createWalletConnectionUseCase(ownerId), [ownerId]);
+  const walletActions = useWalletActions();
   const attempt = useOrderAttempt(ownerId);
   const [connection, setConnection] = useState<WalletConnection | null>(null);
   const [review, setReview] = useState<Quote | null>(null);
@@ -107,16 +123,19 @@ export function useCheckoutFlow(form: UseFormReturn<PaymentFormValues>) {
     retry: false,
     meta: { private: true, ownerId },
     onError: onSessionError,
-    mutationFn: async () => {
-      if (!network) throw new Error('Selecione uma rede antes de conectar.');
+    mutationFn: async (input?: ConnectWalletInput) => {
+      const selectedNetwork = input?.network ?? network;
+      const selectedProvider = input?.provider ?? provider;
+      const walletSlot = input?.walletSlot ?? (secondary ? 'secondary' : 'primary');
+      if (!selectedNetwork) throw new Error('Selecione uma rede antes de conectar.');
       const fresh = await refreshSession();
       if (fresh?.user.id !== ownerId) throw new Error('Entre novamente para conectar.');
       const result = await wallets.connect({
-        network,
-        provider,
-        walletSlot: secondary ? 'secondary' : 'primary',
+        network: selectedNetwork,
+        provider: selectedProvider,
+        walletSlot,
       });
-      if (result.walletAddress !== form.getValues('walletAddress')) {
+      if (result.walletAddress !== (input?.walletAddress ?? form.getValues('walletAddress'))) {
         if (result.status === 'connected') await wallets.disconnect(result.id);
         throw new Error(
           'Selecione a carteira cadastrada: o endereço informado não corresponde à carteira salva.'
@@ -164,6 +183,52 @@ export function useCheckoutFlow(form: UseFormReturn<PaymentFormValues>) {
     },
   });
   const submitting = useRef(false);
+  const prepareWallet = async (values: PaymentFormValues): Promise<WalletSlot> => {
+    const saved = await client.fetchQuery<SavedWallets>({
+      queryKey: [...WALLETS_QUERY_KEY, ownerId],
+      queryFn: () => walletsUseCase.getWallets(),
+      staleTime: 0,
+    });
+    const address = values.walletAddress.trim().toLowerCase();
+    const preferredSlot: WalletSlot = values.useSecondaryWallet ? 'secondary' : 'primary';
+    const matchingSlot = (
+      [preferredSlot, preferredSlot === 'primary' ? 'secondary' : 'primary'] as const
+    ).find((slot) => {
+      const wallet = saved[slot];
+      return (
+        wallet?.network === values.network &&
+        wallet.walletAddress.trim().toLowerCase() === address &&
+        wallet.walletType === values.walletType
+      );
+    });
+
+    let slot = matchingSlot ?? preferredSlot;
+    if (!saved.primary) slot = 'primary';
+
+    if (!matchingSlot) {
+      const wallet: SavedWallet = {
+        displayName: values.displayName,
+        walletAlias: slot === 'primary' ? 'Principal' : 'Secundária',
+        network: values.network as WalletNetwork,
+        profileName: values.profileName,
+        walletAddress: values.walletAddress.trim(),
+        secondaryWallet: values.secondaryWallet,
+        walletType: values.walletType as SavedWallet['walletType'],
+        referralCode: values.referralCode,
+        email: values.email,
+        ensName: values.ensName,
+      };
+      if (slot === 'secondary' && saved.secondarySameAsPrimary)
+        await walletActions.link.mutateAsync(false);
+      await walletActions.save.mutateAsync({ slot, wallet });
+    }
+
+    if (form.getValues('useSecondaryWallet') !== (slot === 'secondary')) {
+      form.setValue('useSecondaryWallet', slot === 'secondary', { shouldDirty: true });
+    }
+    return slot;
+  };
+
   const submit = async (values: PaymentFormValues) => {
     if (
       submitting.current ||
@@ -201,8 +266,16 @@ export function useCheckoutFlow(form: UseFormReturn<PaymentFormValues>) {
       previousQuote.current = accepted;
       setReview(accepted);
       if (accepted.status !== 'valid') return;
+      const walletSlot = await prepareWallet(values);
       const wallet =
-        connected && connection ? await wallets.get(connection.id) : await connect.mutateAsync();
+        connected && connection
+          ? await wallets.get(connection.id)
+          : await connect.mutateAsync({
+              network: network!,
+              provider: values.walletProvider,
+              walletSlot,
+              walletAddress: values.walletAddress.trim(),
+            });
       if (!active() || wallet.status !== 'connected') {
         setConnection(wallet);
         return;
@@ -243,7 +316,7 @@ export function useCheckoutFlow(form: UseFormReturn<PaymentFormValues>) {
     connection,
     connected,
     connect: () => {
-      void connect.mutateAsync().catch(() => undefined);
+      void connect.mutateAsync(undefined).catch(() => undefined);
     },
     disconnect: () => {
       void disconnect.mutateAsync().catch(() => undefined);

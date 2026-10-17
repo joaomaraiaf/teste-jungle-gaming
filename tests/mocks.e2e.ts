@@ -39,6 +39,7 @@ test('inicia MSW e Socket.IO no build, persiste alterações e permite reset', a
     if (!response.ok) throw new Error('A atualização simulada falhou.');
   });
   await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('data-transport-ready', 'true');
   await expect(
     page.getByRole('heading', {
       level: 1,

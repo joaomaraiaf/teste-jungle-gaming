@@ -1,5 +1,17 @@
 import { type Page, expect } from '@playwright/test';
 
+export function loginTrigger(page: Page) {
+  const bottomNavigationLogin = page
+    .getByRole('navigation', { name: 'Navegação inferior' })
+    .getByRole('button', { name: 'Entrar na conta', exact: true });
+  const headerLogin = page.locator('header').getByRole('button', {
+    name: 'Entrar',
+    exact: true,
+  });
+
+  return bottomNavigationLogin.or(headerLogin);
+}
+
 export async function loginInDialog(
   page: Page,
   email = 'alice@kurio.test',
@@ -15,6 +27,6 @@ export async function loginInDialog(
 
 export async function loginDemo(page: Page, email = 'alice@kurio.test') {
   await page.goto('/');
-  await page.getByRole('button', { name: /^Entrar(?: na conta)?$/ }).click();
+  await loginTrigger(page).click();
   await loginInDialog(page, email);
 }

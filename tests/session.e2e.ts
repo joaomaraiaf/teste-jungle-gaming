@@ -1,6 +1,14 @@
 import { type Page, expect, test } from '@playwright/test';
-import { loginDemo, loginInDialog } from './helpers/auth';
+import { loginDemo, loginInDialog, loginTrigger } from './helpers/auth';
 import { saveCheckoutWallet } from './helpers/checkout';
+
+function checkoutNftSummary(page: Page) {
+  const viewportWidth = page.viewportSize()?.width ?? 0;
+
+  return viewportWidth < 768
+    ? page.getByRole('region', { name: 'Resumo do pedido' })
+    : page.locator('aside');
+}
 
 async function buyAndOpenCheckout(page: Page) {
   await page.goto('/market/nft-001');
@@ -52,7 +60,7 @@ test('mantém contas independentes em duas abas, inclusive após refresh e logou
   ).toBeUndefined();
   await page.getByRole('complementary').getByRole('button', { name: 'Sair', exact: true }).click();
   await expect(page).toHaveURL(/\/\?/);
-  await expect(page.getByRole('button', { name: /^Entrar(?: na conta)?$/ })).toBeVisible();
+  await expect(loginTrigger(page)).toBeVisible();
   await other.reload();
   await expect(other.getByRole('textbox', { name: 'E-mail', exact: true })).toHaveValue(
     'bruno@kurio.test'
@@ -69,7 +77,7 @@ test('exige login no checkout e retoma o carrinho visitante mesmo após refresh 
   await page.reload();
   await loginInDialog(page);
   await expect(page).toHaveURL(/\/payment$/);
-  await expect(page.getByText('Emerald Ape #042', { exact: false })).toBeVisible();
+  await expect(checkoutNftSummary(page).getByText('Emerald Ape #042')).toBeVisible();
   await expect(page.getByRole('textbox', { name: 'Nome de exibição' })).toBeVisible();
 });
 
@@ -103,7 +111,7 @@ test('revalida a sessão antes de enviar e preserva o formulário para retomar a
     expect(
       await page.evaluate(async () => (await (await fetch('/api/cart')).json()).items[0].nftId)
     ).toBe('nft-001');
-  } else await expect(page.getByText('Emerald Ape #042', { exact: false })).toBeVisible();
+  } else await expect(checkoutNftSummary(page).getByText('Emerald Ape #042')).toBeVisible();
   await page.getByRole('button', { name: 'Confirmar compra', exact: true }).click();
   await expect(page).toHaveURL(/\/payment\/confirmation(?:\?|$)/);
   expect(purchases).toHaveLength(1);

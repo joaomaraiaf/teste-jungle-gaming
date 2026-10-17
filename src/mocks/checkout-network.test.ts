@@ -121,6 +121,32 @@ it('cria uma vez por chave, detecta conflito e não fornece recibo pendente', as
   ).rejects.toMatchObject({ status: 409, response: { code: 'IDEMPOTENCY_CONFLICT' } });
   expect((await a.orders.list()).length).toBe(1);
 });
+it('permite cotar NFTs em outra rede e exige que a carteira corresponda à cotação', async () => {
+  const accountState = authA.read();
+  accountState.accounts.find((account) => account.user.id === alice)!.wallets.primary!.network =
+    'polygon';
+  authA.write(accountState);
+
+  const cart = await a.cart.add({ nftId: 'nft-001', editionId: 'standard', quantity: 1 });
+  const quote = await a.quotes.create({
+    cartId: cart.id,
+    cartVersion: cart.version,
+    network: 'polygon',
+  });
+  expect(quote.status).toBe('valid');
+
+  const accepted = await a.quotes.accept(quote.id);
+  const wallet = await a.wallets.connect({
+    walletSlot: 'primary',
+    network: 'polygon',
+    provider: 'metamask',
+  });
+  const order = await a.orders.create(
+    { quoteId: accepted.id, connectionId: wallet.id, collector },
+    crypto.randomUUID()
+  );
+  expect(order.status).toBe('pending');
+});
 it('confirma atomicamente, baixa estoque uma vez e remove somente as quantidades compradas', async () => {
   const input = await prepare();
   const pending = await a.orders.create(input, crypto.randomUUID());
